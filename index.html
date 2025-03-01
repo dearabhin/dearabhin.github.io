@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazhika - Kerala Travel Planning in 24-Minute Blocks</title>
+    <style>
+        /* (Your CSS styles remain the same, no changes needed here) */
+        :root {
+            --primary: #0b6e4f;
+            --accent: #e76f51;
+            --light: #f8f9fa;
+            --dark: #264653;
+            --secondary: #2a9d8f;
+            --warning: #f4a261;
+            --kerala-gold: #f9c74f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 0.5rem;
+        }
+        
+        .logo span {
+            font-weight: 300;
+            font-size: 0.9rem;
+            display: block;
+            margin-top: -5px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--kerala-gold);
+        }
+        
+        .hero {
+            background-image: url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #d15a3c;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .features {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .feature-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .feature-content {
+            padding: 1.5rem;
+        }
+        
+        .feature-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .feature-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-content .feature-icon {
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+        
+        .destinations {
+            padding: 5rem 0;
+            background-color: #f0f5f4;
+        }
+        
+        .planner {
+            padding: 5rem 0;
+        }
+        
+        .planner-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+        
+        .planner-options {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .itinerary {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+        
+        .timeline {
+            position: relative;
+            margin-top: 2rem;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 15px;
+            width: 2px;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 7px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+        
+        .timeline-content {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            position: relative;
+        }
+        
+        .timeline-content::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: -10px;
+            border-width: 10px 10px 10px 0;
+            border-style: solid;
+            border-color: transparent #f8f9fa transparent transparent;
+        }
+        
+        .timeline-time {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-description {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .experiences {
+            padding: 5rem 0;
+            background-color: #f0f5f4;
+        }
+        
+        .experience-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 1rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) #ddd;
+        }
+        
+        .experience-card {
+            flex: 0 0 300px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .experience-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .experience-content {
+            padding: 1.5rem;
+        }
+        
+        .experience-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .experience-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonials {
+            padding: 5rem 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: """;
+            font-size: 4rem;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            color: #f0f0f0;
+            z-index: -1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-size: cover;
+            margin-right: 1rem;
+        }
+        
+        .author-info h5 {
+            font-weight: 600;
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .cta {
+            padding: 5rem 0;
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta .btn {
+            background-color: white;
+            color: var(--primary);
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+        }
+        
+        .cta .btn:hover {
+            background-color: var(--kerala-gold);
+            color: var(--dark);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--kerala-gold);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .planner-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>Nazhika <span>Kerala in 24-Minute Blocks</span></h1>
+                </div>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#destinations">Destinations</a>
+                    <a href="#planner">Plan Trip</a>
+                    <a href="#experiences">Experiences</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Experience Kerala, One Nazhika at a Time</h2>
+                <p>Discover Kerala's backwaters, hill stations, and beaches with our AI-powered travel planner that organizes your journey into culturally immersive 24-minute blocks.</p>
+                <a href="#planner" class="btn btn-primary">Plan Your Journey</a>
+                <a href="#experiences" class="btn btn-outline">Explore Experiences</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h3>Features of Nazhika</h3>
+                <p>Our intelligent travel planner combines modern AI with traditional Kerala wisdom to create the perfect journey through God's Own Country.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="feature-content">
+                        <h4><i class="fas fa-route feature-icon"></i> AI-Curated Routes</h4>
+                        <p>Discover optimized journeys from Kochi to Munnar or Alleppey to Wayanad with real-time traffic and weather updates.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="feature-content">
+                        <h4><i class="fas fa-calendar-alt feature-icon"></i> 24-Minute Activity Blocks</h4>
+                        <p>Experience Kerala in traditional "Nazhika" time blocks that connect you with the cultural rhythm of the region.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="feature-content">
+                        <h4><i class="fas fa-headphones feature-icon"></i> Audio Guides</h4>
+                        <p>Listen to immersive storytelling in Malayalam or English, narrating local folklore tied to each destination.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="destinations" id="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h3>Popular Destinations</h3>
+                <p>From serene backwaters to misty hill stations, explore Kerala's most enchanting locations.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="feature-content">
+                        <h4>Alleppey Backwaters</h4>
+                        <p>Float through the tranquil network of lagoons, canals, and lakes aboard traditional houseboats.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="feature-content">
+                        <h4>Munnar Tea Gardens</h4>
+                        <p>Wander through emerald-green tea plantations nestled among the misty hills.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="feature-content">
+                        <h4>Fort Kochi</h4>
+                        <p>Explore the historic coastal town with its unique blend of Portuguese, Dutch, and British colonial influences.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="feature-content">
+                        <h4>Wayanad Wildlife Sanctuary</h4>
+                        <p>Venture into the lush forests and spot elephants, tigers, and a diverse range of flora and fauna.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="planner" id="planner">
+        <div class="container">
+            <div class="section-title">
+                <h3>Plan Your Kerala Journey</h3>
+                <p>Our AI will create a personalized itinerary organized in traditional 24-minute Nazhika blocks.</p>
+            </div>
+            
+            <div class="planner-container">
+                <div class="planner-options">
+                    <h4>Trip Preferences</h4>
+                    <div class="form-group">
+                        <label for="start-destination">Starting Point</label>
+                        <select id="start-destination">
+                            <option value="kochi">Kochi</option>
+                            <option value="trivandrum">Thiruvananthapuram</option>
+                            <option value="kozhikode">Kozhikode</option>
+                            <option value="kannur">Kannur</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="trip-duration">Trip Duration (Days)</label>
+                        <input type="number" id="trip-duration" min="1" max="15" value="5">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="trip-focus">Trip Focus</label>
+                        <select id="trip-focus">
+                            <option value="backwaters">Backwaters & Lakes</option>
+                            <option value="hillstations">Hill Stations & Nature</option>
+                            <option value="beaches">Coastal & Beaches</option>
+                            <option value="culture">Art & Cultural Immersion</option>
+                            <option value="mixed" selected>Mixed Experience</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="trip-pace">Travel Pace</label>
+                        <select id="trip-pace">
+                            <option value="relaxed">Relaxed</option>
+                            <option value="balanced" selected>Balanced</option>
+                            <option value="active">Active</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-primary" style="width: 100%;" onclick="generateItinerary()">Generate Itinerary</button>
+                </div>
+                
+                <div class="itinerary">
+                    <h4>Your Kerala Itinerary</h4>
+                    <p class="itinerary-summary" id="itinerary-summary">A 5-day journey starting from Kochi, focusing on mixed experiences at a balanced pace.</p>
+                    
+                    <div class="timeline" id="timeline">
+                        <!-- Itinerary items will be added here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="experiences" id="experiences">
+        <div class="container">
+            <div class="section-title">
+                <h3>Local Experiences</h3>
+                <p>Immerse yourself in authentic Kerala activities that connect you with the local culture and traditions.</p>
+            </div>
+            
+            <div class="experience-slider">
+                <div class="experience-card">
+                    <div class="experience-img" style="background-image: url('/api/placeholder/300/180');"></div>
+                    <div class="experience-content">
+                        <div class="experience-meta">
+                            <span>Kumarakom</span>
+                            <span>1-2 days</span>
+                        </div>
+                        <h4>Houseboat Stay</h4>
+                        <p>Experience the tranquil backwaters aboard a traditional Kerala houseboat (Kettuvallam).</p>
+                        <button class="btn btn-primary experience-booking" data-experience="houseboat" style="width: 100%; margin-top: 1rem;">Book Experience</button>
+                    </div>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="experience-img" style="background-image: url('/api/placeholder/300/180');"></div>
+                    <div class="experience-content">
+                        <div class="experience-meta">
+                            <span>Kannur</span>
+                            <span>3 hours</span>
+                        </div>
+                        <h4>Theyyam Performance</h4>
+                        <p>Witness the ritualistic folk art form where performers embody deities through elaborate costumes and makeup.</p>
+                        <button class="btn btn-primary experience-booking" data-experience="theyyam" style="width: 100%; margin-top: 1rem;">Book Experience</button>
+                    </div>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="experience-img" style="background-image: url('/api/placeholder/300/180');"></div>
+                    <div class="experience-content">
+                        <div class="experience-meta">
+                            <span>Kochi</span>
+                            <span>1 Nazhika (24 min)</span>
+                        </div>
+                        <h4>Cooking Class</h4>
+                        <p>Learn to prepare traditional Kerala dishes like appam, fish curry, and banana leaf meals.</p>
+                        <button class="btn btn-primary experience-booking" data-experience="cooking-class"  style="width: 100%; margin-top: 1rem;">Book Experience</button>
+                    </div>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="experience-img" style="background-image: url('/api/placeholder/300/180');"></div>
+                    <div class="experience-content">
+                        <div class="experience-meta">
+                            <span>Thekkady</span>
+                            <span>2 hours</span>
+                        </div>
+                        <h4>Spice Plantation Tour</h4>
+                        <p>Walk through aromatic spice gardens and learn about cardamom, pepper, cloves, and cinnamon cultivation.</p>
+                        <button class="btn btn-primary experience-booking" data-experience="spice-tour" style="width: 100%; margin-top: 1rem;">Book Experience</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h3>Traveler Stories</h3>
+                <p>Hear from those who have experienced Kerala through Nazhika's itineraries.</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Nazhika transformed my Kerala trip into a cultural journey. Breaking the day into 24-minute blocks made me slow down and truly appreciate each experience. The audio guides brought the local stories to life as we floated through the backwaters.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img" style="background-image: url('/api/placeholder/100/100');"></div>
+                        <div class="author-info">
+                            <h5>Ravi Patel</h5>
+                            <p>Mumbai, India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>As someone who loves efficiency, I was skeptical of the 24-minute Nazhika concept.  But it turned out to be perfect! It gave me just enough time to deeply experience each location without feeling rushed or bored. The AI recommendations were spot-on!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img" style="background-image: url('/api/placeholder/100/100');"></div>
+                        <div class="author-info">
+                            <h5>Sarah Johnson</h5>
+                            <p>Boston, USA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                         <p>My family and I used Nazhika for our first trip to Kerala. The itinerary was well-balanced between sightseeing, cultural activities, and relaxation. The kids loved the houseboat stay, and we all enjoyed learning about the spices at the plantation. Highly recommend!</p>
+                    </div>
+                    <div class="testimonial-author">
+                         <div class="author-img" style="background-image: url('/api/placeholder/100/100');"></div>
+                         <div class="author-info">
+                            <h5>The Kumar Family</h5>
+                            <p>Bangalore, India</p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h3>Ready for Your Kerala Adventure?</h3>
+            <p>Plan your trip with Nazhika today and experience the magic of Kerala, one Nazhika at a time.</p>
+            <a href="#planner" class="btn btn-primary">Start Planning Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About Nazhika</h4>
+                    <p>Nazhika is an AI-powered travel planner that helps you explore Kerala in 24-minute activity blocks, ensuring a culturally immersive experience.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#planner">Plan Trip</a></li>
+                        <li><a href="#experiences">Experiences</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Email: info@nazhika.com</p>
+                    <p>Phone: +91-XXX-XXX-XXXX</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2023 Nazhika. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Placeholder API endpoint (replace with your actual API)
+        const API_ENDPOINT = '/api/itinerary';
+
+        // Mock itinerary data (replace with data from your AI)
+        const mockItineraries = {
+          kochi_5_mixed_balanced: [
+            { day: 1, time: "8:00 AM", nazhikas: 2, title: "Fort Kochi Exploration", description: "Begin your journey with a walking tour..." },
+            { day: 1, time: "10:00 AM", nazhikas: 2, title: "Mattancherry Palace & Spice Market", description: "Explore the Dutch Palace..." },
+            { day: 1, time: "2:00 PM", nazhikas: 2, title: "Traditional Kathakali Performance", description: "Witness a traditional Kathakali..." },
+            { day: 2, time: "9:00 AM", nazhikas: 4, title: "Journey to Alleppey", description: "Travel to Alleppey (Alappuzha)..." },
+            { day: 3, time: "11:00 AM", nazhikas: 3, title: "Munnar Tea Plantations", description: "Arrive in Munnar and visit the tea plantations..." },
+            { day: 4, time: "9:00 AM", nazhikas: 2, title: "Eravikulam National Park", description: "Visit Eravikulam National Park, home to the endangered Nilgiri Tahr..." },
+            { day: 4, time: "2:00 PM", nazhikas: 3, title: "Mattupetty Dam & Echo Point", description: "Enjoy the scenic beauty of Mattupetty Dam and try shouting at Echo Point..." },
+            { day: 5, time: "10:00 AM", nazhikas: 4, title: "Departure from Kochi", description: "Depart from Kochi with beautiful memories of your Kerala trip." }
+          ],
+            // Add more mock itineraries for different combinations
+        };
+
+      function generateItinerary() {
+        const startDestination = document.getElementById('start-destination').value;
+        const tripDuration = document.getElementById('trip-duration').value;
+        const tripFocus = document.getElementById('trip-focus').value;
+        const tripPace = document.getElementById('trip-pace').value;
+
+        const itineraryKey = `${startDestination}_${tripDuration}_${tripFocus}_${tripPace}`;
+        const itineraryData = mockItineraries[itineraryKey] || mockItineraries.kochi_5_mixed_balanced; // Fallback
+
+        const timeline = document.getElementById('timeline');
+        timeline.innerHTML = '';
+content_copy
+download
+Use code with caution.
+Html
