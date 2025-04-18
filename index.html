@@ -1,73 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhin Krishna - CV</title>
+    <title>Abhin Krishna | Academic Portfolio</title>
     <style>
+        :root {
+            --primary-color: #0366d6;
+            --secondary-color: #24292e;
+            --accent-color: #f1f8ff;
+            --text-color: #24292e;
+            --light-gray: #f6f8fa;
+            --border-color: #e1e4e8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
+            background-color: #fff;
         }
-
-        h1,
-        h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 5px;
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-
-        h1 {
-            font-size: 28px;
-            margin-bottom: 5px;
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #2188ff);
+            color: white;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
         }
-
-        h2 {
-            font-size: 20px;
-            margin-top: 20px;
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: 1;
         }
-
-        .contact,
-        .section {
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 30px;
             margin-bottom: 20px;
         }
-
-        .contact a {
-            color: #2980b9;
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            color: var(--primary-color);
+        }
+        
+        .profile-info h1 {
+            font-size: 36px;
+            margin-bottom: 5px;
+        }
+        
+        .profile-info p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
         }
-
-        .contact a:hover {
-            text-decoration: underline;
+        
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
-
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
+        
+        nav {
+            background-color: var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            transition: background 0.3s;
+        }
+        
+        nav li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .active {
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
             gap: 10px;
         }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
+        
+        .about p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .card-meta {
+            font-size: 14px;
+            color: #586069;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .project-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-image {
+            height: 150px;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .project-status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .ongoing {
+            background-color: #ffefb8;
+            color: #b08800;
+        }
+        
+        .completed {
+            background-color: #dcffe4;
+            color: #176f2c;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .skill-category h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .skill-category ul {
+            list-style-type: none;
+        }
+        
+        .skill-category li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .skill-category li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .research-interests li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .research-interests li::before {
+            content: "▶";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+        
+        .award-card {
+            display: flex;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .award-icon {
+            font-size: 24px;
+            margin-right: 20px;
+            color: #f9c513;
+        }
+        
+        .award-info h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .award-info p {
+            color: #586069;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .contact-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .contact-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-card a:hover {
+            color: #2188ff;
+            text-decoration: underline;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
             }
-
-            h1 {
-                font-size: 24px;
+            
+            .profile-image {
+                margin: 0 auto;
             }
-
-            h2 {
-                font-size: 18px;
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+            }
+            
+            nav li {
+                flex: 1 1 auto;
+                text-align: center;
+            }
+            
+            .project-grid,
+            .contact-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -75,77 +442,168 @@
 
 <body>
     <header>
-        <h1>Abhin Krishna</h1>
-        <div class="contact">
-            <p>Kochi, Kerala, India | dearabhin [at] gmail [dot] com"</p>
-            <p><a href="https://www.linkedin.com/in/abhin-krishna">LinkedIn</a> | <a
-                    href="https://www.abhinkrishna.com">Blog</a> | <a
-                    href="https://github.com/dearabhin">GitHub</a></p>
+        <div class="container header-content">
+            <div class="profile">
+                <div class="profile-image">AK</div>
+                <div class="profile-info">
+                    <h1>Abhin Krishna</h1>
+                    <p>B.Tech Student | Brain-Computer Interfaces Researcher</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/abhin-krishna">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/dearabhin">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="https://www.abhinkrishna.com">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                            Blog
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <div class="section">
-        <h2>Objective</h2>
-        <p>First-year B.Tech student in Electronics and Biomedical Engineering passionate about Brain-Computer
-            Interfaces (BCI), EMG/EEG signal processing, and AI-driven healthcare solutions. Inspired by Neuralink and
-            Google DeepMind, I aim to contribute to cutting-edge research in BCI and machine learning, with a goal to
-            publish papers and pursue a career as a research scientist.</p>
-    </div>
-
-    <div class="section">
-        <h2>Education</h2>
-        <p><strong>B.Tech, Electronics and Biomedical Engineering</strong><br>
-            Govt. Model Engineering College, Trikkakara (APJ Abdul Kalam Technological University)<br>
-            September 2024 – Present | Second Semester<br>
-            Relevant Coursework: Engineering Mathematics, Physics, Chemistry, Basic Electronics, Programming in C</p>
-    </div>
-
-    <div class="section">
-        <h2>Skills</h2>
-        <div class="skills-grid">
+    <nav>
+        <div class="container">
             <ul>
-                <li><strong>Programming:</strong> Python, C (Basic), HTML, CSS, JavaScript (Basic)</li>
-                <li><strong>Tools:</strong> Fusion 360 (Learning), MATLAB (Exploring)</li>
-            </ul>
-            <ul>
-                <li><strong>Technical:</strong> Engineering Math, Physics, Computer Science Basics</li>
-                <li><strong>Languages:</strong> English, Malayalam, Hindi, Tamil, German (Native/Bilingual)</li>
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
-    </div>
+    </nav>
 
-    <div class="section">
-        <h2>Projects</h2>
-        <ul>
-            <li><strong>EMG-Based Automation Concept</strong> (Ongoing, 2025)<br>
-                Exploring EMG signal processing in Python for a basic automation device; aiming to integrate machine
-                learning for signal classification.</li>
-            <li><strong>Web Design for Exam Prep</strong> (2024)<br>
-                Built a responsive webpage using HTML, CSS, and JavaScript to showcase educational content with a focus
-                on user accessibility.</li>
-        </ul>
-    </div>
+    <section id="about" class="about">
+        <div class="container">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+                About Me
+            </h2>
+            <p>
+                I'm a first-year B.Tech student in Electronics and Biomedical Engineering with a passionate interest in Brain-Computer Interfaces (BCI), EMG/EEG signal processing, and AI-driven healthcare solutions. Inspired by groundbreaking work at Neuralink and Google DeepMind, I'm dedicated to contributing to cutting-edge research that bridges neuroscience, engineering, and artificial intelligence.
+            </p>
+            <p>
+                My academic journey is focused on developing innovative solutions that can translate neural activities into meaningful applications, particularly for assistive technologies. I aim to publish research papers in this interdisciplinary field and ultimately pursue a career as a research scientist working at the frontier of human-computer interaction.
+            </p>
+        </div>
+    </section>
 
-    <div class="section">
-        <h2>Research Interests</h2>
-        <ul>
-            <li>Brain-Computer Interfaces: EEG/EMG for assistive technologies</li>
-            <li>AI in Healthcare: Generative AI (e.g., Imagen) for diagnostics</li>
-            <li>Machine Learning: Deep Learning, NLP, Reinforcement Learning</li>
-        </ul>
-    </div>
+    <section id="research" class="research">
+        <div class="container">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M5 3a5 5 0 0 0 0 10h6a5 5 0 0 0 0-10H5zm6 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+                </svg>
+                Research Interests
+            </h2>
+            <ul class="research-interests">
+                <li>
+                    <strong>Brain-Computer Interfaces:</strong> Exploring EEG and EMG signal processing for assistive technologies and rehabilitation. I'm particularly interested in non-invasive BCI applications that can improve quality of life for individuals with mobility impairments.
+                </li>
+                <li>
+                    <strong>AI in Healthcare:</strong> Investigating applications of generative AI models (like Google's Imagen) for medical diagnostics and treatment planning. My focus is on developing systems that can assist healthcare professionals with more accurate and efficient diagnoses.
+                </li>
+                <li>
+                    <strong>Machine Learning:</strong> Studying deep learning architectures, natural language processing, and reinforcement learning with applications in biomedical signal processing. I'm keen on exploring how these technologies can be optimized for real-time neural signal interpretation.
+                </li>
+            </ul>
+        </div>
+    </section>
 
-    <div class="section">
-        <h2>Awards & Activities</h2>
-        <ul>
-            <li>Ideathon Participant (2024) – Explored innovative tech ideas</li>
-            <li>AI Quiz Winner (District Level) – Demonstrated AI knowledge</li>
-        </ul>
-    </div>
+    <section id="education">
+        <div class="container">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0l8 4-8 4-8-4 8-4z"/>
+                    <path d="M3 6.5v5.05c0 .47.38.85.85.85h1.5c.37 0 .7-.22.82-.56L8 8l1.82 3.84c.13.33.45.55.82.55h1.5c.48 0 .86-.38.86-.85V6.5L8 10 3 6.5z"/>
+                    <path d="M0 8v4h2V8H0zM16 8v4h-2V8h2z"/>
+                </svg>
+                Education
+            </h2>
+            <div class="card">
+                <h3>B.Tech, Electronics and Biomedical Engineering</h3>
+                <div class="card-meta">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                        </svg>
+                        September 2024 – Present
+                    </span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                        </svg>
+                        Govt. Model Engineering College, Trikkakara
+                    </span>
+                </div>
+                <p>Affiliated with APJ Abdul Kalam Technological University</p>
+                <p><strong>Current Status:</strong> Second Semester</p>
+                <p><strong>Relevant Coursework:</strong> Engineering Mathematics, Physics, Chemistry, Basic Electronics, Programming in C</p>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 Abhin Krishna.</p>
-    </footer>
-</body>
+    <section id="projects">
+        <div class="container">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                    <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+                </svg>
+                Projects
+            </h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image">EMG</div>
+                    <div class="project-content">
+                        <span class="project-status ongoing">Ongoing</span>
+                        <h3>EMG-Based Automation Concept</h3>
+                        <p>Exploring electromyography (EMG) signal processing in Python for developing a basic automation device. Working on integrating machine learning algorithms for accurate signal classification.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">WEB</div>
+                    <div class="project-content">
+                        <span class="project-status completed">Completed</span>
+                        <h3>Web Design for Exam Prep</h3>
+                        <p>Developed a responsive webpage using HTML, CSS, and JavaScript to showcase educational content with a focus on user accessibility and intuitive navigation.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">BCI</div>
+                    <div class="project-content">
+                        <span class="project-status ongoing">Planning</span>
+                        <h3>EEG Signal Analysis Toolkit</h3>
+                        <p>Planning to develop an open-source toolkit for analyzing EEG signals with applications in accessibility and healthcare.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</html>
+    <section id="skills">
+        <div class="container">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-
