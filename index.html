@@ -28,7 +28,68 @@
         margin-bottom: 0;
         padding-bottom: 0;
       }
+      /* Style for blog post previews */
+      .blog-post-preview {
+        background-color: white;
+        border-radius: 0.5rem; /* Rounded corners */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+      }
+
+      .blog-post-preview:hover {
+        transform: translateY(-0.25rem); /* Slight lift on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Increased shadow on hover */
+      }
+
+      .blog-post-title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: #1e293b; /* Darker heading color */
+        margin-bottom: 0.5rem;
+      }
+
+      .blog-post-excerpt {
+        color: #4b5563; /* Slightly darker excerpt color */
+        line-height: 1.6; /* Improved line height for readability */
+      }
+
+      .blog-post-link {
+        display: inline-block;
+        margin-top: 1rem;
+        color: #3b82f6; /* Blue link color */
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.2s ease-in-out;
+      }
+
+      .blog-post-link:hover {
+        color: #2563eb; /* Darker blue on hover */
+        text-decoration: underline; /* Underline on hover for clarity */
+      }
+
+      /* Style for the map container */
+      #map-container {
+        width: 100%;
+        height: 200px; /* Adjust as needed */
+        border-radius: 0.5rem;
+        margin-top: 2rem; /* Added margin-top */
+        overflow: hidden; /* Clip the map to the container */
+      }
+
+      /* Style for the OpenStreetMap map */
+      .openstreetmap-map {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #e5e7eb;
+      }
     </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   </head>
   <body class="bg-gray-50 text-gray-800 antialiased">
     <div class="container mx-auto max-w-3xl px-4 py-10 md:py-16">
@@ -37,7 +98,7 @@
           Abhin Krishna
         </h1>
         <p class="text-gray-600 mb-4">
-          Kochi, Kerala, India |
+          Kochi, Kerala, India | Phone: +91 8078952645 |
           <a
             href="mailto:dearabhin@gmail.com"
             class="text-blue-600 hover:text-blue-800 transition duration-200"
@@ -183,10 +244,60 @@
             <li>AI Quiz Winner (District Level) – Demonstrated AI knowledge</li>
           </ul>
         </section>
+
+        <section class="section-border">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Blog Posts</h2>
+          <div class="blog-post-preview">
+            <h3 class="blog-post-title">
+              The Future of Brain-Computer Interfaces
+            </h3>
+            <p class="blog-post-excerpt">
+              Exploring the potential of BCIs to revolutionize healthcare,
+              communication, and human enhancement.
+            </p>
+            <a
+              href="https://www.abhinkrishna.com/post1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="blog-post-link"
+              >Read More</a
+            >
+          </div>
+          <div class="blog-post-preview">
+            <h3 class="blog-post-title">Generative AI in Medical Imaging</h3>
+            <p class="blog-post-excerpt">
+              Discussing how AI models like Imagen are transforming medical
+              diagnostics and treatment.
+            </p>
+            <a
+              href="https://www.abhinkrishna.com/post2"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="blog-post-link"
+              >Read More</a
+            >
+          </div>
+        </section>
       </main>
 
       <footer class="mt-12 text-center text-gray-500 text-sm">
+        <div id="map-container">
+          <div id="mec-map" class="openstreetmap-map"></div>
+        </div>
         <p>&copy; 2025 Abhin Krishna. Minimalist design.</p>
+        <p>Visitors: 12,345</p>
+
+        <script>
+          var map = L.map("mec-map").setView([10.0183, 76.3473], 17); // Coordinates for Model Engineering College, Trikkakara, zoom level 17
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          }).addTo(map);
+          L.marker([10.0183, 76.3473])
+            .addTo(map)
+            .bindPopup("Govt. Model Engineering College, Trikkakara")
+            .openPopup();
+        </script>
       </footer>
     </div>
   </body>
