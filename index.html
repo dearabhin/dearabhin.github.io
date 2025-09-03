@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abhin Krishna - Academic Profile</title>
+    <title>Abhin Krishna - AI/BCI Research Scientist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,64 +11,91 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-KKYQ7SDPPS"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-KKYQ7SDPPS");
+    </script>
     <style>
-      /* Apply Inter font globally */
       body {
         font-family: "Inter", sans-serif;
       }
-      /* Add a subtle bottom border to sections */
       .section-border {
-        border-bottom: 1px solid #e5e7eb; /* Equivalent to border-gray-200 */
-        padding-bottom: 1.5rem; /* Equivalent to pb-6 */
-        margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+        border-bottom: 1px solid #e5e7eb;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
       }
-      /* Remove border from the last section */
       .section-border:last-child {
         border-bottom: none;
         margin-bottom: 0;
         padding-bottom: 0;
       }
-      /* Style for blog post previews */
       .blog-post-preview {
         background-color: white;
-        border-radius: 0.5rem; /* Rounded corners */
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         padding: 1.5rem;
         margin-bottom: 1rem;
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
       }
-
       .blog-post-preview:hover {
-        transform: translateY(-0.25rem); /* Slight lift on hover */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Increased shadow on hover */
+        transform: translateY(-0.25rem);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       }
-
       .blog-post-title {
         font-size: 1.25rem;
         font-weight: 500;
-        color: #1e293b; /* Darker heading color */
+        color: #1e293b;
         margin-bottom: 0.5rem;
       }
-
       .blog-post-excerpt {
-        color: #4b5563; /* Slightly darker excerpt color */
-        line-height: 1.6; /* Improved line height for readability */
+        color: #4b5563;
+        line-height: 1.6;
       }
-
       .blog-post-link {
         display: inline-block;
         margin-top: 1rem;
-        color: #3b82f6; /* Blue link color */
+        color: #3b82f6;
         font-weight: 600;
         text-decoration: none;
         transition: color 0.2s ease-in-out;
       }
-
       .blog-post-link:hover {
-        color: #2563eb; /* Darker blue on hover */
-        text-decoration: underline; /* Underline on hover for clarity */
+        color: #2563eb;
+        text-decoration: underline;
       }
-
+      .project-card {
+        background-color: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: box-shadow 0.3s ease;
+      }
+      .project-card:hover {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+      .skill-tag {
+        background-color: #eef2ff;
+        color: #4338ca;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
       /* Style for the map container */
       #map-container {
         width: 100%;
@@ -87,14 +114,13 @@
     </style>
   </head>
   <body class="bg-gray-50 text-gray-800 antialiased">
-    <div class="container mx-auto max-w-3xl px-4 py-10 md:py-16">
+    <div class="container mx-auto max-w-4xl px-4 py-10 md:py-16">
       <header class="mb-10 text-center md:text-left">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
           Abhin Krishna
         </h1>
         <p class="text-gray-600 mb-4">
-          Kochi, Kerala, India | Phone: +91 8078952645 | dearabhin [at] gmail
-          [dot] com
+          Kochi, Kerala, India | dearabhin [at] outlook [dot] com
         </p>
         <div class="flex justify-center md:justify-start space-x-4">
           <a
@@ -125,14 +151,20 @@
 
       <main>
         <section class="section-border">
-          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Objective</h2>
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">About Me</h2>
           <p class="text-gray-700 leading-relaxed">
-            First-year B.Tech student in Electronics and Biomedical Engineering
-            passionate about Brain-Computer Interfaces (BCI), EMG/EEG signal
-            processing, and AI-driven healthcare solutions. Inspired by
-            Neuralink and Google DeepMind, I aim to contribute to cutting-edge
-            research in BCI and machine learning, with a goal to publish papers
-            and pursue a career as a research scientist.
+            I am an Electronics and Biomedical Engineering student at Model
+            Engineering College, Kochi, with a deep-seated interest in the
+            convergence of Artificial Intelligence, Deep Learning, and
+            Neuroscience. My work focuses on Brain-Computer Interfaces (BCI) and
+            Neurotechnology, where I apply my skills to develop assistive
+            technologies and enhance medical diagnostics. I am continuously
+            strengthening my foundation in engineering mathematics and AI
+            research methodologies while actively exploring EEG-based BCI
+            systems for decoding neural signals. As an active member of
+            technical communities, I thrive on collaboration and am dedicated to
+            contributing to impactful applications in healthcare and
+            human-machine interaction.
           </p>
         </section>
 
@@ -140,71 +172,343 @@
           <h2 class="text-2xl font-semibold text-gray-800 mb-4">Education</h2>
           <div>
             <h3 class="text-lg font-medium text-gray-900">
-              B.Tech, Electronics and Biomedical Engineering
+              Bachelor of Technology - B.Tech, Electronics and Biomedical
+              Engineering
             </h3>
             <p class="text-gray-600">
-              Govt. Model Engineering College, Trikkakara (APJ Abdul Kalam
-              Technological University)
+              Model Engineering College, Thrikkakara (APJAKTU)
             </p>
-            <p class="text-sm text-gray-500">
-              September 2024 – Present | Second Semester
-            </p>
-            <p class="mt-2 text-gray-700">
-              <span class="font-medium">Relevant Coursework:</span> Engineering
-              Mathematics, Physics, Chemistry, Basic Electronics, Programming in
-              C
-            </p>
+            <p class="text-sm text-gray-500">September 2024 – Present</p>
           </div>
         </section>
 
         <section class="section-border">
           <h2 class="text-2xl font-semibold text-gray-800 mb-4">Skills</h2>
-          <ul class="list-disc list-inside space-y-2 text-gray-700">
-            <li>
-              <strong>Programming:</strong> Python, C (Basic), HTML, CSS,
-              JavaScript (Basic)
-            </li>
-            <li>
-              <strong>Tools:</strong> Fusion 360 (Learning), MATLAB (Exploring)
-            </li>
-            <li>
-              <strong>Technical:</strong> Engineering Math, Physics, Computer
-              Science Basics
-            </li>
-            <li>
-              <strong>Languages:</strong> English, Malayalam, Hindi, Tamil,
-              German (Native/Bilingual)
-            </li>
-          </ul>
+          <div class="flex flex-wrap">
+            <span class="skill-tag">Web Development</span>
+            <span class="skill-tag">API</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Deep Learning</span>
+            <span class="skill-tag">Computer Vision</span>
+            <span class="skill-tag">Object Detection</span>
+            <span class="skill-tag">Natural Language Processing (NLP)</span>
+            <span class="skill-tag">Large Language Models (LLM)</span>
+            <span class="skill-tag">TinyML</span>
+            <span class="skill-tag">Research</span>
+            <span class="skill-tag">CAD</span>
+            <span class="skill-tag">Data Analysis & Visualization</span>
+            <span class="skill-tag">Brain-Computer Interfaces (BCI)</span>
+            <span class="skill-tag">EEG/EMG Signal Processing</span>
+            <span class="skill-tag">MATLAB</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">HTML & CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Arduino</span>
+            <span class="skill-tag">ESP32</span>
+            <span class="skill-tag">Firmware Development</span>
+            <span class="skill-tag">Bluetooth Low Energy (BLE)</span>
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Microsoft Office</span>
+            <span class="skill-tag">DNS</span>
+            <span class="skill-tag">Cloud Services (AWS, GCP)</span>
+          </div>
         </section>
 
         <section class="section-border">
           <h2 class="text-2xl font-semibold text-gray-800 mb-4">Projects</h2>
-          <ul class="space-y-4">
-            <li>
-              <h3 class="text-lg font-medium text-gray-900">
-                EMG-Based Automation Concept
-                <span class="text-sm font-normal text-gray-500"
-                  >(Ongoing, 2025)</span
+
+          <div class="project-card">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Decoding Imagined Handwriting from EEG
+              </h3>
+              <a
+                href="https://github.com/dearabhin/eeg-decoding-project"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-gray-800 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.03-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+            <p class="text-sm text-gray-500 mt-1 mb-2">Aug 2025 - Present</p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              A machine learning project focused on classifying
+              high-dimensional, noisy EEG time-series data to decode imagined
+              handwriting for BCI applications. This involves preprocessing
+              32-channel EEG signals and implementing EEGNet, a compact CNN, to
+              perform a four-way classification of imagined letters ('L', 'V',
+              'O', 'W'). The project investigates the model's robustness to
+              temporal variance and the challenges of low signal-to-noise ratio
+              in single-trial EEG.
+            </p>
+            <div>
+              <span class="skill-tag">BCI</span>
+              <span class="skill-tag">EEG</span>
+              <span class="skill-tag">Machine Learning</span>
+              <span class="skill-tag">CNN</span>
+              <span class="skill-tag">Signal Processing</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Real-Time Object Detection for Edge Devices using TinyML
               </h3>
-              <p class="text-gray-700 leading-relaxed">
-                Exploring EMG signal processing in Python for a basic automation
-                device; aiming to integrate machine learning for signal
-                classification.
-              </p>
-            </li>
-            <li>
-              <h3 class="text-lg font-medium text-gray-900">
-                Web Design for Exam Prep
-                <span class="text-sm font-normal text-gray-500">(2024)</span>
+              <a
+                href="https://github.com/dearabhin/tinyml-object-detection"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-gray-800 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.03-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+            <p class="text-sm text-gray-500 mt-1 mb-2">Aug 2025 - Present</p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Developed a real-time, multi-label object detection and
+              classification system on a resource-constrained microcontroller
+              (Seeed Studio XIAO ESP32S3 Sense). The system identifies and
+              differentiates between "Cats" and "Dogs" at ~7 FPS with 143 ms
+              latency, demonstrating a complete TinyML workflow from data
+              collection to firmware deployment using Edge Impulse Studio and
+              the FOMO algorithm.
+            </p>
+            <div>
+              <span class="skill-tag">TinyML</span>
+              <span class="skill-tag">Edge AI</span>
+              <span class="skill-tag">Computer Vision</span>
+              <span class="skill-tag">Object Detection</span>
+              <span class="skill-tag">ESP32</span>
+              <span class="skill-tag">Arduino</span>
+              <span class="skill-tag">C++</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Bitchat CLI: A Decentralized Python P2P Messenger
               </h3>
-              <p class="text-gray-700 leading-relaxed">
-                Built a responsive webpage using HTML, CSS, and JavaScript to
-                showcase educational content with a focus on user accessibility.
-              </p>
-            </li>
-          </ul>
+              <a
+                href="https://github.com/dearabhin/bitchat-cli"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-gray-800 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.03-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+            <p class="text-sm text-gray-500 mt-1 mb-2">Jul 2025 - Present</p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Engineered a Python-based CLI for a secure, decentralized P2P
+              messenger running over a Bluetooth LE mesh network. Inspired by
+              Jack Dorsey's original project, it brings a serverless chat
+              experience to the command line with end-to-end encrypted messaging
+              and public channels.
+            </p>
+            <div>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Bluetooth Low Energy (BLE)</span>
+              <span class="skill-tag">P2P Networking</span>
+              <span class="skill-tag">Cryptography</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-semibold text-gray-900">
+                LipiPala: Preserving India's Linguistic Heritage
+              </h3>
+              <a
+                href="https://github.com/dearabhin/lipipala"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-gray-800 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.03-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+            <p class="text-sm text-gray-500 mt-1 mb-2">Feb 2025 - Present</p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              An open-source initiative to preserve, document, and revitalize
+              endangered Indian languages using AI. The project combines
+              advanced NLP, speech recognition, and community collaboration to
+              create accessible tools for indigenous communities.
+            </p>
+            <div>
+              <span class="skill-tag">Natural Language Processing (NLP)</span>
+              <span class="skill-tag">Large Language Models (LLM)</span>
+              <span class="skill-tag">Speech Recognition</span>
+              <span class="skill-tag">Open Source</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Multimodal AI Medical Agent
+              </h3>
+              <a
+                href="https://github.com/dearabhin/multimodal-medical-agent"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-gray-800 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.03-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+            <p class="text-sm text-gray-500 mt-1 mb-2">Jan 2025 - Apr 2025</p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Developed a multimodal AI medical agent utilizing the capabilities
+              of the Gemini 2.0 model to process and interpret various data
+              types for medical applications.
+            </p>
+            <div>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Generative AI</span>
+              <span class="skill-tag">Multimodal AI</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-semibold text-gray-900">
+                EMG based Smart Home Automation
+              </h3>
+              <a
+                href="https://github.com/dearabhin/emg-smart-home"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-gray-800 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.03-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+            <p class="text-sm text-gray-500 mt-1 mb-2">Dec 2024 - Feb 2025</p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              A research-oriented project focused on using Electromyography
+              (EMG) signals for smart home automation. The project involved
+              machine learning for signal classification, electronics for
+              hardware interfacing, and overall project management.
+            </p>
+            <div>
+              <span class="skill-tag">Electromyography (EMG)</span>
+              <span class="skill-tag">Machine Learning</span>
+              <span class="skill-tag">Electronics</span>
+              <span class="skill-tag">IoT</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Web Screenshot Bot - Telegram Mini App
+              </h3>
+              <a
+                href="https://github.com/dearabhin/web-screenshot-bot"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-gray-800 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.03-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+            <p class="text-sm text-gray-500 mt-1 mb-2">Jul 2022 - Dec 2024</p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Created a Telegram mini-app to safely take screenshots of webpages
+              from URLs without opening potentially risky links directly on a
+              device, enhancing user security.
+            </p>
+            <div>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Telegram API</span>
+              <span class="skill-tag">Web Scraping</span>
+            </div>
+          </div>
         </section>
 
         <section class="section-border">
@@ -213,60 +517,55 @@
           </h2>
           <ul class="list-disc list-inside space-y-2 text-gray-700">
             <li>
-              Brain-Computer Interfaces: EEG/EMG for assistive technologies
+              Brain-Computer Interfaces: EEG/EMG for assistive technologies and
+              neural decoding.
             </li>
             <li>
-              AI in Healthcare: Generative AI (e.g., Imagen) for diagnostics
+              AI in Healthcare: Generative AI (e.g., Imagen) and Deep Learning
+              for diagnostics and personalized medicine.
             </li>
             <li>
-              Machine Learning: Deep Learning, NLP, Reinforcement Learning
+              Machine Learning: Efficient Deep Learning (TinyML), Reinforcement
+              Learning, and NLP.
+            </li>
+            <li>
+              Neurotechnology: Developing novel hardware and software for
+              interfacing with the nervous system.
             </li>
           </ul>
         </section>
 
-        <section class="section-border">
-          <h2 class="text-2xl font-semibold text-gray-800 mb-4">
-            Awards & Activities
-          </h2>
-          <ul class="list-disc list-inside space-y-2 text-gray-700">
-            <li>
-              Ideathon Participant (2024) – Explored innovative tech ideas
-            </li>
-            <li>AI Quiz Winner (District Level) – Demonstrated AI knowledge</li>
-          </ul>
-        </section>
-
-        <section class="section-border">
+        <section>
           <h2 class="text-2xl font-semibold text-gray-800 mb-4">Blog Posts</h2>
-          <div class="blog-post-preview">
-            <h3 class="blog-post-title">A guide to AI and ML</h3>
-            <p class="blog-post-excerpt">
-              Artificial intelligence (AI) and machine learning (ML) are
-              changing the future of work.
-            </p>
-            <a
-              href="https://www.abhinkrishna.com/2025/02/a-guide-to-ai-and-ml.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="blog-post-link"
-              >Read More</a
-            >
-          </div>
-          <div class="blog-post-preview">
-            <h3 class="blog-post-title">Sympy Guide</h3>
-            <p class="blog-post-excerpt">
-              SymPy is a Python library for symbolic mathematics. This means it
-              can manipulate mathematical expressions and equations just like
-              you would on paper, rather than just dealing with numerical
-              approximations like most other libraries.
-            </p>
-            <a
-              href="https://www.abhinkrishna.com/2024/12/sympy-guide.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="blog-post-link"
-              >Read More</a
-            >
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="blog-post-preview">
+              <h3 class="blog-post-title">A guide to AI and ML</h3>
+              <p class="blog-post-excerpt">
+                Artificial intelligence (AI) and machine learning (ML) are
+                changing the future of work.
+              </p>
+              <a
+                href="https://www.abhinkrishna.com/2025/02/a-guide-to-ai-and-ml.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="blog-post-link"
+                >Read More</a
+              >
+            </div>
+            <div class="blog-post-preview">
+              <h3 class="blog-post-title">Sympy Guide</h3>
+              <p class="blog-post-excerpt">
+                SymPy is a Python library for symbolic mathematics, allowing
+                manipulation of mathematical expressions programmatically.
+              </p>
+              <a
+                href="https://www.abhinkrishna.com/2024/12/sympy-guide.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="blog-post-link"
+                >Read More</a
+              >
+            </div>
           </div>
         </section>
       </main>
@@ -279,14 +578,8 @@
             allowfullscreen
           ></iframe>
         </div>
-        <p>&copy; 2025 Abhin Krishna. Minimalist design.</p>
-        <p>Visitors: 1305</p>
+        <p>&copy; 2025 Abhin Krishna</p>
       </footer>
     </div>
-
-    <script>
-      // Note: The Google Maps API key should be replaced with your actual API key.
-      //       The map will not load correctly without a valid key.
-    </script>
   </body>
 </html>
