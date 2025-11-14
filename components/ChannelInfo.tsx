@@ -9,7 +9,7 @@ interface ChannelInfoProps {
     onClose: () => void;
 }
 
-const profilePicUrl = "https://cdn5.telesco.pe/file/YmCPQpfTCSJUJ2be7QL_Z8oUcPTOpxjJ2tp28EL7UbaQFrCuSXi8Q2nezJNr58VI270g5GeS1aRlG4vVmvKm1ly2_ZDTnvrNw7xzeR8oNvePWdK5FAy5NqiRsaFsaaD17EWYxq0nHn7CaIcIPWqo33VSY3f8MnGhf695GNGcA-A25l1lV9ObiYIdFuTE5FwlrNd_OIgzvFLzWqPo65wjlBCqT5S-2qOaGANhfzxbTh7FV_rG6xXfJF6p5N8vlrnU9UheUPXgb-CkWeA-5lo8Qooh0oBHXaSrBAwN6ni_1ax-lGYMdkuhh-wfx3vQHGyvzgerGkmDqF_nlH7D3j5lgA.jpg";
+const profilePicUrl = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZyWVtbIlhY0I_HjybGdeGxxWvr4FCs2F3r1xl0Qtp0f5lZ9Rr4UXAs4nzQlhqFdu6jymi0MWyUJ8lavQfsoQtG4nWXbQeco4NzKxrXZmtW9YnUC6kgwpR-eL6Oj-WlgYAGnxzluQm9e0NrkPaaU2kYc_Td1eI5P23Ea47mkBtilhTMA/s220/@.jpg";
 
 const InfoRow: React.FC<{ icon: React.ReactNode; label: string; value: React.ReactNode; isLink?: boolean; href?: string }> = ({ icon, label, value, isLink, href }) => (
     <a href={href} target="_blank" rel="noopener noreferrer" className={`flex items-center gap-4 px-4 py-3 ${isLink ? 'cursor-pointer hover:bg-black/5 dark:hover:bg-white/5' : ''}`}>
