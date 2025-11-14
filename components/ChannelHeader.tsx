@@ -20,7 +20,7 @@ export const ChannelHeader: React.FC<ChannelHeaderProps> = ({ onInfoClick }) => 
                 <img src={profilePicUrl} alt="Channel profile picture" className="w-10 h-10 rounded-full object-cover" />
                 <div>
                     <h1 className="font-bold text-light-text dark:text-dark-text">Abhin Krishna</h1>
-                    <p className="text-xs text-light-text-alt dark:text-dark-text-alt">2 subscribers</p>
+                    <p className="text-xs text-light-text-alt dark:text-dark-text-alt">1522 subscribers</p>
                 </div>
             </div>
             <div className="flex items-center gap-1">
