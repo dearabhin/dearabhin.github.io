@@ -36,7 +36,7 @@ export const ChannelInfo: React.FC<ChannelInfoProps> = ({ onClose }) => {
             <div className="flex flex-col items-center p-4">
                 <img src={profilePicUrl} alt="Channel profile picture" className="w-24 h-24 rounded-full object-cover mb-3" />
                 <h1 className="text-xl font-bold text-light-text dark:text-dark-text">Abhin Krishna</h1>
-                <p className="text-sm text-light-text-alt dark:text-dark-text-alt">2 subscribers</p>
+                <p className="text-sm text-light-text-alt dark:text-dark-text-alt">1522 subscribers</p>
             </div>
 
             {/* Info List */}
