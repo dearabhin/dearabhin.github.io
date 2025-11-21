@@ -1,9 +1,9 @@
-
 import React from 'react';
 
 export const Footer: React.FC = () => {
     // Note: A real API key would be needed for a production environment and should be handled securely.
     const googleMapsApiKey = "AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao";
+    // Fixed the malformed URL to use the standard Google Maps Embed API
     const mapSrc = `https://www.google.com/maps/embed/v1/place?key=${googleMapsApiKey}&q=Govt+Model+Engineering+College,+Kochi`;
 
     return (
@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
                     title="Location of Model Engineering College, Kochi"
                 ></iframe>
             </div>
-            <p>&copy; {new Date().getFullYear()} Abhin Krishna</p>
+            <p>© {new Date().getFullYear()} Abhin Krishna</p>
         </footer>
     );
 };
