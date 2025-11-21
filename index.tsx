@@ -1,7 +1,7 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+// Removed import './index.css'; as the file was missing and styles are handled via Tailwind CDN
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
