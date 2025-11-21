@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { ThemeProvider, useTheme } from './components/ThemeProvider';
 import { ChannelHeader } from './components/ChannelHeader';
@@ -28,11 +27,14 @@ const AppContent: React.FC = () => {
     }, []);
 
     return (
-        <div className="bg-gray-300 dark:bg-black font-sans transition-colors duration-300 antialiased">
-            <div className="container mx-auto p-0 md:p-4 h-screen">
-                <div className="flex w-full h-full shadow-2xl rounded-none md:rounded-lg overflow-hidden bg-light-bg dark:bg-dark-bg">
+        // Changed h-screen to h-[100dvh] for better mobile browser support
+        <div className="bg-gray-300 dark:bg-black font-sans transition-colors duration-300 antialiased h-[100dvh]">
+            <div className="container mx-auto p-0 md:p-4 h-full">
+                <div className="flex w-full h-full shadow-2xl rounded-none md:rounded-lg overflow-hidden bg-light-bg dark:bg-dark-bg relative">
+                    
                     {/* Main Chat Panel */}
-                    <div className={`flex flex-col flex-1 min-w-0 relative ${showInfo ? 'hidden md:flex' : 'flex'}`}>
+                    {/* Removed conditional 'hidden' class so it stays visible under the sliding panel on mobile */}
+                    <div className="flex flex-col flex-1 min-w-0 relative z-0">
                         <ChannelHeader onInfoClick={() => setShowInfo(!showInfo)} />
                         
                         <div ref={feedRef} className="flex-1 overflow-y-auto bg-chat-light dark:bg-chat-dark p-4 space-y-2">
@@ -40,7 +42,6 @@ const AppContent: React.FC = () => {
                                 <ChannelPost key={post.id} post={post} />
                             ))}
                         </div>
-
                     </div>
 
                     {/* Channel Info Panel */}
@@ -48,11 +49,9 @@ const AppContent: React.FC = () => {
                         w-full md:w-1/3 md:max-w-xs lg:max-w-sm
                         absolute md:static top-0 right-0 h-full z-20
                         transform transition-transform duration-300 ease-in-out
-                        ${showInfo ? 'translate-x-0' : 'translate-x-full'}
-                        md:translate-x-0
-                        flex flex-col
-                        border-l border-light-border dark:border-dark-border
+                        ${showInfo ? 'translate-x-0' : 'translate-x-full md:hidden'}
                         bg-light-bg dark:bg-dark-bg
+                        border-l border-light-border dark:border-dark-border
                     `}>
                         <ChannelInfo onClose={() => setShowInfo(false)} />
                     </div>
@@ -61,7 +60,6 @@ const AppContent: React.FC = () => {
         </div>
     );
 };
-
 
 const App: React.FC = () => (
     <ThemeProvider>
