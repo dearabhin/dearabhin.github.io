@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhin Krishna - Researcher & Developer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap');
+
+        :root {
+            --bg-color: #0d0d0d;
+            --window-bg: #1e1e1e;
+            --text-main: #f4f4f4;
+            --text-muted: #888888;
+            --mac-red: #ff5f56;
+            --mac-yellow: #ffbd2e;
+            --mac-green: #27c93f;
+            --accent-green: #50fa7b;
+            --accent-cyan: #8be9fd;
+            --accent-pink: #ff79c6;
+            --accent-yellow: #f1fa8c;
+            --font-mono: 'Fira Code', 'Menlo', 'Monaco', 'Courier New', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            font-size: 15px;
+            line-height: 1.6;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* macOS Window Frame */
+        .terminal-window {
+            background-color: var(--window-bg);
+            width: 100%;
+            max-width: 1000px;
+            height: 100%;
+            max-height: 800px;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .title-bar {
+            background-color: #2d2d2d;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #111;
+            position: relative;
+        }
+
+        .mac-buttons {
+            display: flex;
+            gap: 8px;
+            position: absolute;
+        }
+
+        .mac-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .close { background-color: var(--mac-red); }
+        .minimize { background-color: var(--mac-yellow); }
+        .maximize { background-color: var(--mac-green); }
+
+        .title-text {
+            width: 100%;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Terminal Content Area */
+        .terminal-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Custom Scrollbar */
+        .terminal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .terminal-content::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+        }
+        .terminal-content::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 4px;
+        }
+        .terminal-content::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+
+        /* Typography & Output Styling */
+        .output-block {
+            margin-bottom: 15px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .highlight-cyan { color: var(--accent-cyan); }
+        .highlight-green { color: var(--accent-green); }
+        .highlight-pink { color: var(--accent-pink); }
+        .highlight-yellow { color: var(--accent-yellow); }
+
+        a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.2s;
+        }
+        
+        a:hover {
+            border-bottom: 1px solid var(--accent-cyan);
+        }
+
+        .clickable-cmd {
+            color: var(--accent-yellow);
+            cursor: pointer;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 4px;
+        }
+        
+        .clickable-cmd:hover {
+            color: var(--text-main);
+            background-color: rgba(241, 250, 140, 0.2);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        ul li::before {
+            content: "> ";
+            color: var(--accent-pink);
+            font-weight: bold;
+        }
+
+        .grid-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        /* Input Area */
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+
+        .prompt {
+            color: var(--accent-green);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .prompt .dir {
+            color: var(--accent-cyan);
+        }
+
+        #cmd-input {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            font-size: 15px;
+            flex: 1;
+            outline: none;
+            caret-color: var(--text-main);
+        }
+
+        /* Typing cursor animation */
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background-color: var(--text-main);
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body { padding: 0; }
+            .terminal-window { border-radius: 0; border: none; box-shadow: none; height: 100vh; max-height: 100vh; }
+            .title-bar { border-radius: 0; }
+            .prompt { font-size: 13px; }
+            #cmd-input { font-size: 13px; }
+            body { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="terminal-window" id="terminal-window">
+        <div class="title-bar">
+            <div class="mac-buttons">
+                <div class="mac-button close"></div>
+                <div class="mac-button minimize"></div>
+                <div class="mac-button maximize"></div>
+            </div>
+            <div class="title-text">abhin-krishna — -bash — 80x24</div>
+        </div>
+        
+        <div class="terminal-content" id="output">
+            <!-- Terminal outputs will be injected here -->
+        </div>
+
+        <!-- The active input line -->
+        <div class="terminal-content" style="padding-top: 0; flex: 0 0 auto;">
+            <div class="input-wrapper" id="input-line" style="display: none;">
+                <span class="prompt">abhin@macbook <span class="dir">~</span> %</span>
+                <input type="text" id="cmd-input" autocomplete="off" spellcheck="false" autofocus>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data containing all resume information
+        const resumeData = {
+            about: `
+<span class="highlight-cyan">Abhin Krishna</span> | Researcher | B.Tech EBE Student @ MEC
+<br><br>
+Exploring intelligence both human and artificial. My work focuses on connecting neuroscience, machine learning, and biomedical systems to advance the future of neurotechnology. 
+<br><br>
+<span class="highlight-pink">Goal:</span> Augment human potential and expand the boundaries of intelligent healthcare. Aspiring to contribute as a Research Scientist at organizations like Neuralink or Google DeepMind.
+<br><br>
+Type <span class="clickable-cmd" onclick="runCmd('education')">education</span>, <span class="clickable-cmd" onclick="runCmd('experience')">experience</span>, or <span class="clickable-cmd" onclick="runCmd('skills')">skills</span> to learn more.`,
+
+            education: `
+<span class="highlight-cyan">[Education]</span>
+<br><br>
+<span class="highlight-yellow">Govt. Model Engineering College (MEC), Thrikkakara</span>
+B.Tech in Electronics and Biomedical Engineering
+<span class="highlight-pink">Sep 2024 - Present</span>
+<br>
+<ul>
+    <li>Key Coursework: Linear Algebra, Calculus, Biomedical Signal Processing, ML, DL, and Computer Vision.</li>
+    <li>Leadership: FOSSMEC Executive, IEEE Signal Processing Society (SPS), IEEE EMBS Student Member.</li>
+</ul>`,
+
+            experience: `
+<span class="highlight-cyan">[Professional Experience]</span>
+<br><br>
+<span class="highlight-yellow">Tencent AI Lab</span> | Research Intern (Remote)
+<span class="highlight-pink">Dec 2024 - May 2025</span>
+<ul>
+    <li>Conducted research in ML, NLP, and LLMs for open-source AI initiatives.</li>
+    <li>Collaborated on optimizing deep neural networks and rigorous model performance evaluation.</li>
+</ul>
+<br>
+<span class="highlight-yellow">FOSSMEC</span> | Executive Member
+<span class="highlight-pink">Jun 2025 - Present</span>
+<ul>
+    <li>Led "Build It Up," a workshop on DBMS project deployment using Supabase, Express, and Next.js.</li>
+    <li>Managed logistics/marketing for major events like Code-A-Pookalam and DevSprint.</li>
+    <li>Mentored 100+ students in Linux fundamentals, dual-boot setups, and virtualization.</li>
+</ul>
+<br>
+<span class="highlight-yellow">EXAM FILES</span> | Project Manager
+<span class="highlight-pink">May 2021 - Dec 2022</span>
+<ul>
+    <li>Scaled a digital educational platform into international markets (China, Russia, Azerbaijan, etc).</li>
+    <li>Directed cross-functional teams to implement successful social media strategies.</li>
+</ul>
+<br>
+<span class="highlight-yellow">TON Marketplace</span> | Web Developer (Remote, Canada)
+<span class="highlight-pink">Jan 2023 - Jan 2024</span>
+<ul>
+    <li>Developed the interface for a decentralized marketplace built on the TON blockchain.</li>
+</ul>`,
+
+            projects: `
+<span class="highlight-cyan">[Featured Projects]</span>
+<br><br>
+<span class="highlight-yellow">1. EEG-based Brain-Computer Interface (BCI)</span>
+<ul>
+    <li>Engineered a deep learning pipeline to classify 4-class motor imagery (hand/feet) using EEGNet.</li>
+    <li>Achieved 40% accuracy (against 25% chance level) using MNE-Python for ICA artifact removal.</li>
+</ul>
+<br>
+<span class="highlight-yellow">2. TinyML Real-Time Object Detection</span>
+<ul>
+    <li>Deployed real-time detection on an ESP32S3 Sense board, reaching 7 FPS at 143ms latency.</li>
+    <li>Optimized a quantized MobileNet V2 model using FOMO for industrial automated sorting.</li>
+</ul>
+<br>
+<span class="highlight-yellow">3. Gemini Watermark Remover</span> | <a href="http://remove-watermark.mlaas.in" target="_blank">remove-watermark.mlaas.in</a>
+<ul>
+    <li>Developed CV algorithm to detect/remove watermarks from AI-generated images.</li>
+    <li>Built interactive React web interface with an inpainting-based restoration workflow.</li>
+</ul>
+<br>
+<span class="highlight-yellow">4. LipiPala AI</span>
+<ul>
+    <li>Contributing to open-source initiative preserving endangered Indian languages using LLMs and NLP.</li>
+</ul>
+<br>
+<span class="highlight-yellow">5. Bitchat CLI</span>
+<ul>
+    <li>Engineered decentralized Python P2P messenger running over Bluetooth LE mesh network.</li>
+</ul>
+<br>
+<span class="highlight-yellow">6. Guardian Sense</span>
+<ul>
+    <li>AI-Verified Fall Detection system trained on 2200+ images to eliminate false alarms for the elderly.</li>
+</ul>`,
+
+            skills: `
+<span class="highlight-cyan">[Technical Skills]</span>
+<br><br>
+<div class="grid-list">
+    <div>
+        <span class="highlight-yellow">Languages:</span>
+        <ul>
+            <li>Python (Expert)</li>
+            <li>C & C++</li>
+            <li>JavaScript (ES6+)</li>
+            <li>MicroPython</li>
+            <li>German (Goethe B1)</li>
+        </ul>
+    </div>
+    <div>
+        <span class="highlight-yellow">AI & Neurotech:</span>
+        <ul>
+            <li>JAX, TensorFlow, Keras</li>
+            <li>MNE-Python (EEG)</li>
+            <li>Edge Impulse</li>
+            <li>Scikit-learn, OpenCV</li>
+        </ul>
+    </div>
+    <div>
+        <span class="highlight-yellow">Web & Tools:</span>
+        <ul>
+            <li>React, Next.js, Express</li>
+            <li>Three.js (3D Web)</li>
+            <li>Linux, Git, Docker</li>
+            <li>ESP32S3, Arduino IDE</li>
+        </ul>
+    </div>
+</div>`,
+
+            honors: `
+<span class="highlight-cyan">[Honors & Certifications]</span>
+<br><br>
+<ul>
+    <li><span class="highlight-yellow">Brain Modeling Workshop:</span> Systems modeling training at CNS Lab, IIT Madras (focused on neural circuits).</li>
+    <li><span class="highlight-yellow">HPAIR 2025 Delegate:</span> Selected for the Harvard Project for Asian and International Relations Conference.</li>
+    <li><span class="highlight-yellow">Ideathon Award:</span> Presented "PhytoScan," an AI-driven fruit freshness detection device at Money Conclave.</li>
+</ul>`,
+
+            contact: `
+<span class="highlight-cyan">[Contact Information]</span>
+<br><br>
+Email: <a href="mailto:dearabhin@gmail.com">dearabhin@gmail.com</a>
+<br>
+LinkedIn: <a href="https://linkedin.com/in/abhin-krishna" target="_blank">linkedin.com/in/abhin-krishna</a>
+<br>
+GitHub: <a href="https://github.com/dearabhin" target="_blank">github.com/dearabhin</a>
+<br>
+Location: Kochi, Kerala, India`,
+
+            startup: `
+<span class="highlight-cyan">[System Note: Entrepreneurial Module Activated]</span>
+<br><br>
+I am actively exploring ideas to launch a startup company in the near future. 
+Whether it's a digital service, a neurotech hardware product, or an AI-driven platform, I am constantly brainstorming.
+<br><br>
+If you're an investor, co-founder, or just want to chat about potential business ideas, run <span class="clickable-cmd" onclick="runCmd('contact')">contact</span> and let's talk!`,
+
+            help: `
+Available commands:
+  <span class="highlight-yellow">about</span>       - Display professional summary and goals
+  <span class="highlight-yellow">education</span>   - View academic background
+  <span class="highlight-yellow">experience</span>  - View work and research history
+  <span class="highlight-yellow">projects</span>    - Browse technical and open-source projects
+  <span class="highlight-yellow">skills</span>      - List programming languages, tools, and AI stack
+  <span class="highlight-yellow">honors</span>      - View awards and certifications
+  <span class="highlight-yellow">contact</span>     - Get email, LinkedIn, and GitHub links
+  <span class="highlight-yellow">startup</span>     - View entrepreneurial goals
+  <span class="highlight-yellow">clear</span>       - Clear the terminal screen
+  <span class="highlight-yellow">help</span>        - Display this menu`
+        };
+
+        const outputDiv = document.getElementById('output');
+        const inputLine = document.getElementById('input-line');
+        const cmdInput = document.getElementById('cmd-input');
+        const terminalWindow = document.getElementById('terminal-window');
+
+        // Helper to format the prompt string
+        const promptString = `<span class="prompt">abhin@macbook <span class="dir">~</span> %</span> `;
+
+        // Function to simulate typing out a command
+        async function typeCommand(cmd) {
+            outputDiv.innerHTML += `<div>${promptString}<span id="typing-${cmd}"></span><span class="cursor" id="cursor-${cmd}"></span></div>`;
+            const typeSpan = document.getElementById(`typing-${cmd}`);
+            const cursor = document.getElementById(`cursor-${cmd}`);
+            
+            for (let i = 0; i < cmd.length; i++) {
+                typeSpan.innerHTML += cmd.charAt(i);
+                await new Promise(r => setTimeout(r, 40)); // Typing speed
+            }
+            cursor.style.display = 'none'; // Hide cursor after typing
+            await new Promise(r => setTimeout(r, 200)); // Brief pause before execution
+        }
+
+        // Function to print HTML directly to output
+        function printOutput(html) {
+            outputDiv.innerHTML += `<div class="output-block">${html}</div>`;
+            scrollToBottom();
+        }
+
+        // Auto scroll
+        function scrollToBottom() {
+            outputDiv.scrollTop = outputDiv.scrollHeight;
+        }
+
+        // Initial boot sequence
+        async function runBootSequence() {
+            const bootText = [
+                "Initializing Kernel...",
+                "Loading neural interfaces...",
+                "Mounting BCI drivers... [OK]",
+                "Loading profile data: Abhin Krishna...",
+                "Executing user init script...",
+            ];
+
+            for (let text of bootText) {
+                printOutput(`<span class="highlight-muted" style="color:#666;">${text}</span>`);
+                await new Promise(r => setTimeout(r, 200));
+            }
+            
+            outputDiv.innerHTML = ''; // Clear boot sequence
+
+            // Run initial commands to establish the portfolio view
+            await typeCommand("whoami");
+            printOutput(resumeData.about);
+            
+            await new Promise(r => setTimeout(r, 500));
+            
+            // Show input line
+            inputLine.style.display = "flex";
+            cmdInput.focus();
+            scrollToBottom();
+        }
+
+        // Process user command
+        function processCommand(rawCmd) {
+            const cmd = rawCmd.trim().toLowerCase();
+            
+            // Echo the command
+            printOutput(`${promptString}${rawCmd}`);
+
+            if (cmd === "") {
+                // Do nothing
+            } else if (cmd === "clear") {
+                outputDiv.innerHTML = "";
+            } else if (resumeData[cmd]) {
+                printOutput(resumeData[cmd]);
+            } else if (cmd === "sudo") {
+                printOutput("Permission denied: You are not root. But you can hire me to get root access to my skills.");
+            } else if (cmd === "github") {
+                printOutput("Opening GitHub...");
+                window.open("https://github.com/dearabhin", "_blank");
+            } else if (cmd === "linkedin") {
+                printOutput("Opening LinkedIn...");
+                window.open("https://linkedin.com/in/abhin-krishna", "_blank");
+            } else {
+                printOutput(`zsh: command not found: ${cmd}. Type <span class="clickable-cmd" onclick="runCmd('help')">help</span> for a list of commands.`);
+            }
+            
+            scrollToBottom();
+        }
+
+        // Allow clickable commands to trigger execution
+        window.runCmd = function(cmd) {
+            cmdInput.value = cmd;
+            
+            // Create enter event
+            const enterEvent = new KeyboardEvent('keydown', {
+                key: 'Enter',
+                code: 'Enter',
+                keyCode: 13,
+                which: 13
+            });
+            cmdInput.dispatchEvent(enterEvent);
+        };
+
+        // Event Listeners
+        cmdInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const cmd = this.value;
+                this.value = '';
+                processCommand(cmd);
+            }
+        });
+
+        // Always keep focus on the input unless user is selecting text
+        document.addEventListener('click', () => {
+            const selection = window.getSelection();
+            if (selection.toString().length === 0) {
+                cmdInput.focus();
+            }
+        });
+
+        // Start boot sequence on load
+        window.onload = runBootSequence;
+
+    </script>
+</body>
+</html>
