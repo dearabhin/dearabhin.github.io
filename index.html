@@ -99,6 +99,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            word-break: break-word;
         }
 
         /* Custom Scrollbar */
@@ -222,9 +223,11 @@
             body { padding: 0; }
             .terminal-window { border-radius: 0; border: none; box-shadow: none; height: 100vh; max-height: 100vh; }
             .title-bar { border-radius: 0; }
+            .terminal-content { padding: 15px; }
             .prompt { font-size: 13px; }
             #cmd-input { font-size: 13px; }
             body { font-size: 13px; }
+            .grid-list { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -237,7 +240,7 @@
                 <div class="mac-button minimize"></div>
                 <div class="mac-button maximize"></div>
             </div>
-            <div class="title-text">abhin-krishna — -bash — 80x24</div>
+            <div class="title-text">abhin-krishna - bash - 80x24</div>
         </div>
         
         <div class="terminal-content" id="output">
@@ -261,7 +264,7 @@
 <br><br>
 Exploring intelligence both human and artificial. My work focuses on connecting neuroscience, machine learning, and biomedical systems to advance the future of neurotechnology. 
 <br><br>
-<span class="highlight-pink">Goal:</span> Augment human potential and expand the boundaries of intelligent healthcare. Aspiring to contribute as a Research Scientist at organizations like Neuralink or Google DeepMind.
+<span class="highlight-pink">Goal:</span> Augment human potential and expand the boundaries of intelligent healthcare.
 <br><br>
 Type <span class="clickable-cmd" onclick="runCmd('education')">education</span>, <span class="clickable-cmd" onclick="runCmd('experience')">experience</span>, or <span class="clickable-cmd" onclick="runCmd('skills')">skills</span> to learn more.`,
 
