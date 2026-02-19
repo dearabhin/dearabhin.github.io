@@ -2,555 +2,441 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Abhin Krishna - Researcher & Developer</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap');
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhin Krishna | Academic Portfolio</title>
+    
+    <!-- Fonts: JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-        :root {
-            --bg-color: #0d0d0d;
-            --window-bg: #1e1e1e;
-            --text-main: #f4f4f4;
-            --text-muted: #888888;
-            --mac-red: #ff5f56;
-            --mac-yellow: #ffbd2e;
-            --mac-green: #27c93f;
-            --accent-green: #50fa7b;
-            --accent-cyan: #8be9fd;
-            --accent-pink: #ff79c6;
-            --accent-yellow: #f1fa8c;
-            --font-mono: 'Fira Code', 'Menlo', 'Monaco', 'Courier New', monospace;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-mono);
-            font-size: 15px;
-            line-height: 1.6;
-            height: 100vh;
-            height: 100dvh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow: hidden;
-        }
-
-        /* macOS Window Frame */
-        .terminal-window {
-            background-color: var(--window-bg);
-            width: 100%;
-            max-width: 1000px;
-            height: 100%;
-            max-height: 800px;
-            border-radius: 10px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid #333;
-        }
-
-        .title-bar {
-            background-color: #2d2d2d;
-            padding: 12px 15px;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #111;
-            position: relative;
-        }
-
-        .mac-buttons {
-            display: flex;
-            gap: 8px;
-            position: absolute;
-        }
-
-        .mac-button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .close { background-color: var(--mac-red); }
-        .minimize { background-color: var(--mac-yellow); }
-        .maximize { background-color: var(--mac-green); }
-
-        .title-text {
-            width: 100%;
-            text-align: center;
-            color: #999;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        /* Terminal Content Area */
-        .terminal-content {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            word-break: break-word;
-        }
-
-        /* Custom Scrollbar */
-        .terminal-content::-webkit-scrollbar {
-            width: 8px;
-        }
-        .terminal-content::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.1);
-        }
-        .terminal-content::-webkit-scrollbar-thumb {
-            background: #444;
-            border-radius: 4px;
-        }
-        .terminal-content::-webkit-scrollbar-thumb:hover {
-            background: #666;
-        }
-
-        /* Typography & Output Styling */
-        .output-block {
-            margin-bottom: 15px;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        .highlight-cyan { color: var(--accent-cyan); }
-        .highlight-green { color: var(--accent-green); }
-        .highlight-pink { color: var(--accent-pink); }
-        .highlight-yellow { color: var(--accent-yellow); }
-
-        a {
-            color: var(--accent-cyan);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-bottom 0.2s;
-        }
-        
-        a:hover {
-            border-bottom: 1px solid var(--accent-cyan);
-        }
-
-        .clickable-cmd {
-            color: var(--accent-yellow);
-            cursor: pointer;
-            text-decoration: underline;
-            text-decoration-style: dotted;
-            text-underline-offset: 4px;
-        }
-        
-        .clickable-cmd:hover {
-            color: var(--text-main);
-            background-color: rgba(241, 250, 140, 0.2);
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 20px;
-        }
-        ul li::before {
-            content: "> ";
-            color: var(--accent-pink);
-            font-weight: bold;
-        }
-
-        .grid-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-        }
-
-        /* Input Area */
-        .input-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding-top: 10px;
-            padding-bottom: 20px;
-        }
-
-        .prompt {
-            color: var(--accent-green);
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        .prompt .dir {
-            color: var(--accent-cyan);
-        }
-
-        #cmd-input {
-            background: transparent;
-            border: none;
-            color: var(--text-main);
-            font-family: var(--font-mono);
-            font-size: 15px;
-            flex: 1;
-            outline: none;
-            caret-color: var(--text-main);
-        }
-
-        /* Typing cursor animation */
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 18px;
-            background-color: var(--text-main);
-            vertical-align: middle;
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            body { padding: 0; }
-            .terminal-window { border-radius: 0; border: none; box-shadow: none; height: 100vh; height: 100dvh; max-height: 100dvh; }
-            .title-bar { 
-                border-radius: 0; 
-                padding-top: max(12px, env(safe-area-inset-top)); 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tg: {
+                            blue: '#3390EC',
+                            darkblue: '#2c7bc9',
+                            bg: '#F4F4F5',
+                            card: '#FFFFFF',
+                            text: '#000000',
+                            subtext: '#707579',
+                            border: '#E4E4E5'
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
             }
-            .terminal-content { padding: 15px; }
-            .prompt { font-size: 13px; }
-            #cmd-input { font-size: 13px; }
-            body { font-size: 13px; }
-            .grid-list { grid-template-columns: 1fr; }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: theme('colors.tg.bg');
+            color: theme('colors.tg.text');
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Telegram-like scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Smooth section transitions */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .tg-card {
+            background-color: theme('colors.tg.card');
+            border-radius: 16px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .tg-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .tg-button {
+            background-color: theme('colors.tg.blue');
+            color: white;
+            border-radius: 9999px; /* Fully rounded like Telegram buttons */
+            transition: background-color 0.2s ease;
+        }
+
+        .tg-button:hover {
+            background-color: theme('colors.tg.darkblue');
+        }
+
+        .tg-button-outline {
+            color: theme('colors.tg.blue');
+            background-color: transparent;
+            border-radius: 9999px;
+            transition: background-color 0.2s ease;
+        }
+
+        .tg-button-outline:hover {
+            background-color: rgba(51, 144, 236, 0.1);
         }
     </style>
 </head>
-<body>
+<body class="text-tg-text leading-relaxed">
 
-    <div class="terminal-window" id="terminal-window">
-        <div class="title-bar">
-            <div class="mac-buttons">
-                <div class="mac-button close"></div>
-                <div class="mac-button minimize"></div>
-                <div class="mac-button maximize"></div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-tg-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="#" class="font-bold text-lg tracking-tight flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-tg-blue text-white flex items-center justify-center font-bold text-sm">
+                        AK
+                    </div>
+                    Abhin Krishna
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6 text-sm font-medium text-tg-subtext">
+                    <a href="#about" class="hover:text-tg-blue transition-colors">About</a>
+                    <a href="#experience" class="hover:text-tg-blue transition-colors">Experience</a>
+                    <a href="#research" class="hover:text-tg-blue transition-colors">Research & Projects</a>
+                    <a href="#contact" class="hover:text-tg-blue transition-colors">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-tg-text focus:outline-none" id="mobile-menu-btn">
+                    <i data-lucide="menu"></i>
+                </button>
             </div>
-            <div class="title-text">abhin-krishna - bash - 80x24</div>
         </div>
         
-        <div class="terminal-content" id="output">
-            <!-- Terminal outputs will be injected here -->
-        </div>
-
-        <!-- The active input line -->
-        <div class="terminal-content" style="padding-top: 0; flex: 0 0 auto;">
-            <div class="input-wrapper" id="input-line" style="display: none;">
-                <span class="prompt">abhin@macbook <span class="dir">~</span> %</span>
-                <input type="text" id="cmd-input" autocomplete="off" spellcheck="false" autofocus>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-white border-t border-tg-border" id="mobile-menu">
+            <div class="px-4 pt-2 pb-4 space-y-1 text-sm font-medium">
+                <a href="#about" class="block px-3 py-2 text-tg-subtext hover:text-tg-blue hover:bg-gray-50 rounded-md">About</a>
+                <a href="#experience" class="block px-3 py-2 text-tg-subtext hover:text-tg-blue hover:bg-gray-50 rounded-md">Experience</a>
+                <a href="#research" class="block px-3 py-2 text-tg-subtext hover:text-tg-blue hover:bg-gray-50 rounded-md">Research & Projects</a>
+                <a href="#contact" class="block px-3 py-2 text-tg-subtext hover:text-tg-blue hover:bg-gray-50 rounded-md">Contact</a>
             </div>
         </div>
-    </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 space-y-12">
+
+        <!-- Hero Section -->
+        <section class="text-center py-12 md:py-20 tg-card px-6">
+            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-tg-blue to-blue-300 rounded-full flex items-center justify-center text-white text-4xl font-bold mb-6 shadow-md">
+                AK
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 tracking-tight">Abhin Krishna</h1>
+            <p class="text-lg md:text-xl text-tg-blue font-medium mb-6">
+                Researcher | BCI & Neurotech | Deep Learning | Web Dev
+            </p>
+            <p class="max-w-2xl mx-auto text-tg-subtext mb-8">
+                Electronics & Biomedical Engineering student at MEC, Kochi. Exploring the intersection of human and artificial intelligence. Dedicated to advancing neural decoding, computational neuroscience, and AI-driven medical systems.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="tg-button px-6 py-3 font-medium flex items-center justify-center gap-2">
+                    <i data-lucide="send" class="w-4 h-4"></i> Get in Touch
+                </a>
+                <a href="https://github.com/dearabhin" target="_blank" class="tg-button-outline px-6 py-3 font-medium flex items-center justify-center gap-2 border border-tg-blue">
+                    <i data-lucide="github" class="w-4 h-4"></i> View GitHub
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="scroll-mt-20">
+            <div class="tg-card p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-gray-900">
+                    <i data-lucide="user" class="text-tg-blue"></i> About Me
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="text-tg-subtext mb-4 text-sm leading-relaxed">
+                            I am currently pursuing my B.Tech in Electronics and Biomedical Engineering at Govt. Model Engineering College, Thrikkakara (Sep 2024 to Present). 
+                        </p>
+                        <p class="text-tg-subtext mb-4 text-sm leading-relaxed">
+                            My core focus is on bridging the gap between neuroscience and AI. I aspire to publish impactful research in Brain-Computer Interfaces (BCI).
+                        </p>
+                        <p class="text-tg-subtext text-sm leading-relaxed">
+                            Driven by an entrepreneurial spirit, I am also actively exploring startup ideas and focused on building a strong foundation in engineering mathematics, physics, and computer science.
+                        </p>
+                    </div>
+                    
+                    <!-- Skills -->
+                    <div>
+                        <h3 class="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">Technical Arsenal</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-xs text-tg-subtext mb-2">AI & Neurotech</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-50 text-tg-blue text-xs rounded-full font-medium">JAX</span>
+                                    <span class="px-3 py-1 bg-blue-50 text-tg-blue text-xs rounded-full font-medium">TensorFlow / Keras</span>
+                                    <span class="px-3 py-1 bg-blue-50 text-tg-blue text-xs rounded-full font-medium">MNE-Python</span>
+                                    <span class="px-3 py-1 bg-blue-50 text-tg-blue text-xs rounded-full font-medium">Edge Impulse</span>
+                                    <span class="px-3 py-1 bg-blue-50 text-tg-blue text-xs rounded-full font-medium">OpenCV</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-xs text-tg-subtext mb-2">Languages & Hardware</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium">Python</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium">C / C++</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium">JavaScript</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium">ESP32S3</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium">Linux</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-xs text-tg-subtext mb-2">Web Stack</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs rounded-full font-medium">React / Next.js</span>
+                                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs rounded-full font-medium">Supabase</span>
+                                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs rounded-full font-medium">Three.js</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="scroll-mt-20">
+            <div class="tg-card p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-gray-900">
+                    <i data-lucide="briefcase" class="text-tg-blue"></i> Professional Experience
+                </h2>
+                <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 before:to-transparent">
+                    
+                    <!-- Item 1 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-100 text-tg-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <i data-lucide="microscope" class="w-4 h-4"></i>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 bg-gray-50/50 shadow-sm">
+                            <div class="flex items-center justify-between space-x-2 mb-1">
+                                <div class="font-bold text-gray-900 text-sm">Tencent AI Lab</div>
+                                <time class="font-mono text-xs font-medium text-tg-blue">Dec 2024 to May 2025</time>
+                            </div>
+                            <div class="text-xs text-gray-500 mb-2">Research Intern (Remote)</div>
+                            <p class="text-xs text-tg-subtext">Conducted research in Machine Learning, NLP, and Large Language Models (LLMs) for open source AI initiatives. Collaborated on the optimization of deep neural networks and rigorous performance evaluation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-100 text-tg-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <i data-lucide="users" class="w-4 h-4"></i>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 bg-gray-50/50 shadow-sm">
+                            <div class="flex items-center justify-between space-x-2 mb-1">
+                                <div class="font-bold text-gray-900 text-sm">FOSSMEC</div>
+                                <time class="font-mono text-xs font-medium text-tg-blue">Jun 2025 to Present</time>
+                            </div>
+                            <div class="text-xs text-gray-500 mb-2">Executive Member</div>
+                            <p class="text-xs text-tg-subtext">Mentored 100+ students in Linux fundamentals. Led technical logistics for "Code-A-Pookalam" and "DevSprint". Organized the "Build It Up" DBMS project deployment workshop (Supabase, React).</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-100 text-tg-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <i data-lucide="globe" class="w-4 h-4"></i>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 bg-gray-50/50 shadow-sm">
+                            <div class="flex items-center justify-between space-x-2 mb-1">
+                                <div class="font-bold text-gray-900 text-sm">EXAM FILES</div>
+                                <time class="font-mono text-xs font-medium text-tg-blue">May 2021 to Dec 2022</time>
+                            </div>
+                            <div class="text-xs text-gray-500 mb-2">Project Manager</div>
+                            <p class="text-xs text-tg-subtext">Scaled a digital educational platform into international markets including China, Russia, and Azerbaijan. Directed cross-functional teams to implement effective social media strategies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research & Projects Section -->
+        <section id="research" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-gray-900 px-2">
+                <i data-lucide="cpu" class="text-tg-blue"></i> Research & Projects
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <!-- Project Card 1 -->
+                <div class="tg-card p-6 flex flex-col h-full border border-gray-100">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-bold text-lg text-gray-900">EEG-based Brain-Computer Interface</h3>
+                        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium">Deep Learning</span>
+                    </div>
+                    <p class="text-sm text-tg-subtext flex-grow mb-4">
+                        Engineered an end-to-end pipeline to classify 4-class motor imagery (hands/feet) using the EEGNet architecture. Achieved 40% accuracy using MNE-Python for ICA-based artifact removal. Confirmed critical "noise ceiling" limits in practical BCI research.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs text-tg-blue font-medium">
+                        <span>#TensorFlow</span> <span>#MNE-Python</span> <span>#CNN</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="tg-card p-6 flex flex-col h-full border border-gray-100">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-bold text-lg text-gray-900">TinyML Object Detection</h3>
+                        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium">Edge AI</span>
+                    </div>
+                    <p class="text-sm text-tg-subtext flex-grow mb-4">
+                        Deployed a real-time detection system on an ESP32S3 Sense board. Optimized a quantized MobileNet V2 model using FOMO algorithm, reaching 7 FPS at 143ms latency for industrial sorting applications.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs text-tg-blue font-medium">
+                        <span>#C++</span> <span>#ESP32S3</span> <span>#EdgeImpulse</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="tg-card p-6 flex flex-col h-full border border-gray-100">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-bold text-lg text-gray-900">LipiPala AI</h3>
+                        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium">NLP / LLMs</span>
+                    </div>
+                    <p class="text-sm text-tg-subtext flex-grow mb-4">
+                        Contributing to an open-source initiative dedicated to preserving and revitalizing endangered Indian languages. Combining NLP, speech recognition, and LLMs to create accessible linguistic tools.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs text-tg-blue font-medium">
+                        <span>#Python</span> <span>#NLP</span> <span>#OpenSource</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="tg-card p-6 flex flex-col h-full border border-gray-100">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-bold text-lg text-gray-900">Gemini Watermark Remover</h3>
+                        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium">Computer Vision</span>
+                    </div>
+                    <p class="text-sm text-tg-subtext flex-grow mb-4">
+                        A high-performance, 100% client-side tool for removing watermarks from images generated by Google Gemini AI. Built with pure Vanilla JavaScript, it uses a mathematically precise Reverse Alpha Blending algorithm to restore pixels with zero quality loss.
+                    </p>
+                    <div class="flex gap-4 text-xs font-medium">
+                        <span class="text-tg-blue">#VanillaJS</span>
+                        <a href="http://remove-watermark.mlaas.in" target="_blank" class="text-gray-500 hover:text-tg-blue flex items-center gap-1">
+                            <i data-lucide="external-link" class="w-3 h-3"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Honors & Awards Section -->
+        <section>
+            <div class="tg-card p-6 md:p-8 border border-gray-100">
+                <h2 class="text-lg font-bold mb-4 flex items-center gap-2 text-gray-900">
+                    <i data-lucide="award" class="text-tg-blue w-5 h-5"></i> Honors & Highlights
+                </h2>
+                <ul class="space-y-3 text-sm text-tg-subtext">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i>
+                        <span><strong>HPAIR 2025 Delegate:</strong> Selected for the Harvard Project for Asian and International Relations Conference.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i>
+                        <span><strong>Brain Modeling Workshop:</strong> Completed systems modeling training at CNS Lab, IIT Madras (focusing on neural circuits).</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i>
+                        <span><strong>Ideathon Award:</strong> Presented "PhytoScan", an AI-driven fruit freshness detection device at Money Conclave.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i>
+                        <span><strong>Language Proficiency:</strong> Goethe Zertifikat B1 in German (Score: 82).</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section / Footer -->
+        <section id="contact" class="scroll-mt-20">
+            <div class="tg-card p-8 text-center border border-gray-100 bg-gradient-to-b from-white to-gray-50">
+                <h2 class="text-2xl font-bold mb-4 text-gray-900">Let's Connect</h2>
+                <p class="text-sm text-tg-subtext max-w-lg mx-auto mb-8">
+                    Interested in collaborating on BCI research, exploring startup ideas, or discussing the future of AI and neurotechnology? I'm always open to connecting.
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <a href="mailto:dearabhin@gmail.com" class="flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 rounded-full text-sm font-medium hover:border-tg-blue hover:text-tg-blue transition-colors shadow-sm text-gray-700">
+                        <i data-lucide="mail" class="w-4 h-4"></i> dearabhin@gmail.com
+                    </a>
+                    <a href="tel:+918078952645" class="flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 rounded-full text-sm font-medium hover:border-tg-blue hover:text-tg-blue transition-colors shadow-sm text-gray-700">
+                        <i data-lucide="phone" class="w-4 h-4"></i> +91 8078952645
+                    </a>
+                </div>
+
+                <div class="flex justify-center gap-6 border-t border-gray-200 pt-8">
+                    <a href="https://linkedin.com/in/abhin-krishna" target="_blank" class="text-gray-400 hover:text-tg-blue transition-colors">
+                        <span class="sr-only">LinkedIn</span>
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </a>
+                    <a href="https://github.com/dearabhin" target="_blank" class="text-gray-400 hover:text-gray-900 transition-colors">
+                        <span class="sr-only">GitHub</span>
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-tg-blue transition-colors">
+                        <span class="sr-only">Telegram</span>
+                        <!-- SVG for Telegram icon as lucide doesn't have a specific telegram icon that matches perfectly -->
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.12.03-1.98 1.26-5.61 3.71-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.05-.49-.83-.27-1.49-.41-1.43-.87.03-.24.36-.49.98-.74 3.85-1.68 6.43-2.79 7.72-3.33 3.67-1.53 4.43-1.8 4.92-1.81.11 0 .36.03.52.16.14.11.18.26.2.37.02.05.03.14.03.26z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="text-xs text-gray-400 mt-6">
+                    &copy; 2026 Abhin Krishna. Designed with Telegram's minimalist aesthetics.
+                </p>
+            </div>
+        </section>
+
+    </main>
 
     <script>
-        // Data containing all resume information
-        const resumeData = {
-            about: `
-<span class="highlight-cyan">Abhin Krishna</span> | Researcher | B.Tech EBE Student @ MEC
-<br><br>
-Exploring intelligence both human and artificial. My work focuses on connecting neuroscience, machine learning, and biomedical systems to advance the future of neurotechnology. 
-<br><br>
-<span class="highlight-pink">Goal:</span> Augment human potential and expand the boundaries of intelligent healthcare.
-<br><br>
-Type <span class="clickable-cmd" onclick="runCmd('education')">education</span>, <span class="clickable-cmd" onclick="runCmd('experience')">experience</span>, or <span class="clickable-cmd" onclick="runCmd('skills')">skills</span> to learn more.`,
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
-            education: `
-<span class="highlight-cyan">[Education]</span>
-<br><br>
-<span class="highlight-yellow">Govt. Model Engineering College (MEC), Thrikkakara</span>
-B.Tech in Electronics and Biomedical Engineering
-<span class="highlight-pink">Sep 2024 - Present</span>
-<br>
-<ul>
-    <li>Key Coursework: Linear Algebra, Calculus, Biomedical Signal Processing, ML, DL, and Computer Vision.</li>
-    <li>Leadership: FOSSMEC Executive, IEEE Signal Processing Society (SPS), IEEE EMBS Student Member.</li>
-</ul>`,
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-            experience: `
-<span class="highlight-cyan">[Professional Experience]</span>
-<br><br>
-<span class="highlight-yellow">Tencent AI Lab</span> | Research Intern (Remote)
-<span class="highlight-pink">Dec 2024 - May 2025</span>
-<ul>
-    <li>Conducted research in ML, NLP, and LLMs for open-source AI initiatives.</li>
-    <li>Collaborated on optimizing deep neural networks and rigorous model performance evaluation.</li>
-</ul>
-<br>
-<span class="highlight-yellow">FOSSMEC</span> | Executive Member
-<span class="highlight-pink">Jun 2025 - Present</span>
-<ul>
-    <li>Led "Build It Up," a workshop on DBMS project deployment using Supabase, Express, and Next.js.</li>
-    <li>Managed logistics/marketing for major events like Code-A-Pookalam and DevSprint.</li>
-    <li>Mentored 100+ students in Linux fundamentals, dual-boot setups, and virtualization.</li>
-</ul>
-<br>
-<span class="highlight-yellow">EXAM FILES</span> | Project Manager
-<span class="highlight-pink">May 2021 - Dec 2022</span>
-<ul>
-    <li>Scaled a digital educational platform into international markets (China, Russia, Azerbaijan, etc).</li>
-    <li>Directed cross-functional teams to implement successful social media strategies.</li>
-</ul>
-<br>
-<span class="highlight-yellow">TON Marketplace</span> | Web Developer (Remote, Canada)
-<span class="highlight-pink">Jan 2023 - Jan 2024</span>
-<ul>
-    <li>Developed the interface for a decentralized marketplace built on the TON blockchain.</li>
-</ul>`,
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-            projects: `
-<span class="highlight-cyan">[Featured Projects]</span>
-<br><br>
-<span class="highlight-yellow">1. EEG-based Brain-Computer Interface (BCI)</span>
-<ul>
-    <li>Engineered a deep learning pipeline to classify 4-class motor imagery (hand/feet) using EEGNet.</li>
-    <li>Achieved 40% accuracy (against 25% chance level) using MNE-Python for ICA artifact removal.</li>
-</ul>
-<br>
-<span class="highlight-yellow">2. TinyML Real-Time Object Detection</span>
-<ul>
-    <li>Deployed real-time detection on an ESP32S3 Sense board, reaching 7 FPS at 143ms latency.</li>
-    <li>Optimized a quantized MobileNet V2 model using FOMO for industrial automated sorting.</li>
-</ul>
-<br>
-<span class="highlight-yellow">3. Gemini Watermark Remover</span> | <a href="http://remove-watermark.mlaas.in" target="_blank">remove-watermark.mlaas.in</a>
-<ul>
-    <li>Developed CV algorithm to detect/remove watermarks from AI-generated images.</li>
-    <li>Built interactive React web interface with an inpainting-based restoration workflow.</li>
-</ul>
-<br>
-<span class="highlight-yellow">4. LipiPala AI</span>
-<ul>
-    <li>Contributing to open-source initiative preserving endangered Indian languages using LLMs and NLP.</li>
-</ul>
-<br>
-<span class="highlight-yellow">5. Bitchat CLI</span>
-<ul>
-    <li>Engineered decentralized Python P2P messenger running over Bluetooth LE mesh network.</li>
-</ul>
-<br>
-<span class="highlight-yellow">6. Guardian Sense</span>
-<ul>
-    <li>AI-Verified Fall Detection system trained on 2200+ images to eliminate false alarms for the elderly.</li>
-</ul>`,
-
-            skills: `
-<span class="highlight-cyan">[Technical Skills]</span>
-<br><br>
-<div class="grid-list">
-    <div>
-        <span class="highlight-yellow">Languages:</span>
-        <ul>
-            <li>Python (Expert)</li>
-            <li>C & C++</li>
-            <li>JavaScript (ES6+)</li>
-            <li>MicroPython</li>
-            <li>German (Goethe B1)</li>
-        </ul>
-    </div>
-    <div>
-        <span class="highlight-yellow">AI & Neurotech:</span>
-        <ul>
-            <li>JAX, TensorFlow, Keras</li>
-            <li>MNE-Python (EEG)</li>
-            <li>Edge Impulse</li>
-            <li>Scikit-learn, OpenCV</li>
-        </ul>
-    </div>
-    <div>
-        <span class="highlight-yellow">Web & Tools:</span>
-        <ul>
-            <li>React, Next.js, Express</li>
-            <li>Three.js (3D Web)</li>
-            <li>Linux, Git, Docker</li>
-            <li>ESP32S3, Arduino IDE</li>
-        </ul>
-    </div>
-</div>`,
-
-            honors: `
-<span class="highlight-cyan">[Honors & Certifications]</span>
-<br><br>
-<ul>
-    <li><span class="highlight-yellow">Brain Modeling Workshop:</span> Systems modeling training at CNS Lab, IIT Madras (focused on neural circuits).</li>
-    <li><span class="highlight-yellow">HPAIR 2025 Delegate:</span> Selected for the Harvard Project for Asian and International Relations Conference.</li>
-    <li><span class="highlight-yellow">Ideathon Award:</span> Presented "PhytoScan," an AI-driven fruit freshness detection device at Money Conclave.</li>
-</ul>`,
-
-            contact: `
-<span class="highlight-cyan">[Contact Information]</span>
-<br><br>
-Email: <a href="mailto:dearabhin@gmail.com">dearabhin@gmail.com</a>
-<br>
-LinkedIn: <a href="https://linkedin.com/in/abhin-krishna" target="_blank">linkedin.com/in/abhin-krishna</a>
-<br>
-GitHub: <a href="https://github.com/dearabhin" target="_blank">github.com/dearabhin</a>
-<br>
-Location: Kochi, Kerala, India`,
-
-            startup: `
-<span class="highlight-cyan">[System Note: Entrepreneurial Module Activated]</span>
-<br><br>
-I am actively exploring ideas to launch a startup company in the near future. 
-Whether it's a digital service, a neurotech hardware product, or an AI-driven platform, I am constantly brainstorming.
-<br><br>
-If you're an investor, co-founder, or just want to chat about potential business ideas, run <span class="clickable-cmd" onclick="runCmd('contact')">contact</span> and let's talk!`,
-
-            help: `
-Available commands:
-  <span class="highlight-yellow">about</span>       - Display professional summary and goals
-  <span class="highlight-yellow">education</span>   - View academic background
-  <span class="highlight-yellow">experience</span>  - View work and research history
-  <span class="highlight-yellow">projects</span>    - Browse technical and open-source projects
-  <span class="highlight-yellow">skills</span>      - List programming languages, tools, and AI stack
-  <span class="highlight-yellow">honors</span>      - View awards and certifications
-  <span class="highlight-yellow">contact</span>     - Get email, LinkedIn, and GitHub links
-  <span class="highlight-yellow">startup</span>     - View entrepreneurial goals
-  <span class="highlight-yellow">clear</span>       - Clear the terminal screen
-  <span class="highlight-yellow">help</span>        - Display this menu`
-        };
-
-        const outputDiv = document.getElementById('output');
-        const inputLine = document.getElementById('input-line');
-        const cmdInput = document.getElementById('cmd-input');
-        const terminalWindow = document.getElementById('terminal-window');
-
-        // Helper to format the prompt string
-        const promptString = `<span class="prompt">abhin@macbook <span class="dir">~</span> %</span> `;
-
-        // Function to simulate typing out a command
-        async function typeCommand(cmd) {
-            outputDiv.innerHTML += `<div>${promptString}<span id="typing-${cmd}"></span><span class="cursor" id="cursor-${cmd}"></span></div>`;
-            const typeSpan = document.getElementById(`typing-${cmd}`);
-            const cursor = document.getElementById(`cursor-${cmd}`);
-            
-            for (let i = 0; i < cmd.length; i++) {
-                typeSpan.innerHTML += cmd.charAt(i);
-                await new Promise(r => setTimeout(r, 40)); // Typing speed
-            }
-            cursor.style.display = 'none'; // Hide cursor after typing
-            await new Promise(r => setTimeout(r, 200)); // Brief pause before execution
-        }
-
-        // Function to print HTML directly to output
-        function printOutput(html) {
-            outputDiv.innerHTML += `<div class="output-block">${html}</div>`;
-            scrollToBottom();
-        }
-
-        // Auto scroll
-        function scrollToBottom() {
-            outputDiv.scrollTop = outputDiv.scrollHeight;
-        }
-
-        // Initial boot sequence
-        async function runBootSequence() {
-            const bootText = [
-                "Initializing Kernel...",
-                "Loading neural interfaces...",
-                "Mounting BCI drivers... [OK]",
-                "Loading profile data: Abhin Krishna...",
-                "Executing user init script...",
-            ];
-
-            for (let text of bootText) {
-                printOutput(`<span class="highlight-muted" style="color:#666;">${text}</span>`);
-                await new Promise(r => setTimeout(r, 200));
-            }
-            
-            outputDiv.innerHTML = ''; // Clear boot sequence
-
-            // Run initial commands to establish the portfolio view
-            await typeCommand("whoami");
-            printOutput(resumeData.about);
-            
-            await new Promise(r => setTimeout(r, 500));
-            
-            // Show input line
-            inputLine.style.display = "flex";
-            cmdInput.focus();
-            scrollToBottom();
-        }
-
-        // Process user command
-        function processCommand(rawCmd) {
-            const cmd = rawCmd.trim().toLowerCase();
-            
-            // Echo the command
-            printOutput(`${promptString}${rawCmd}`);
-
-            if (cmd === "") {
-                // Do nothing
-            } else if (cmd === "clear") {
-                outputDiv.innerHTML = "";
-            } else if (resumeData[cmd]) {
-                printOutput(resumeData[cmd]);
-            } else if (cmd === "sudo") {
-                printOutput("Permission denied: You are not root. But you can hire me to get root access to my skills.");
-            } else if (cmd === "github") {
-                printOutput("Opening GitHub...");
-                window.open("https://github.com/dearabhin", "_blank");
-            } else if (cmd === "linkedin") {
-                printOutput("Opening LinkedIn...");
-                window.open("https://linkedin.com/in/abhin-krishna", "_blank");
-            } else {
-                printOutput(`zsh: command not found: ${cmd}. Type <span class="clickable-cmd" onclick="runCmd('help')">help</span> for a list of commands.`);
-            }
-            
-            scrollToBottom();
-        }
-
-        // Allow clickable commands to trigger execution
-        window.runCmd = function(cmd) {
-            cmdInput.value = cmd;
-            
-            // Create enter event
-            const enterEvent = new KeyboardEvent('keydown', {
-                key: 'Enter',
-                code: 'Enter',
-                keyCode: 13,
-                which: 13
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
-            cmdInput.dispatchEvent(enterEvent);
-        };
-
-        // Event Listeners
-        cmdInput.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                const cmd = this.value;
-                this.value = '';
-                processCommand(cmd);
-            }
         });
-
-        // Always keep focus on the input unless user is selecting text
-        document.addEventListener('click', () => {
-            const selection = window.getSelection();
-            if (selection.toString().length === 0) {
-                cmdInput.focus();
-            }
-        });
-
-        // Start boot sequence on load
-        window.onload = runBootSequence;
-
     </script>
 </body>
 </html>
