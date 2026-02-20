@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Export Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/turndown/dist/turndown.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        notion: {
+                            bg: '#ffffff',
+                            sidebar: '#f7f7f5',
+                            hover: '#efefed',
+                            text: '#37352f',
+                            muted: '#9a9a97',
+                            border: '#e9e9e7'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d3d3d3; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8; 
+        }
+
+        /* Editor specific styles */
+        [contenteditable]:empty:before {
+            content: attr(data-placeholder);
+            color: #d1d5db;
+            cursor: text;
+            pointer-events: none;
+            display: block; 
+        }
+        
+        #editor-content {
+            outline: none;
+            min-height: 60vh;
+        }
+
+        /* Color picker input styling */
+        input[type="color"] {
+            -webkit-appearance: none;
+            border: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            padding: 0;
+            cursor: pointer;
+            background: transparent;
+        }
+        input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+        input[type="color"]::-webkit-color-swatch {
+            border: 1px solid #e9e9e7;
+            border-radius: 4px;
+        }
+
+        /* Hide sidebar on small screens initially */
+        @media (max-width: 768px) {
+            #sidebar {
+                position: absolute;
+                z-index: 50;
+                height: 100%;
+                transform: translateX(-100%);
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+            #overlay.open {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-notion-bg text-notion-text font-sans h-screen flex overflow-hidden selection:bg-blue-200">
+
+    <!-- Mobile Overlay -->
+    <div id="overlay" class="hidden fixed inset-0 bg-black/20 z-40 lg:hidden" onclick="toggleSidebar()"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-64 bg-notion-sidebar border-r border-notion-border flex flex-col transition-transform duration-300 shrink-0 shadow-xl lg:shadow-none lg:relative">
+        <!-- Workspace Header -->
+        <div class="px-4 py-3 flex items-center justify-between hover:bg-notion-hover cursor-pointer transition-colors group">
+            <div class="flex items-center gap-2 font-medium text-sm truncate">
+                <div class="bg-blue-100 text-blue-600 p-1 rounded">
+                    <i data-lucide="brain-circuit" class="w-4 h-4"></i>
+                </div>
+                <span class="truncate">Abhin's Workspace</span>
+            </div>
+            <button class="lg:hidden text-notion-muted hover:text-notion-text" onclick="toggleSidebar()">
+                <i data-lucide="panel-left-close" class="w-4 h-4"></i>
+            </button>
+        </div>
+
+        <!-- Page List -->
+        <div class="flex-1 overflow-y-auto py-2 flex flex-col gap-0.5 px-2" id="page-list">
+            <!-- Pages will be injected here by JS -->
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="p-2 border-t border-notion-border mt-auto">
+            <button onclick="createNewPage()" class="w-full flex items-center gap-2 px-2 py-2 text-sm text-notion-muted hover:bg-notion-hover hover:text-notion-text rounded-md transition-colors font-medium">
+                <i data-lucide="plus" class="w-4 h-4"></i>
+                New Page
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col min-w-0 relative">
+        <!-- Top Navigation Bar -->
+        <header class="h-12 border-b border-transparent hover:border-notion-border transition-colors flex items-center justify-between px-4 shrink-0 bg-white/80 backdrop-blur-sm z-10 sticky top-0">
+            <div class="flex items-center gap-2">
+                <button class="lg:hidden p-1 text-notion-muted hover:bg-notion-hover rounded" onclick="toggleSidebar()">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+                <div id="breadcrumb" class="text-sm text-notion-muted font-medium flex items-center gap-1.5 truncate max-w-[200px] sm:max-w-xs">
+                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                    <span id="breadcrumb-text" class="truncate">Untitled</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <span id="save-status" class="text-xs text-notion-muted opacity-0 transition-opacity hidden sm:inline-block">Saved</span>
+                
+                <!-- Export Dropdown -->
+                <div class="relative">
+                    <button onclick="toggleExportMenu(event)" class="p-1.5 px-2 text-notion-muted hover:bg-notion-hover hover:text-notion-text rounded transition-colors flex items-center gap-1" title="Export Page">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        <span class="text-xs font-medium hidden sm:inline-block">Export</span>
+                    </button>
+                    <div id="export-menu" class="hidden absolute right-0 mt-1 w-32 bg-white rounded-md shadow-lg border border-notion-border py-1 z-50 text-sm">
+                        <button onclick="exportPage('txt')" class="w-full text-left px-4 py-1.5 hover:bg-notion-hover text-notion-text">Text (.txt)</button>
+                        <button onclick="exportPage('md')" class="w-full text-left px-4 py-1.5 hover:bg-notion-hover text-notion-text">Markdown (.md)</button>
+                        <button onclick="exportPage('html')" class="w-full text-left px-4 py-1.5 hover:bg-notion-hover text-notion-text">HTML (.html)</button>
+                        <div class="border-t border-notion-border my-1"></div>
+                        <button onclick="exportPage('pdf')" class="w-full text-left px-4 py-1.5 hover:bg-notion-hover text-notion-text">PDF Document</button>
+                        <button onclick="exportPage('png')" class="w-full text-left px-4 py-1.5 hover:bg-notion-hover text-notion-text">Image (.png)</button>
+                        <button onclick="exportPage('jpg')" class="w-full text-left px-4 py-1.5 hover:bg-notion-hover text-notion-text">Image (.jpg)</button>
+                    </div>
+                </div>
+
+                <div class="w-px h-4 bg-notion-border"></div>
+
+                <button onclick="deleteCurrentPage()" class="p-1.5 text-notion-muted hover:bg-red-50 hover:text-red-500 rounded transition-colors" title="Delete Page">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Editor Container -->
+        <div id="editor-container" class="flex-1 overflow-y-auto bg-notion-bg">
+            <div class="max-w-3xl mx-auto w-full px-6 sm:px-12 py-12 pb-32 relative">
+                
+                <!-- Floating Formatting Toolbar -->
+                <div id="format-toolbar" class="hidden absolute top-0 left-0 bg-white shadow-lg border border-notion-border rounded-md p-1 flex flex-wrap gap-1 z-20 transition-all max-w-[90vw] items-center">
+                    <button onmousedown="event.preventDefault(); formatText('bold')" class="p-1.5 hover:bg-notion-hover rounded text-notion-text" title="Bold (Ctrl+B)"><i data-lucide="bold" class="w-4 h-4"></i></button>
+                    <button onmousedown="event.preventDefault(); formatText('italic')" class="p-1.5 hover:bg-notion-hover rounded text-notion-text" title="Italic (Ctrl+I)"><i data-lucide="italic" class="w-4 h-4"></i></button>
+                    <button onmousedown="event.preventDefault(); addLink()" class="p-1.5 hover:bg-notion-hover rounded text-notion-text" title="Insert Link"><i data-lucide="link" class="w-4 h-4"></i></button>
+                    
+                    <div class="relative flex items-center group px-1" title="Text Color">
+                        <i data-lucide="palette" class="w-4 h-4 text-notion-text absolute pointer-events-none left-2"></i>
+                        <input type="color" id="text-color-picker" onchange="changeColor(this.value)" class="opacity-0 w-6 h-6 cursor-pointer">
+                    </div>
+
+                    <div class="w-px h-4 bg-notion-border my-auto mx-1"></div>
+                    <button onmousedown="event.preventDefault(); formatText('formatBlock', 'H1')" class="p-1.5 hover:bg-notion-hover rounded text-notion-text text-xs font-bold w-7" title="Heading 1">H1</button>
+                    <button onmousedown="event.preventDefault(); formatText('formatBlock', 'H2')" class="p-1.5 hover:bg-notion-hover rounded text-notion-text text-xs font-bold w-7" title="Heading 2">H2</button>
+                    <div class="w-px h-4 bg-notion-border my-auto mx-1"></div>
+                    <button onmousedown="event.preventDefault(); formatText('insertUnorderedList')" class="p-1.5 hover:bg-notion-hover rounded text-notion-text" title="Bullet List"><i data-lucide="list" class="w-4 h-4"></i></button>
+                    <button onmousedown="event.preventDefault(); formatText('insertOrderedList')" class="p-1.5 hover:bg-notion-hover rounded text-notion-text" title="Numbered List"><i data-lucide="list-ordered" class="w-4 h-4"></i></button>
+                </div>
+
+                <!-- Export Wrapper (Used for clean PDF/Image generation) -->
+                <div id="export-area" class="bg-notion-bg w-full">
+                    <!-- Page Title -->
+                    <input 
+                        type="text" 
+                        id="editor-title" 
+                        class="w-full text-4xl font-bold border-none outline-none bg-transparent mb-6 text-notion-text placeholder-gray-300 resize-none" 
+                        placeholder="Untitled"
+                        autocomplete="off"
+                    >
+                    
+                    <!-- Page Content -->
+                    <div 
+                        id="editor-content" 
+                        contenteditable="true" 
+                        data-placeholder="Start typing your ideas here, Abhin... Select text to format."
+                        class="w-full prose prose-slate max-w-none prose-p:leading-relaxed prose-headings:font-semibold prose-a:text-blue-600 hover:prose-a:text-blue-800 prose-img:rounded-lg"
+                    ></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty State Container -->
+        <div id="empty-state" class="hidden flex-1 flex flex-col items-center justify-center text-center p-8">
+            <div class="bg-gray-50 p-4 rounded-full mb-4">
+                <i data-lucide="book-x" class="w-8 h-8 text-gray-400"></i>
+            </div>
+            <h2 class="text-xl font-semibold text-notion-text mb-2">No pages found</h2>
+            <p class="text-notion-muted mb-6 max-w-sm">Create a new page to start drafting your startup ideas or taking notes on your BTech courses.</p>
+            <button onclick="createNewPage()" class="bg-notion-text text-white px-4 py-2 rounded-md font-medium hover:bg-gray-800 transition-colors shadow-sm">
+                Create New Page
+            </button>
+        </div>
+    </main>
+
+    <script>
+        // --- State Management ---
+        const STORAGE_KEY = 'abhin_workspace_data';
+        let pages = [];
+        let activePageId = null;
+        let savedSelectionRange = null; // To keep selection active during color/link picks
+
+        // --- DOM Elements ---
+        const sidebarList = document.getElementById('page-list');
+        const editorTitle = document.getElementById('editor-title');
+        const editorContent = document.getElementById('editor-content');
+        const breadcrumbText = document.getElementById('breadcrumb-text');
+        const editorContainer = document.getElementById('editor-container');
+        const emptyState = document.getElementById('empty-state');
+        const saveStatus = document.getElementById('save-status');
+        const formatToolbar = document.getElementById('format-toolbar');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const exportMenu = document.getElementById('export-menu');
+        const exportArea = document.getElementById('export-area');
+
+        // --- Initialization ---
+        function init() {
+            lucide.createIcons();
+
+            const storedData = localStorage.getItem(STORAGE_KEY);
+            if (storedData) {
+                try { pages = JSON.parse(storedData); } 
+                catch (e) { pages = []; }
+            }
+
+            if (pages.length === 0) {
+                const welcomePage = {
+                    id: generateId(),
+                    title: "Welcome to your Workspace",
+                    content: "<h1>Hello Abhin!</h1><p>This is your private, 100% client-side web application. All data is stored directly in your browser's local cache.</p><p><br></p><h2>What can you do here?</h2><ul><li>Draft your next <b>Startup Ideas</b>.</li><li>Take notes on <i>Machine Learning</i> and <font color=\"#2563eb\">Brain Computer Interfaces</font>.</li><li>Plan out your communication skills improvement tasks.</li></ul><p><br></p><p>Select some text to see the formatting options pop up. You can now add <a href=\"https://google.com\">links</a> and change text colors!</p>",
+                    updatedAt: Date.now()
+                };
+                pages.push(welcomePage);
+                activePageId = welcomePage.id;
+                saveDataToCache();
+            } else {
+                const lastActive = localStorage.getItem('abhin_workspace_last_active');
+                if (lastActive && pages.find(p => p.id === lastActive)) {
+                    activePageId = lastActive;
+                } else {
+                    activePageId = pages[0].id;
+                }
+            }
+
+            renderSidebar();
+            loadActivePage();
+            setupEventListeners();
+        }
+
+        // --- Core Functions ---
+        function generateId() {
+            return Date.now().toString(36) + Math.random().toString(36).substring(2);
+        }
+
+        function saveDataToCache() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(pages));
+            if (activePageId) {
+                localStorage.setItem('abhin_workspace_last_active', activePageId);
+            }
+        }
+
+        function showSaveIndicator() {
+            saveStatus.style.opacity = '1';
+            setTimeout(() => { saveStatus.style.opacity = '0'; }, 1500);
+        }
+
+        function createNewPage() {
+            const newPage = { id: generateId(), title: "", content: "", updatedAt: Date.now() };
+            pages.unshift(newPage);
+            activePageId = newPage.id;
+            saveDataToCache();
+            renderSidebar();
+            loadActivePage();
+            if (window.innerWidth < 1024) toggleSidebar();
+            setTimeout(() => editorTitle.focus(), 50);
+        }
+
+        function deleteCurrentPage() {
+            if (!activePageId) return;
+            pages = pages.filter(p => p.id !== activePageId);
+            activePageId = pages.length > 0 ? pages[0].id : null;
+            saveDataToCache();
+            renderSidebar();
+            loadActivePage();
+        }
+
+        function selectPage(id) {
+            if (activePageId === id) return;
+            activePageId = id;
+            saveDataToCache();
+            renderSidebar();
+            loadActivePage();
+            if (window.innerWidth < 1024) toggleSidebar();
+        }
+
+        function loadActivePage() {
+            if (!activePageId) {
+                editorContainer.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                document.querySelector('header').classList.add('hidden');
+                return;
+            }
+            editorContainer.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+            document.querySelector('header').classList.remove('hidden');
+
+            const page = pages.find(p => p.id === activePageId);
+            if (page) {
+                editorTitle.value = page.title;
+                editorContent.innerHTML = page.content;
+                updateBreadcrumb(page.title);
+            }
+        }
+
+        function updateBreadcrumb(title) {
+            breadcrumbText.textContent = title.trim() === "" ? "Untitled" : title;
+        }
+
+        function renderSidebar() {
+            sidebarList.innerHTML = '';
+            const sortedPages = [...pages].sort((a, b) => b.updatedAt - a.updatedAt);
+
+            sortedPages.forEach(page => {
+                const isActive = page.id === activePageId;
+                const displayTitle = page.title.trim() === "" ? "Untitled" : page.title;
+                
+                const btn = document.createElement('button');
+                btn.className = `w-full flex items-center gap-2 px-2 py-1.5 text-sm rounded-md transition-colors text-left truncate ${
+                    isActive ? 'bg-notion-hover text-notion-text font-medium' : 'text-notion-muted hover:bg-notion-hover hover:text-notion-text'
+                }`;
+                btn.onclick = () => selectPage(page.id);
+                btn.innerHTML = `
+                    <i data-lucide="file-text" class="w-4 h-4 shrink-0 ${isActive ? 'text-blue-500' : ''}"></i>
+                    <span class="truncate">${escapeHTML(displayTitle)}</span>
+                `;
+                sidebarList.appendChild(btn);
+            });
+            lucide.createIcons();
+        }
+
+        // --- Formatting Commands ---
+        function formatText(command, value = null) {
+            document.execCommand(command, false, value);
+            editorContent.focus();
+            editorContent.dispatchEvent(new Event('input')); // trigger save
+        }
+
+        function addLink() {
+            restoreSelection();
+            const url = prompt("Enter link URL:", "https://");
+            if (url) {
+                formatText('createLink', url);
+            }
+        }
+
+        function changeColor(color) {
+            restoreSelection();
+            formatText('foreColor', color);
+        }
+
+        function restoreSelection() {
+            if (savedSelectionRange) {
+                const selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(savedSelectionRange);
+            }
+        }
+
+        // --- Export & Download Functions ---
+        function toggleExportMenu(e) {
+            e.stopPropagation();
+            exportMenu.classList.toggle('hidden');
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!exportMenu.contains(e.target)) {
+                exportMenu.classList.add('hidden');
+            }
+        });
+
+        async function exportPage(format) {
+            exportMenu.classList.add('hidden');
+            const page = pages.find(p => p.id === activePageId);
+            if (!page) return;
+
+            const safeTitle = (page.title.trim() || 'Untitled').replace(/[^a-z0-9]/gi, '_').toLowerCase();
+            const rawTextContent = `${page.title}\n\n${editorContent.innerText}`;
+            const htmlContent = `<h1>${page.title}</h1>\n${editorContent.innerHTML}`;
+
+            try {
+                if (format === 'txt') {
+                    downloadFile(`${safeTitle}.txt`, rawTextContent, 'text/plain');
+                } 
+                else if (format === 'html') {
+                    const fullHtml = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${page.title}</title></head><body style="font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 20px;">${htmlContent}</body></html>`;
+                    downloadFile(`${safeTitle}.html`, fullHtml, 'text/html');
+                }
+                else if (format === 'md') {
+                    // Using Turndown library
+                    const turndownService = new TurndownService({ headingStyle: 'atx' });
+                    const markdown = `# ${page.title}\n\n${turndownService.turndown(editorContent.innerHTML)}`;
+                    downloadFile(`${safeTitle}.md`, markdown, 'text/markdown');
+                }
+                else if (format === 'png' || format === 'jpg' || format === 'pdf') {
+                    // Visual exports using html2canvas
+                    const mimeType = format === 'jpg' ? 'image/jpeg' : 'image/png';
+                    
+                    // Temporarily adjust styles for clean capture
+                    editorTitle.style.border = 'none'; 
+                    exportArea.style.padding = '40px';
+                    exportArea.style.backgroundColor = '#ffffff';
+
+                    const canvas = await html2canvas(exportArea, { scale: 2, useCORS: true });
+                    
+                    // Revert styles
+                    exportArea.style.padding = '0px';
+                    
+                    const imgData = canvas.toDataURL(mimeType, 1.0);
+
+                    if (format === 'pdf') {
+                        const { jsPDF } = window.jspdf;
+                        const pdf = new jsPDF('p', 'mm', 'a4');
+                        const pdfWidth = pdf.internal.pageSize.getWidth();
+                        // Calculate height to maintain aspect ratio
+                        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+                        
+                        pdf.addImage(imgData, format === 'jpg' ? 'JPEG' : 'PNG', 0, 0, pdfWidth, pdfHeight);
+                        pdf.save(`${safeTitle}.pdf`);
+                    } else {
+                        // Image download
+                        const link = document.createElement('a');
+                        link.download = `${safeTitle}.${format}`;
+                        link.href = imgData;
+                        link.click();
+                    }
+                }
+            } catch (error) {
+                console.error("Export failed:", error);
+                alert("Failed to export document. Check console for details.");
+            }
+        }
+
+        function downloadFile(filename, content, type) {
+            const blob = new Blob([content], { type: type });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // --- Event Listeners & Autosave ---
+        function setupEventListeners() {
+            let timeout;
+            const debouncedSave = () => {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => {
+                    if (activePageId) {
+                        const pageIndex = pages.findIndex(p => p.id === activePageId);
+                        if (pageIndex > -1) {
+                            const newTitle = editorTitle.value;
+                            pages[pageIndex].title = newTitle;
+                            pages[pageIndex].content = editorContent.innerHTML;
+                            pages[pageIndex].updatedAt = Date.now();
+                            
+                            saveDataToCache();
+                            showSaveIndicator();
+                            updateBreadcrumb(newTitle);
+                            renderSidebar();
+                        }
+                    }
+                }, 500);
+            };
+
+            editorTitle.addEventListener('input', debouncedSave);
+            editorContent.addEventListener('input', debouncedSave);
+            
+            editorTitle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    editorContent.focus();
+                }
+            });
+
+            // Floating Toolbar Logic
+            document.addEventListener('selectionchange', () => {
+                const selection = window.getSelection();
+                if (!selection.rangeCount || selection.isCollapsed) {
+                    formatToolbar.classList.add('hidden');
+                    return;
+                }
+
+                let node = selection.anchorNode;
+                let isInsideEditor = false;
+                while (node) {
+                    if (node === editorContent) {
+                        isInsideEditor = true;
+                        break;
+                    }
+                    node = node.parentNode;
+                }
+
+                if (isInsideEditor) {
+                    // Save range for color picker/link prompts
+                    savedSelectionRange = selection.getRangeAt(0);
+
+                    const range = selection.getRangeAt(0);
+                    const rect = range.getBoundingClientRect();
+                    
+                    // Position calculations
+                    let topPos = rect.top + window.scrollY - 50;
+                    formatToolbar.style.top = `${Math.max(10, topPos)}px`;
+                    
+                    let leftPos = rect.left + window.scrollX + (rect.width / 2) - (formatToolbar.offsetWidth / 2);
+                    leftPos = Math.max(10, Math.min(leftPos, window.innerWidth - formatToolbar.offsetWidth - 10));
+                    formatToolbar.style.left = `${leftPos}px`;
+                    
+                    formatToolbar.classList.remove('hidden');
+                } else {
+                    formatToolbar.classList.add('hidden');
+                }
+            });
+        }
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('open');
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag]));
+        }
+
+        // Run application
+        init();
+    </script>
+</body>
+</html>
