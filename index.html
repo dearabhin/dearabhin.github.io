@@ -215,138 +215,113 @@
     </div>
   </section>
 
-  <!-- Experience Section (Dark Navy Product Surface Background) -->
+  <!-- Experience Section -->
   <section id="experience" style="background-color: var(--colors-surface-dark); border-bottom: none;">
     <div class="container">
       <h2 class="display-lg" style="color: var(--colors-on-dark); margin-bottom: 8px;">Professional Experience</h2>
-      <p style="color: var(--colors-on-dark-soft); margin-bottom: 32px; max-width: 600px;">
-        An interactive directory of my engineering milestones, research internships, and leadership roles.
+      <p style="color: var(--colors-on-dark-soft); margin-bottom: 40px; max-width: 600px;">
+        Research internships, open-source leadership, and engineering roles.
       </p>
 
-      <div class="dev-console-layout">
-        <!-- Interactive Code Sidebar -->
-        <div class="dev-console-sidebar" role="tablist" aria-label="Experiences">
-          <div class="sidebar-title">workspace</div>
-          
-          <button class="sidebar-item active" role="tab" aria-selected="true" aria-controls="pane-fossmec" data-pane="pane-fossmec">
-            <i data-lucide="file-text" style="color: #60a5fa;"></i>
-            fossmec.md
-          </button>
+      <div class="exp-list">
 
-          <button class="sidebar-item" role="tab" aria-selected="false" aria-controls="pane-tencent" data-pane="pane-tencent">
-            <i data-lucide="file-code" style="color: var(--colors-accent-teal);"></i>
-            tencent_lab.py
-          </button>
-          
-          <button class="sidebar-item" role="tab" aria-selected="false" aria-controls="pane-ton" data-pane="pane-ton">
-            <i data-lucide="globe" style="color: var(--colors-accent-amber);"></i>
-            ton_marketplace.js
-          </button>
-        </div>
-
-        <!-- Editor Contents -->
-        <div class="dev-console-content active" id="pane-fossmec" role="tabpanel">
-          <div class="console-pane-header">
-            <h3>FOSSMEC — Executive</h3>
-            <span class="console-pane-meta">Jun 2025 – Present · Kochi, On-site</span>
+        <!-- FOSSMEC -->
+        <div class="exp-card exp-card-active">
+          <div class="exp-card-header" role="button" tabindex="0" aria-expanded="true" data-exp="fossmec">
+            <div class="exp-card-left">
+              <div class="exp-icon" style="background-color: rgba(96, 165, 250, 0.15); color: #60a5fa;">
+                <i data-lucide="users" style="width: 16px; height: 16px;"></i>
+              </div>
+              <div>
+                <div class="exp-role">Executive</div>
+                <div class="exp-org">FOSSMEC, Model Engineering College</div>
+              </div>
+            </div>
+            <div class="exp-card-right">
+              <span class="exp-badge">Full-time</span>
+              <span class="exp-date">Jun 2025 - Present</span>
+              <i data-lucide="chevron-down" class="exp-chevron" style="width: 16px; height: 16px;"></i>
+            </div>
           </div>
-          <div class="experience-split">
-            <div class="experience-details">
-              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #60a5fa; margin-bottom: 12px; white-space: pre-wrap; word-break: break-word;"># Executive · Free & Open Source Software Cell, MEC</div>
-              <p>Leading workshops, mentoring students, and driving open-source culture at Model Engineering College.</p>
-              <ul>
-                <li>Served as Lead Instructor for <strong>Let's Git It</strong> — a 2-day workshop on Git workflows, branching strategies, and portfolio hosting via GitHub Pages.</li>
-                <li>Assisted in the <strong>Linux Installation Workshop</strong>, guiding students through dual-boot and VirtualBox setups.</li>
-                <li>Handled registration and marketing for <strong>Code-A-Pookalam 2025</strong>.</li>
-                <li>Assisted in organizing <strong>Build It Up</strong> — a 2-day hands-on DBMS workshop using Supabase, Express.js, and Next.js.</li>
-                <li>Volunteered in marketing and coordination for <strong>Devsprint</strong>, a one-day open-source sprint.</li>
-                <li>Co-led interview and screening for first-year applicants, onboarding the next generation of FOSSMEC trainees.</li>
-              </ul>
+          <div class="exp-card-body open" id="exp-fossmec">
+            <div class="exp-meta-row">
+              <span class="exp-meta-tag"><i data-lucide="map-pin" style="width: 11px; height: 11px;"></i> Kochi, Kerala &middot; On-site</span>
             </div>
-            <div class="experience-code-pane">
-<span class="code-comment">#!/bin/bash</span>
-<span class="code-comment"># lets_git_it_workshop.sh</span>
-git init portfolio
-<span class="code-keyword">cd</span> portfolio
-git checkout -b <span class="code-string">main</span>
-git add .
-git commit -m <span class="code-string">"Initial commit"</span>
-git remote add origin \
-  https://github.com/student/portfolio
-git push -u origin <span class="code-string">main</span>
-<span class="code-comment"># Deploy to GitHub Pages</span>
-gh-pages -d dist
-<span class="code-keyword">echo</span> <span class="code-string">"Portfolio live!"</span>
-            </div>
+            <p class="exp-desc">Leading workshops, mentoring students, and driving open-source culture at Model Engineering College.</p>
+            <ul class="exp-bullets">
+              <li>Served as Lead Instructor for <strong>Let's Git It</strong>, a 2-day workshop on Git workflows, branching, and portfolio hosting via GitHub Pages.</li>
+              <li>Assisted in the <strong>Linux Installation Workshop</strong>, guiding students through dual-boot and VirtualBox setups.</li>
+              <li>Handled registration and marketing for <strong>Code-A-Pookalam 2025</strong>.</li>
+              <li>Assisted in organizing <strong>Build It Up</strong>, a 2-day hands-on DBMS workshop using Supabase, Express.js, and Next.js.</li>
+              <li>Volunteered in marketing and coordination for <strong>Devsprint</strong>, a one-day open-source sprint.</li>
+              <li>Co-led interview and screening for first-year applicants, onboarding the next generation of FOSSMEC trainees.</li>
+            </ul>
           </div>
         </div>
 
-        <div class="dev-console-content" id="pane-tencent" role="tabpanel">
-          <div class="console-pane-header">
-            <h3>Tencent UK — Research Intern</h3>
-            <span class="console-pane-meta">Dec 2024 – May 2025 · Remote</span>
+        <!-- Tencent UK -->
+        <div class="exp-card">
+          <div class="exp-card-header" role="button" tabindex="0" aria-expanded="false" data-exp="tencent">
+            <div class="exp-card-left">
+              <div class="exp-icon" style="background-color: rgba(93, 184, 166, 0.15); color: var(--colors-accent-teal);">
+                <i data-lucide="brain" style="width: 16px; height: 16px;"></i>
+              </div>
+              <div>
+                <div class="exp-role">Research Intern</div>
+                <div class="exp-org">Tencent UK (Tencent AI Lab)</div>
+              </div>
+            </div>
+            <div class="exp-card-right">
+              <span class="exp-badge">Internship</span>
+              <span class="exp-date">Dec 2024 - May 2025</span>
+              <i data-lucide="chevron-down" class="exp-chevron" style="width: 16px; height: 16px;"></i>
+            </div>
           </div>
-          <div class="experience-split">
-            <div class="experience-details">
-              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--colors-accent-teal); margin-bottom: 12px; white-space: pre-wrap; word-break: break-word;">class ResearchIntern(TencentAILab):</div>
-              <p>Worked at Tencent AI Lab on ML, NLP, LLM research and open-source AI model development.</p>
-              <ul>
-                <li>Researched and implemented <strong>Computer Vision architectures</strong> for 3D reconstruction.</li>
-                <li>Fine-tuned and aligned <strong>Large Language Models (LLMs)</strong> to improve mathematical reasoning capabilities.</li>
-                <li>Studied optimization techniques for deep neural networks.</li>
-                <li>Collaborated with senior research scientists to draft and submit papers to <strong>CVPR</strong> and <strong>NeurIPS</strong>.</li>
-              </ul>
+          <div class="exp-card-body" id="exp-tencent">
+            <div class="exp-meta-row">
+              <span class="exp-meta-tag"><i data-lucide="map-pin" style="width: 11px; height: 11px;"></i> United Kingdom &middot; Remote</span>
             </div>
-            <div class="experience-code-pane">
-<span class="code-comment"># model_hyperparams.yaml</span>
-<span class="code-keyword">model</span>:
-  type: <span class="code-string">"LLM-Math-Align"</span>
-  layers: 32
-  heads: 32
-  dim: 4096
-<span class="code-keyword">training</span>:
-  optimizer: <span class="code-string">"AdamW"</span>
-  lr: 1.5e-4
-  batch_size: 512
-  epochs: 20
-  precision: <span class="code-string">"bfloat16"</span>
-<span class="code-keyword">target</span>:
-  venue: <span class="code-string">"CVPR / NeurIPS"</span>
-            </div>
+            <p class="exp-desc">Worked at Tencent AI Lab on ML, NLP, and LLM research for open-source AI model development.</p>
+            <ul class="exp-bullets">
+              <li>Researched and implemented <strong>Computer Vision architectures</strong> for 3D reconstruction.</li>
+              <li>Fine-tuned and aligned <strong>Large Language Models (LLMs)</strong> to improve mathematical reasoning capabilities.</li>
+              <li>Studied optimization techniques for deep neural networks.</li>
+              <li>Collaborated with senior research scientists to draft and submit papers to <strong>CVPR</strong> and <strong>NeurIPS</strong>.</li>
+            </ul>
           </div>
         </div>
 
-        <div class="dev-console-content" id="pane-ton" role="tabpanel">
-          <div class="console-pane-header">
-            <h3>TON Marketplace — Web Developer</h3>
-            <span class="console-pane-meta">Jan 2023 – Jan 2024 · Remote</span>
+        <!-- TON Marketplace -->
+        <div class="exp-card">
+          <div class="exp-card-header" role="button" tabindex="0" aria-expanded="false" data-exp="ton">
+            <div class="exp-card-left">
+              <div class="exp-icon" style="background-color: rgba(232, 165, 90, 0.15); color: var(--colors-accent-amber);">
+                <i data-lucide="globe" style="width: 16px; height: 16px;"></i>
+              </div>
+              <div>
+                <div class="exp-role">Web Developer</div>
+                <div class="exp-org">TON Marketplace</div>
+              </div>
+            </div>
+            <div class="exp-card-right">
+              <span class="exp-badge">Contract</span>
+              <span class="exp-date">Jan 2023 - Jan 2024</span>
+              <i data-lucide="chevron-down" class="exp-chevron" style="width: 16px; height: 16px;"></i>
+            </div>
           </div>
-          <div class="experience-split">
-            <div class="experience-details">
-              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--colors-accent-amber); margin-bottom: 12px; white-space: pre-wrap; word-break: break-word;">// Web Developer · Toronto, Canada · Remote</div>
-              <p>Developed the website for a decentralized marketplace built on the TON blockchain.</p>
-              <ul>
-                <li>Built and deployed the full frontend for a <strong>TON blockchain-based</strong> decentralised marketplace.</li>
-                <li>Integrated wallet connection flows and on-chain transaction UI components.</li>
-                <li>Worked remotely with a distributed team across Canada and Europe.</li>
-              </ul>
+          <div class="exp-card-body" id="exp-ton">
+            <div class="exp-meta-row">
+              <span class="exp-meta-tag"><i data-lucide="map-pin" style="width: 11px; height: 11px;"></i> Toronto, Canada &middot; Remote</span>
             </div>
-            <div class="experience-code-pane">
-<span class="code-comment">// connect_wallet.js</span>
-<span class="code-keyword">import</span> TonConnect <span class="code-keyword">from</span> <span class="code-string">'@tonconnect/sdk'</span>;
-
-<span class="code-keyword">const</span> connector = <span class="code-keyword">new</span> <span class="code-function">TonConnect</span>({
-  manifestUrl: <span class="code-string">'/tonconnect-manifest.json'</span>
-});
-
-<span class="code-keyword">await</span> connector.<span class="code-function">connect</span>({
-  universalLink: WALLET_LINK,
-  bridgeUrl: BRIDGE_URL
-});
-<span class="code-comment">// Wallet connected ✓</span>
-            </div>
+            <p class="exp-desc">Developed the website for a decentralized marketplace built on the TON blockchain.</p>
+            <ul class="exp-bullets">
+              <li>Built and deployed the full frontend for a <strong>TON blockchain-based</strong> decentralized marketplace.</li>
+              <li>Integrated wallet connection flows and on-chain transaction UI components.</li>
+              <li>Worked remotely with a distributed team across Canada and Europe.</li>
+            </ul>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -503,29 +478,29 @@ gh-pages -d dist
       </p>
 
       <div class="publication-card">
-        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: var(--spacing-lg); flex-wrap: wrap;">
-          <div style="flex: 1; min-width: 0;">
-            <div style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm); flex-wrap: wrap;">
+        <div class="publication-top">
+          <div class="publication-info">
+            <div class="publication-meta-row">
               <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">Preprint</span>
               <span style="font-size: 0.78rem; color: var(--colors-muted); font-family: 'Inter', sans-serif;">Mar 30, 2026</span>
             </div>
-            <h3 class="display-sm" style="margin-bottom: var(--spacing-sm); line-height: 1.25;">A Comparative Study of Hodgkin-Huxley and Izhikevich Models for High-Fidelity Neural Spike Prediction</h3>
+            <h3 class="display-sm" style="margin-bottom: var(--spacing-sm); line-height: 1.3;">A Comparative Study of Hodgkin-Huxley and Izhikevich Models for High-Fidelity Neural Spike Prediction</h3>
             <p style="font-size: 0.88rem; color: var(--colors-muted); margin-bottom: 0;">
-              Abhin Krishna &middot; Computational Neuroscience &middot; Neural Modelling
+              Abhin Krishna &nbsp;&middot;&nbsp; Computational Neuroscience &nbsp;&middot;&nbsp; Neural Modelling
             </p>
           </div>
-          <a href="https://dearabhin.github.io/neural-model-comparison/docs/final_report.pdf" target="_blank" rel="noopener" class="btn btn-secondary" style="flex-shrink: 0; white-space: nowrap;">
+          <a href="https://dearabhin.github.io/neural-model-comparison/docs/final_report.pdf" target="_blank" rel="noopener" class="btn btn-secondary publication-btn">
             <i data-lucide="file-text" style="width: 14px; height: 14px;"></i> Read PDF
           </a>
         </div>
 
         <div class="publication-abstract">
           <p style="font-size: 0.88rem; line-height: 1.6; color: var(--colors-body); margin-bottom: 0;">
-            A rigorous comparative analysis of two foundational computational neuroscience models — the biophysically detailed Hodgkin-Huxley model and the computationally efficient Izhikevich model — evaluated for their accuracy in predicting high-fidelity neural spike trains across varied stimulation conditions.
+            A rigorous comparative analysis of two foundational computational neuroscience models: the biophysically detailed Hodgkin-Huxley model and the computationally efficient Izhikevich model, evaluated for their accuracy in predicting high-fidelity neural spike trains across varied stimulation conditions.
           </p>
         </div>
 
-        <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: var(--spacing-md);">
+        <div class="publication-tags">
           <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">#ComputationalNeuroscience</span>
           <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">#Hodgkin-Huxley</span>
           <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">#Izhikevich</span>
@@ -698,26 +673,30 @@ gh-pages -d dist
       });
     });
 
-    // Interactive Experience Switcher (IDE Style)
-    const sidebarItems = document.querySelectorAll('.sidebar-item');
-    const contentPanes = document.querySelectorAll('.dev-console-content');
+    // Accordion: Experience Cards
+    document.querySelectorAll('.exp-card-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const expId = header.getAttribute('data-exp');
+        const body = document.getElementById('exp-' + expId);
+        const isOpen = body.classList.contains('open');
 
-    sidebarItems.forEach(item => {
-      item.addEventListener('click', () => {
-        // Toggle Sidebar Button Active State
-        sidebarItems.forEach(sib => {
-          sib.classList.remove('active');
-          sib.setAttribute('aria-selected', 'false');
+        // Close all
+        document.querySelectorAll('.exp-card-body').forEach(b => b.classList.remove('open'));
+        document.querySelectorAll('.exp-card-header').forEach(h => {
+          h.setAttribute('aria-expanded', 'false');
+          h.closest('.exp-card').classList.remove('exp-card-active');
         });
-        item.classList.add('active');
-        item.setAttribute('aria-selected', 'true');
 
-        // Toggle Content Tab Active State
-        const targetPaneId = item.getAttribute('data-pane');
-        contentPanes.forEach(pane => {
-          pane.classList.remove('active');
-        });
-        document.getElementById(targetPaneId).classList.add('active');
+        // Open clicked if it was closed
+        if (!isOpen) {
+          body.classList.add('open');
+          header.setAttribute('aria-expanded', 'true');
+          header.closest('.exp-card').classList.add('exp-card-active');
+        }
+      });
+
+      header.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); header.click(); }
       });
     });
 
