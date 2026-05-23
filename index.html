@@ -61,6 +61,7 @@
         <a href="#about" class="nav-link">About</a>
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#projects" class="nav-link">Projects</a>
+        <a href="#publications" class="nav-link">Publications</a>
         <a href="#honors" class="nav-link">Honors</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
@@ -82,6 +83,7 @@
     <a href="#about" class="nav-link" role="menuitem">About</a>
     <a href="#experience" class="nav-link" role="menuitem">Experience</a>
     <a href="#projects" class="nav-link" role="menuitem">Projects</a>
+    <a href="#publications" class="nav-link" role="menuitem">Publications</a>
     <a href="#honors" class="nav-link" role="menuitem">Honors</a>
     <a href="#contact" class="nav-link" role="menuitem">Contact</a>
   </div>
@@ -226,121 +228,122 @@
         <div class="dev-console-sidebar" role="tablist" aria-label="Experiences">
           <div class="sidebar-title">workspace</div>
           
-          <button class="sidebar-item active" role="tab" aria-selected="true" aria-controls="pane-tencent" data-pane="pane-tencent">
+          <button class="sidebar-item active" role="tab" aria-selected="true" aria-controls="pane-fossmec" data-pane="pane-fossmec">
+            <i data-lucide="file-text" style="color: #60a5fa;"></i>
+            fossmec.md
+          </button>
+
+          <button class="sidebar-item" role="tab" aria-selected="false" aria-controls="pane-tencent" data-pane="pane-tencent">
             <i data-lucide="file-code" style="color: var(--colors-accent-teal);"></i>
             tencent_lab.py
           </button>
           
-          <button class="sidebar-item" role="tab" aria-selected="false" aria-controls="pane-fossmec" data-pane="pane-fossmec">
-            <i data-lucide="file-text" style="color: #60a5fa;"></i>
-            fossmec.md
-          </button>
-          
-          <button class="sidebar-item" role="tab" aria-selected="false" aria-controls="pane-examfiles" data-pane="pane-examfiles">
+          <button class="sidebar-item" role="tab" aria-selected="false" aria-controls="pane-ton" data-pane="pane-ton">
             <i data-lucide="globe" style="color: var(--colors-accent-amber);"></i>
-            examfiles.json
+            ton_marketplace.js
           </button>
         </div>
 
-        <!-- Editor Contents (Redesigned with Split Pane for visual density) -->
-        <div class="dev-console-content active" id="pane-tencent" role="tabpanel">
+        <!-- Editor Contents -->
+        <div class="dev-console-content active" id="pane-fossmec" role="tabpanel">
           <div class="console-pane-header">
-            <h3>Tencent AI Lab</h3>
-            <span class="console-pane-meta">Dec 2024 to May 2025</span>
+            <h3>FOSSMEC — Executive</h3>
+            <span class="console-pane-meta">Jun 2025 – Present · Kochi, On-site</span>
           </div>
           <div class="experience-split">
             <div class="experience-details">
-              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--colors-accent-teal); margin-bottom: 12px; white-space: pre-wrap; word-break: break-word;">
-                class ResearchIntern(RemoteRole):
-              </div>
-              <p>
-                Conducted research in Machine Learning, NLP, and Large Language Models (LLMs) for open-source AI initiatives. Collaborated on the optimization of deep neural networks and rigorous performance evaluation.
-              </p>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #60a5fa; margin-bottom: 12px; white-space: pre-wrap; word-break: break-word;"># Executive · Free & Open Source Software Cell, MEC</div>
+              <p>Leading workshops, mentoring students, and driving open-source culture at Model Engineering College.</p>
               <ul>
-                <li>Researched neural net parameters optimization, accelerating convergence speeds.</li>
-                <li>Collaborated on open source model benchmarking pipelines to track weights performance.</li>
-                <li>Designed validation tools to identify behavioral regression patterns across iterations.</li>
+                <li>Served as Lead Instructor for <strong>Let's Git It</strong> — a 2-day workshop on Git workflows, branching strategies, and portfolio hosting via GitHub Pages.</li>
+                <li>Assisted in the <strong>Linux Installation Workshop</strong>, guiding students through dual-boot and VirtualBox setups.</li>
+                <li>Handled registration and marketing for <strong>Code-A-Pookalam 2025</strong>.</li>
+                <li>Assisted in organizing <strong>Build It Up</strong> — a 2-day hands-on DBMS workshop using Supabase, Express.js, and Next.js.</li>
+                <li>Volunteered in marketing and coordination for <strong>Devsprint</strong>, a one-day open-source sprint.</li>
+                <li>Co-led interview and screening for first-year applicants, onboarding the next generation of FOSSMEC trainees.</li>
+              </ul>
+            </div>
+            <div class="experience-code-pane">
+<span class="code-comment">#!/bin/bash</span>
+<span class="code-comment"># lets_git_it_workshop.sh</span>
+git init portfolio
+<span class="code-keyword">cd</span> portfolio
+git checkout -b <span class="code-string">main</span>
+git add .
+git commit -m <span class="code-string">"Initial commit"</span>
+git remote add origin \
+  https://github.com/student/portfolio
+git push -u origin <span class="code-string">main</span>
+<span class="code-comment"># Deploy to GitHub Pages</span>
+gh-pages -d dist
+<span class="code-keyword">echo</span> <span class="code-string">"Portfolio live!"</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dev-console-content" id="pane-tencent" role="tabpanel">
+          <div class="console-pane-header">
+            <h3>Tencent UK — Research Intern</h3>
+            <span class="console-pane-meta">Dec 2024 – May 2025 · Remote</span>
+          </div>
+          <div class="experience-split">
+            <div class="experience-details">
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--colors-accent-teal); margin-bottom: 12px; white-space: pre-wrap; word-break: break-word;">class ResearchIntern(TencentAILab):</div>
+              <p>Worked at Tencent AI Lab on ML, NLP, LLM research and open-source AI model development.</p>
+              <ul>
+                <li>Researched and implemented <strong>Computer Vision architectures</strong> for 3D reconstruction.</li>
+                <li>Fine-tuned and aligned <strong>Large Language Models (LLMs)</strong> to improve mathematical reasoning capabilities.</li>
+                <li>Studied optimization techniques for deep neural networks.</li>
+                <li>Collaborated with senior research scientists to draft and submit papers to <strong>CVPR</strong> and <strong>NeurIPS</strong>.</li>
               </ul>
             </div>
             <div class="experience-code-pane">
 <span class="code-comment"># model_hyperparams.yaml</span>
 <span class="code-keyword">model</span>:
-  type: "LLM-Benchmark"
+  type: <span class="code-string">"LLM-Math-Align"</span>
   layers: 32
   heads: 32
   dim: 4096
 <span class="code-keyword">training</span>:
-  optimizer: "AdamW"
+  optimizer: <span class="code-string">"AdamW"</span>
   lr: 1.5e-4
   batch_size: 512
   epochs: 20
-  precision: "bfloat16"
+  precision: <span class="code-string">"bfloat16"</span>
+<span class="code-keyword">target</span>:
+  venue: <span class="code-string">"CVPR / NeurIPS"</span>
             </div>
           </div>
         </div>
 
-        <div class="dev-console-content" id="pane-fossmec" role="tabpanel">
+        <div class="dev-console-content" id="pane-ton" role="tabpanel">
           <div class="console-pane-header">
-            <h3>FOSSMEC</h3>
-            <span class="console-pane-meta">Jun 2025 to Present</span>
+            <h3>TON Marketplace — Web Developer</h3>
+            <span class="console-pane-meta">Jan 2023 – Jan 2024 · Remote</span>
           </div>
           <div class="experience-split">
             <div class="experience-details">
-              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #60a5fa; margin-bottom: 12px; white-space: pre-wrap; word-break: break-word;">
-                # Executive Member at Free & Open Source Software Cell, MEC
-              </div>
-              <p>
-                Leading academic communities, teaching Unix methodologies, and organizing tech workshops to build open-source engineering standards.
-              </p>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--colors-accent-amber); margin-bottom: 12px; white-space: pre-wrap; word-break: break-word;">// Web Developer · Toronto, Canada · Remote</div>
+              <p>Developed the website for a decentralized marketplace built on the TON blockchain.</p>
               <ul>
-                <li>Mentored 100+ students in Linux fundamentals, CLI operations, and shell scripting.</li>
-                <li>Led technical logistics for "Code-A-Pookalam" hackathon and "DevSprint" coding events.</li>
-                <li>Organized the "Build It Up" DBMS project workshop, teaching web deployment using Supabase and React.</li>
+                <li>Built and deployed the full frontend for a <strong>TON blockchain-based</strong> decentralised marketplace.</li>
+                <li>Integrated wallet connection flows and on-chain transaction UI components.</li>
+                <li>Worked remotely with a distributed team across Canada and Europe.</li>
               </ul>
             </div>
             <div class="experience-code-pane">
-<span class="code-comment">#!/bin/bash</span>
-<span class="code-comment"># setup_workshop.sh</span>
-<span class="code-keyword">echo</span> <span class="code-string">"Deploying React App..."</span>
-npm run build
-<span class="code-keyword">echo</span> <span class="code-string">"Initializing database..."</span>
-supabase db push
-<span class="code-keyword">echo</span> <span class="code-string">"FOSSMEC Workshop Ready!"</span>
-            </div>
-          </div>
-        </div>
+<span class="code-comment">// connect_wallet.js</span>
+<span class="code-keyword">import</span> TonConnect <span class="code-keyword">from</span> <span class="code-string">'@tonconnect/sdk'</span>;
 
-        <div class="dev-console-content" id="pane-examfiles" role="tabpanel">
-          <div class="console-pane-header">
-            <h3>EXAM FILES</h3>
-            <span class="console-pane-meta">May 2021 to Dec 2022</span>
-          </div>
-          <div class="experience-split">
-            <div class="experience-details">
-              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--colors-accent-amber); margin-bottom: 12px; white-space: pre-wrap; word-break: break-word;">
-                { "role": "Project Manager", "market": "Global Educational Platform" }
-              </div>
-              <p>
-                Directed a digital platform providing educational study resources and managed user operations across several international demographics.
-              </p>
-              <ul>
-                <li>Scaled the platform reach into international student markets including China, Russia, and Azerbaijan.</li>
-                <li>Directed a cross-functional marketing and technical support team of 8 members.</li>
-                <li>Engineered search bot optimization and social media automation strategies to increase retention rates.</li>
-              </ul>
-            </div>
-            <div class="experience-code-pane">
-<span class="code-keyword">{</span>
-  <span class="code-string">"platform"</span>: <span class="code-string">"ExamFiles"</span>,
-  <span class="code-string">"active_countries"</span>: [
-    <span class="code-string">"China"</span>, <span class="code-string">"Russia"</span>, 
-    <span class="code-string">"Azerbaijan"</span>
-  ],
-  <span class="code-string">"analytics"</span>: {
-    <span class="code-string">"active_users"</span>: 142000,
-    <span class="code-string">"growth_yoy"</span>: <span class="code-string">"43%"</span>
-  }
-<span class="code-keyword">}</span>
+<span class="code-keyword">const</span> connector = <span class="code-keyword">new</span> <span class="code-function">TonConnect</span>({
+  manifestUrl: <span class="code-string">'/tonconnect-manifest.json'</span>
+});
+
+<span class="code-keyword">await</span> connector.<span class="code-function">connect</span>({
+  universalLink: WALLET_LINK,
+  bridgeUrl: BRIDGE_URL
+});
+<span class="code-comment">// Wallet connected ✓</span>
             </div>
           </div>
         </div>
@@ -380,6 +383,9 @@ supabase db push
               <span>#MNE-Python</span>
               <span>#JAX</span>
             </div>
+            <a href="https://github.com/dearabhin/Decoding-Handwriting-From-EEG" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
+              GitHub <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
+            </a>
           </div>
         </div>
 
@@ -411,6 +417,9 @@ supabase db push
               <span>#ESP32S3</span>
               <span>#EdgeImpulse</span>
             </div>
+            <a href="https://github.com/dearabhin/TinyML-Object-Detector" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
+              GitHub <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
+            </a>
           </div>
         </div>
 
@@ -443,6 +452,9 @@ supabase db push
               <span>#NLP</span>
               <span>#Transformers</span>
             </div>
+            <a href="https://github.com/dearabhin/LipiPala" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
+              GitHub <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
+            </a>
           </div>
         </div>
 
@@ -473,10 +485,51 @@ supabase db push
               <span>#JavaScript</span>
               <span>#HTML5Canvas</span>
             </div>
-            <a href="http://remove-watermark.mlaas.in" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
+            <a href="https://removewatermark.dev" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
               Live Demo <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
             </a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section id="publications" style="background-color: var(--colors-surface-soft);">
+    <div class="container">
+      <h2 class="display-lg" style="margin-bottom: 8px;">Publications</h2>
+      <p style="color: var(--colors-muted); margin-bottom: 32px; max-width: 600px;">
+        Research preprints and academic contributions in computational neuroscience and AI.
+      </p>
+
+      <div class="publication-card">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: var(--spacing-lg); flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 0;">
+            <div style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm); flex-wrap: wrap;">
+              <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">Preprint</span>
+              <span style="font-size: 0.78rem; color: var(--colors-muted); font-family: 'Inter', sans-serif;">Mar 30, 2026</span>
+            </div>
+            <h3 class="display-sm" style="margin-bottom: var(--spacing-sm); line-height: 1.25;">A Comparative Study of Hodgkin-Huxley and Izhikevich Models for High-Fidelity Neural Spike Prediction</h3>
+            <p style="font-size: 0.88rem; color: var(--colors-muted); margin-bottom: 0;">
+              Abhin Krishna &middot; Computational Neuroscience &middot; Neural Modelling
+            </p>
+          </div>
+          <a href="https://dearabhin.github.io/neural-model-comparison/docs/final_report.pdf" target="_blank" rel="noopener" class="btn btn-secondary" style="flex-shrink: 0; white-space: nowrap;">
+            <i data-lucide="file-text" style="width: 14px; height: 14px;"></i> Read PDF
+          </a>
+        </div>
+
+        <div class="publication-abstract">
+          <p style="font-size: 0.88rem; line-height: 1.6; color: var(--colors-body); margin-bottom: 0;">
+            A rigorous comparative analysis of two foundational computational neuroscience models — the biophysically detailed Hodgkin-Huxley model and the computationally efficient Izhikevich model — evaluated for their accuracy in predicting high-fidelity neural spike trains across varied stimulation conditions.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: var(--spacing-md);">
+          <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">#ComputationalNeuroscience</span>
+          <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">#Hodgkin-Huxley</span>
+          <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">#Izhikevich</span>
+          <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">#NeuralSpike</span>
         </div>
       </div>
     </div>
@@ -596,6 +649,7 @@ supabase db push
         <a href="#about" class="footer-nav-link">About</a>
         <a href="#experience" class="footer-nav-link">Experience</a>
         <a href="#projects" class="footer-nav-link">Projects</a>
+        <a href="#publications" class="footer-nav-link">Publications</a>
         <a href="#honors" class="footer-nav-link">Honors</a>
       </div>
 

@@ -644,6 +644,25 @@ header.hero-band > .container {
   min-height: 160px;
 }
 
+/* Publication Card */
+.publication-card {
+  background-color: var(--colors-canvas);
+  border-radius: var(--rounded-lg);
+  padding: var(--spacing-xl);
+  border: 1px solid var(--colors-hairline);
+  transition: box-shadow var(--transition-normal);
+}
+
+.publication-card:hover {
+  box-shadow: 0 4px 16px rgba(20, 20, 19, 0.07);
+}
+
+.publication-abstract {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--colors-hairline-soft);
+}
+
 /* Projects Showcase */
 .model-comparison-card {
   background-color: var(--colors-canvas);
