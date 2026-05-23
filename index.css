@@ -349,12 +349,22 @@ section:last-of-type {
 
 /* Hero Section Grid - Rebalanced columns */
 .hero-band {
-  padding-top: 104px; /* Reduced top vertical gap */
+  padding-top: 104px;
   padding-bottom: var(--spacing-section);
+}
+
+header.hero-band {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+header.hero-band > .container {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: var(--spacing-xxl);
   align-items: center;
+  padding-top: 104px;
+  padding-bottom: var(--spacing-section);
 }
 
 .hero-content h1 {
@@ -985,22 +995,52 @@ section:last-of-type {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
   }
+
+  header.hero-band > .container {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+  }
 }
 
 @media (max-width: 768px) {
   section {
-    padding: 40px 0; /* Reduced padding on mobile */
+    padding: 40px 0;
   }
 
   .container {
-    padding: 0 var(--spacing-md); /* Smaller gutters on mobile */
+    padding: 0 var(--spacing-md);
   }
 
-  .hero-band {
+  header.hero-band > .container {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
     padding-top: 84px;
     padding-bottom: 40px;
+  }
+
+  .hero-illustration {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .code-window-card {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .code-window-body {
+    max-height: 260px;
+    overflow-x: auto;
+  }
+
+  .hero-cta-group {
+    flex-wrap: wrap;
+  }
+
+  .hero-cta-group .btn {
+    flex: 1 1 auto;
+    min-width: 140px;
   }
   
   .dev-console-layout {
@@ -1054,7 +1094,7 @@ section:last-of-type {
   }
 
   .experience-code-pane {
-    display: none; /* Hide secondary code block on mobile to keep timeline compact */
+    display: none;
   }
   
   .grid-2, .grid-3 {
@@ -1062,7 +1102,21 @@ section:last-of-type {
   }
   
   .honors-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cta-band-dark {
     grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .contact-button-stack {
+    width: 100%;
+  }
+
+  .contact-btn-item {
+    font-size: 0.82rem;
+    word-break: break-all;
   }
   
   .footer-band .container {
@@ -1076,6 +1130,22 @@ section:last-of-type {
   
   .mobile-nav-toggle {
     display: block;
+  }
+
+  .dev-console-content {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .experience-details {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .experience-details div[style*="white-space: pre-wrap"] {
+    white-space: normal !important;
+    font-size: 11px;
   }
 }
 
@@ -1108,4 +1178,114 @@ section:last-of-type {
 .mobile-nav-menu .nav-link {
   font-size: 1.15rem;
   padding: var(--spacing-xs) 0;
+}
+
+/* Prevent horizontal overflow on all screens */
+img, svg, pre, .code-editor {
+  max-width: 100%;
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .honors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #nav-cta-btn {
+    display: none;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .callout-card-coral {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .cta-band-dark {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .dev-console-sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: var(--spacing-sm);
+    border-right: none;
+    border-bottom: 1px solid rgba(250, 249, 245, 0.05);
+    scrollbar-width: none;
+  }
+
+  .dev-console-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar-title {
+    display: none;
+  }
+
+  .sidebar-item {
+    display: inline-flex;
+    padding: 6px var(--spacing-sm);
+    width: auto;
+    white-space: nowrap;
+  }
+
+  .sidebar-item.active {
+    border-left: none;
+    border-bottom: 2px solid var(--colors-accent-teal);
+    padding-left: var(--spacing-sm);
+    padding-bottom: 4px;
+  }
+
+  .dev-console-layout {
+    flex-direction: column;
+    display: flex;
+  }
+}
+
+/* Fix for the experience dev-console layout on mobile - always stack vertically */
+@media (max-width: 768px) {
+  .dev-console-layout {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .dev-console-sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: var(--spacing-sm);
+    border-right: none;
+    border-bottom: 1px solid rgba(250, 249, 245, 0.05);
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .dev-console-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar-title {
+    display: none;
+  }
+
+  .sidebar-item {
+    display: inline-flex;
+    padding: 6px var(--spacing-sm);
+    width: auto;
+  }
+
+  .sidebar-item.active {
+    border-left: none;
+    border-bottom: 2px solid var(--colors-accent-teal);
+    padding-left: var(--spacing-sm);
+    padding-bottom: 4px;
+  }
 }
