@@ -1004,7 +1004,17 @@ section:last-of-type {
   }
   
   .dev-console-layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .dev-console-content {
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+    overflow-x: hidden;
   }
   
   .dev-console-sidebar {
