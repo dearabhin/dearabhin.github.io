@@ -851,6 +851,15 @@ header.hero-band > .container {
   transition: background-color var(--transition-fast), border-color var(--transition-fast);
 }
 
+div.contact-btn-item {
+  cursor: default;
+}
+
+div.contact-btn-item:hover {
+  background-color: var(--colors-surface-dark-soft);
+  border-color: rgba(250, 249, 245, 0.06);
+}
+
 .contact-btn-item:hover {
   background-color: var(--colors-surface-dark-elevated);
   border-color: rgba(250, 249, 245, 0.15);
