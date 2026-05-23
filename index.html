@@ -58,7 +58,7 @@
   <!-- Navigation -->
   <nav class="top-nav" aria-label="Main Navigation">
     <div class="container">
-      <a href="#" class="nav-logo" id="logo-link">
+      <a href="./" class="nav-logo" id="logo-link">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="12.1" y1="11.9" x2="18.9" y2="8.2" />
           <line x1="12.1" y1="12.1" x2="20.3" y2="12.9" />
@@ -622,7 +622,7 @@
   <footer class="footer-band">
     <div class="container">
       <div class="footer-brand">
-        <a href="#" class="footer-logo">
+        <a href="./" class="footer-logo">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="12.1" y1="11.9" x2="18.9" y2="8.2" />
             <line x1="12.1" y1="12.1" x2="20.3" y2="12.9" />
@@ -766,6 +766,22 @@
       logIndex++;
       setTimeout(renderTerminalLogs, log.delay);
     }
+
+    // Smooth scroll to top and clear hash on logo click
+    document.querySelectorAll('.nav-logo, .footer-logo').forEach(logo => {
+      logo.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        if (history.pushState) {
+          history.pushState(null, null, window.location.pathname + window.location.search);
+        } else {
+          window.location.hash = '';
+        }
+      });
+    });
 
     // Start training simulation 1 second after page load
     window.addEventListener('DOMContentLoaded', () => {
