@@ -1,438 +1,649 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhin Krishna | Academic Portfolio</title>
-    
-    <!-- Fonts: JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Abhin Krishna | Brain-Computer Interfaces & Neurotech Researcher</title>
+  <meta name="description" content="Academic and professional portfolio of Abhin Krishna, student researcher in Brain-Computer Interfaces (BCI), Neurotechnology, Deep Learning, and Web Development at Govt. Model Engineering College, Kochi.">
+  <meta name="keywords" content="Abhin Krishna, BCI, Brain-Computer Interface, Neurotechnology, Deep Learning, JAX, EEG, MEC Kochi, Model Engineering College, AI, Machine Learning, Tencent AI Lab">
+  <meta name="author" content="Abhin Krishna">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dearabhin.github.io">
+  <meta property="og:title" content="Abhin Krishna | BCI & AI Researcher">
+  <meta property="og:description" content="Exploring the intersection of human and artificial intelligence. Deep learning models, neural decoding, and open-source AI projects.">
+  <meta property="og:image" content="profile.jpg">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        tg: {
-                            blue: '#3390EC',
-                            darkblue: '#2c7bc9',
-                            bg: '#F4F4F5',
-                            card: '#FFFFFF',
-                            text: '#000000',
-                            subtext: '#707579',
-                            border: '#E4E4E5'
-                        }
-                    },
-                    fontFamily: {
-                        mono: ['"JetBrains Mono"', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://dearabhin.github.io">
+  <meta property="twitter:title" content="Abhin Krishna | BCI & AI Researcher">
+  <meta property="twitter:description" content="Exploring the intersection of human and artificial intelligence. Deep learning models, neural decoding, and open-source AI projects.">
+  <meta property="twitter:image" content="profile.jpg">
 
-    <style>
-        body {
-            font-family: 'JetBrains Mono', monospace;
-            background-color: theme('colors.tg.bg');
-            color: theme('colors.tg.text');
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+  <!-- Google Fonts: Cormorant Garamond (Slab Serif), Inter (Sans-Serif), JetBrains Mono (Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="index.css">
 
-        /* Telegram-like scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-
-        /* Smooth section transitions */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .tg-card {
-            background-color: theme('colors.tg.card');
-            border-radius: 16px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        .tg-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .tg-button {
-            background-color: theme('colors.tg.blue');
-            color: white;
-            border-radius: 9999px; /* Fully rounded like Telegram buttons */
-            transition: background-color 0.2s ease;
-        }
-
-        .tg-button:hover {
-            background-color: theme('colors.tg.darkblue');
-        }
-
-        .tg-button-outline {
-            color: theme('colors.tg.blue');
-            background-color: transparent;
-            border-radius: 9999px;
-            transition: background-color 0.2s ease;
-        }
-
-        .tg-button-outline:hover {
-            background-color: rgba(51, 144, 236, 0.1);
-        }
-    </style>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="text-tg-text leading-relaxed">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-tg-border">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <a href="#" class="font-bold text-lg tracking-tight flex items-center gap-2">
-                    <img src="profile.jpg" alt="Abhin Krishna" class="w-8 h-8 rounded-full object-cover shadow-sm border border-gray-100">
-                    Abhin Krishna
-                </a>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-6 text-sm font-medium text-tg-subtext">
-                    <a href="#about" class="hover:text-tg-blue transition-colors">About</a>
-                    <a href="#experience" class="hover:text-tg-blue transition-colors">Experience</a>
-                    <a href="#research" class="hover:text-tg-blue transition-colors">Research & Projects</a>
-                    <a href="#contact" class="hover:text-tg-blue transition-colors">Contact</a>
-                </div>
+  <!-- Navigation -->
+  <nav class="top-nav" aria-label="Main Navigation">
+    <div class="container">
+      <a href="#" class="nav-logo" id="logo-link">
+        <!-- 4-spoke radial spike glyph prefix -->
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 18px; height: 18px;">
+          <path d="M12,2 C12.5,8 16,11.5 22,12 C16,12.5 12.5,16 12,22 C11.5,16 8,12.5 2,12 C8,11.5 11.5,8 12,2 Z" />
+        </svg>
+        Abhin Krishna
+      </a>
+      
+      <!-- Desktop Links -->
+      <div class="nav-links" role="navigation">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#honors" class="nav-link">Honors</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
 
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden text-tg-text focus:outline-none" id="mobile-menu-btn">
-                    <i data-lucide="menu"></i>
-                </button>
-            </div>
+      <!-- Nav CTA -->
+      <div class="nav-cta">
+        <a href="https://github.com/dearabhin" target="_blank" rel="noopener" class="btn btn-primary" id="nav-cta-btn">
+          <i data-lucide="github" style="width: 16px; height: 16px;"></i> GitHub
+        </a>
+        <button class="mobile-nav-toggle" id="mobile-menu-btn" aria-label="Toggle Mobile Menu" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Dropdown Nav Menu -->
+  <div class="mobile-nav-menu" id="mobile-nav-menu" role="menu">
+    <a href="#about" class="nav-link" role="menuitem">About</a>
+    <a href="#experience" class="nav-link" role="menuitem">Experience</a>
+    <a href="#projects" class="nav-link" role="menuitem">Projects</a>
+    <a href="#honors" class="nav-link" role="menuitem">Honors</a>
+    <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero-band" id="hero">
+    <div class="container hero-band">
+      <div class="hero-content">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+          <img src="profile.jpg" alt="Abhin Krishna profile portrait" style="width: 56px; height: 56px; border-radius: var(--rounded-full); object-fit: cover; border: 1px solid var(--colors-hairline);">
+          <div>
+            <div class="badge-coral">BCI & Neurotech</div>
+          </div>
         </div>
+        <h1 class="display-xl">Abhin Krishna</h1>
+        <p class="hero-subtitle">Exploring the intersection of human and artificial intelligence</p>
+        <p class="hero-lead">
+          Electronics & Biomedical Engineering student at MEC, Kochi. Dedicated to advancing neural decoding, computational neuroscience, and AI-driven medical systems.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#contact" class="btn btn-primary">
+            <i data-lucide="send" style="width: 15px; height: 15px;"></i> Get in Touch
+          </a>
+          <a href="https://github.com/dearabhin" target="_blank" rel="noopener" class="btn btn-secondary">
+            <i data-lucide="external-link" style="width: 15px; height: 15px;"></i> View GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Code Editor Mockup -->
+      <div class="hero-illustration">
+        <div class="code-window-card">
+          <div class="code-window-header">
+            <div class="code-window-dots">
+              <div class="code-window-dot red"></div>
+              <div class="code-window-dot yellow"></div>
+              <div class="code-window-dot green"></div>
+            </div>
+            <div class="code-window-title">eeg_classifier.py</div>
+            <div style="width: 46px;"></div>
+          </div>
+          <div class="code-window-body surface-dark-scroll">
+            <pre class="code-editor"><code><span class="code-keyword">import</span> jax.numpy <span class="code-keyword">as</span> jnp
+<span class="code-keyword">from</span> mne.preprocessing <span class="code-keyword">import</span> ICA
+<span class="code-keyword">from</span> tensorflow.keras <span class="code-keyword">import</span> layers
+
+<span class="code-decorator">@jax.jit</span>
+<span class="code-keyword">def</span> <span class="code-function">preprocess_signals</span>(signals):
+    <span class="code-comment"># Apply high-pass filter and ICA artifact removal</span>
+    ica = ICA(n_components=20, random_state=42)
+    <span class="code-keyword">return</span> ica.fit_and_clean(signals)
+
+<span class="code-keyword">def</span> <span class="code-function">eegnet_classify</span>(eeg_data):
+    <span class="code-comment"># Deep CNN for 4-class motor imagery decoding</span>
+    model = Sequential([
+        layers.Conv2D(8, (1, 64), padding=<span class="code-string">'same'</span>),
+        layers.BatchNormalization(),
+        layers.DepthwiseConv2D((64, 1), depth_multiplier=2),
+        layers.Activation(<span class="code-string">'elu'</span>),
+        layers.Dense(4, activation=<span class="code-string">'softmax'</span>)
+    ])
+    <span class="code-keyword">return</span> model</code></pre>
+            <div class="code-console">
+              <span class="console-prompt">abhin@mec-neuro:~$</span> python train.py
+              <div id="console-output" style="margin-top: 6px; min-height: 90px; color: var(--colors-accent-teal);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section (Surface Card Alternate Background) -->
+  <section id="about" style="background-color: var(--colors-surface-soft);">
+    <div class="container">
+      <h2 class="display-lg" style="margin-bottom: 48px;">About Me</h2>
+      
+      <div class="grid-2">
+        <div>
+          <p style="font-size: 1.125rem; line-height: 1.6; color: var(--colors-body-strong); margin-bottom: 24px;">
+            I am pursuing my B.Tech in Electronics and Biomedical Engineering at Government Model Engineering College, Thrikkakara (Sept 2024 to Present).
+          </p>
+          <p style="margin-bottom: 20px;">
+            My core scientific interest is bridging the gap between biological brains and computational intelligence. I focus on developing algorithms for Brain-Computer Interfaces (BCI) and extracting meaningful features from noisy neural data.
+          </p>
+          <p style="margin-bottom: 20px;">
+            Driven by curiosity and an entrepreneurial mindset, I enjoy exploring startup ideas, hardware prototyping, and building open-source projects. I actively build my foundations in engineering mathematics, machine learning frameworks, and embedded engineering.
+          </p>
+        </div>
+
+        <!-- Technical Arsenal Card -->
+        <div class="feature-card" style="background-color: var(--colors-canvas);">
+          <h3 style="font-family: 'Inter', sans-serif; font-size: 1.125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--colors-primary); margin-bottom: 24px;">Technical Arsenal</h3>
+          
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div>
+              <div style="font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 1px; color: var(--colors-muted); margin-bottom: 8px; font-weight: 600;">AI & Neurotech</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span class="badge-coral">JAX</span>
+                <span class="badge-pill">TensorFlow</span>
+                <span class="badge-pill">MNE-Python (EEG)</span>
+                <span class="badge-pill">Edge Impulse</span>
+                <span class="badge-pill">OpenCV</span>
+              </div>
+            </div>
+            
+            <div>
+              <div style="font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 1px; color: var(--colors-muted); margin-bottom: 8px; font-weight: 600;">Languages & Hardware</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span class="badge-coral">Python</span>
+                <span class="badge-pill">C / C++</span>
+                <span class="badge-pill">JavaScript</span>
+                <span class="badge-pill">ESP32S3</span>
+                <span class="badge-pill">Linux / Shell</span>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 1px; color: var(--colors-muted); margin-bottom: 8px; font-weight: 600;">Web Stack</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span class="badge-pill">React / Next.js</span>
+                <span class="badge-pill">Supabase</span>
+                <span class="badge-pill">Three.js</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section (Dark Navy Product Surface Background) -->
+  <section id="experience" style="background-color: var(--colors-surface-dark); border-bottom: none;">
+    <div class="container">
+      <h2 class="display-lg" style="color: var(--colors-on-dark); margin-bottom: 12px;">Professional Experience</h2>
+      <p style="color: var(--colors-on-dark-soft); margin-bottom: 48px; max-width: 600px;">
+        An interactive directory of my engineering milestones, research internships, and leadership roles.
+      </p>
+
+      <div class="dev-console-layout">
+        <!-- Interactive Code Sidebar -->
+        <div class="dev-console-sidebar" role="tablist" aria-label="Experiences">
+          <div class="sidebar-title">workspace</div>
+          
+          <button class="sidebar-item active" role="tab" aria-selected="true" aria-controls="pane-tencent" data-pane="pane-tencent">
+            <i data-lucide="file-code" style="color: var(--colors-accent-teal);"></i>
+            tencent_lab.py
+          </button>
+          
+          <button class="sidebar-item" role="tab" aria-selected="false" aria-controls="pane-fossmec" data-pane="pane-fossmec">
+            <i data-lucide="file-text" style="color: #60a5fa;"></i>
+            fossmec.md
+          </button>
+          
+          <button class="sidebar-item" role="tab" aria-selected="false" aria-controls="pane-examfiles" data-pane="pane-examfiles">
+            <i data-lucide="globe" style="color: var(--colors-accent-amber);"></i>
+            examfiles.json
+          </button>
+        </div>
+
+        <!-- Editor Contents -->
+        <div class="dev-console-content active" id="pane-tencent" role="tabpanel">
+          <div class="console-pane-header">
+            <h3>Tencent AI Lab</h3>
+            <span class="console-pane-meta">Dec 2024 to May 2025</span>
+          </div>
+          <div class="console-pane-body">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--colors-accent-teal); margin-bottom: 16px;">
+              class ResearchIntern(RemoteRole):
+            </div>
+            <p>
+              Conducted research in Machine Learning, NLP, and Large Language Models (LLMs) for open-source AI initiatives. Collaborated on the optimization of deep neural networks and rigorous performance evaluation.
+            </p>
+            <ul>
+              <li>Researched neural net parameters optimization, accelerating convergence speeds.</li>
+              <li>Collaborated on open source model benchmarking pipelines to track and evaluate weights performance.</li>
+              <li>Designed validation tools to identify behavioral regression patterns across iterations.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="dev-console-content" id="pane-fossmec" role="tabpanel">
+          <div class="console-pane-header">
+            <h3>FOSSMEC</h3>
+            <span class="console-pane-meta">Jun 2025 to Present</span>
+          </div>
+          <div class="console-pane-body">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #60a5fa; margin-bottom: 16px;">
+              # Executive Member at Free & Open Source Software Cell, MEC
+            </div>
+            <p>
+              Leading academic communities, teaching Unix methodologies, and organizing tech workshops to build open-source engineering standards.
+            </p>
+            <ul>
+              <li>Mentored 100+ students in Linux fundamentals, CLI operations, and shell scripting.</li>
+              <li>Led technical logistics for "Code-A-Pookalam" hackathon and "DevSprint" coding events.</li>
+              <li>Organized the "Build It Up" DBMS project workshop, teaching web deployment using Supabase and React.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="dev-console-content" id="pane-examfiles" role="tabpanel">
+          <div class="console-pane-header">
+            <h3>EXAM FILES</h3>
+            <span class="console-pane-meta">May 2021 to Dec 2022</span>
+          </div>
+          <div class="console-pane-body">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--colors-accent-amber); margin-bottom: 16px;">
+              { "role": "Project Manager", "market": "Global Educational Platform" }
+            </div>
+            <p>
+              Directed a digital platform providing educational study resources and managed user operations across several international demographics.
+            </p>
+            <ul>
+              <li>Scaled the platform reach into international student markets including China, Russia, and Azerbaijan.</li>
+              <li>Directed a cross-functional marketing and technical support team of 8 members.</li>
+              <li>Engineered search bot optimization and social media automation strategies to increase retention rates.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research & Projects Section (Cream Canvas Background) -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="display-lg" style="margin-bottom: 12px;">Research & Projects</h2>
+      <p style="color: var(--colors-muted); margin-bottom: 48px; max-width: 600px;">
+        Open-source contributions and hardware prototypes combining digital signal processing, Edge AI, and web technology.
+      </p>
+
+      <div class="grid-2">
+        <!-- Project 1 -->
+        <div class="model-comparison-card">
+          <div class="card-category">Deep Learning & BCI</div>
+          <h3>EEG Motor Imagery Classifier</h3>
+          <p>
+            Engineered an end-to-end pipeline to classify 4-class motor imagery (hand/foot movement intents) using the EEGNet architecture. Implemented MNE-Python for ICA-based artifact removal, establishing critical performance baselines in practical BCI experiments.
+          </p>
+          <div class="visual-line-art">
+            <svg width="100%" height="80" viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="EEG preprocessing signal pipeline chart">
+              <path d="M10,40 L20,20 L30,55 L40,15 L50,65 L60,30 L70,55 L80,25 L90,45 L100,35 L110,40" stroke="var(--colors-muted-soft)" stroke-width="1.5" />
+              <rect x="125" y="20" width="50" height="40" rx="6" fill="var(--colors-surface-card)" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <text x="150" y="44" fill="var(--colors-primary)" font-family="JetBrains Mono" font-size="10" text-anchor="middle">ICA</text>
+              <path d="M110,40 L125,40" stroke="var(--colors-hairline)" stroke-width="1.5" stroke-dasharray="3,3" />
+              <path d="M175,40 L190,40" stroke="var(--colors-hairline)" stroke-width="1.5" stroke-dasharray="3,3" />
+              <path d="M190,40 Q210,15 230,40 T270,40 T310,40 T350,40" stroke="var(--colors-primary)" stroke-width="2" />
+            </svg>
+          </div>
+          <div class="card-footer">
+            <div class="tech-tags">
+              <span>#TensorFlow</span>
+              <span>#MNE-Python</span>
+              <span>#JAX</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="model-comparison-card">
+          <div class="card-category">Edge AI & Hardware</div>
+          <h3>TinyML Object Detection</h3>
+          <p>
+            Deployed a real-time computer vision detection system on an ESP32-S3 Sense board. Optimized a quantized MobileNet V2 model using FOMO algorithm, reaching 7 FPS at 143ms latency for industrial parts sorting.
+          </p>
+          <div class="visual-line-art">
+            <svg width="100%" height="80" viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="FOMO TinyML network performance chart">
+              <rect x="20" y="15" width="50" height="50" rx="8" fill="var(--colors-surface-dark-soft)" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <circle cx="45" cy="40" r="10" fill="var(--colors-surface-dark-elevated)" stroke="var(--colors-accent-teal)" stroke-width="1.5" />
+              <text x="45" y="43" fill="var(--colors-on-dark)" font-family="JetBrains Mono" font-size="8" text-anchor="middle">MCU</text>
+              <path d="M70,40 L95,40" stroke="var(--colors-hairline)" stroke-width="1.5" stroke-dasharray="4,4" />
+              <rect x="105" y="15" width="70" height="50" rx="6" fill="var(--colors-surface-soft)" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <rect x="120" y="27" width="40" height="26" rx="4" fill="none" stroke="var(--colors-primary)" stroke-width="1.5" />
+              <text x="122" y="23" fill="var(--colors-primary)" font-family="JetBrains Mono" font-size="6" font-weight="bold">TARGET 98%</text>
+              <path d="M175,40 L200,40" stroke="var(--colors-hairline)" stroke-width="1.5" stroke-dasharray="4,4" />
+              <rect x="210" y="15" width="130" height="50" rx="8" fill="var(--colors-surface-card)" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <text x="275" y="32" fill="var(--colors-ink)" font-family="JetBrains Mono" font-size="9" text-anchor="middle" font-weight="bold">FOMO Engine</text>
+              <text x="275" y="48" fill="var(--colors-accent-teal)" font-family="JetBrains Mono" font-size="10" text-anchor="middle">7 FPS @ 143ms</text>
+            </svg>
+          </div>
+          <div class="card-footer">
+            <div class="tech-tags">
+              <span>#C++</span>
+              <span>#ESP32S3</span>
+              <span>#EdgeImpulse</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="model-comparison-card">
+          <div class="card-category">Open-source NLP</div>
+          <h3>LipiPala AI</h3>
+          <p>
+            Contributing to an open-source initiative dedicated to preserving and revitalizing endangered Indian languages. Combining NLP, speech recognition, and LLMs to create accessible linguistic analysis tools.
+          </p>
+          <div class="visual-line-art">
+            <svg width="100%" height="80" viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="LipiPala Speech Translation Block">
+              <path d="M20,40 H40 L45,20 L50,60 L55,10 L60,70 L65,30 L70,50 L75,40 H90" stroke="var(--colors-primary)" stroke-width="1.5" />
+              <path d="M95,40 L115,40" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <circle cx="130" cy="40" r="14" fill="var(--colors-surface-card)" stroke="var(--colors-primary)" stroke-width="1.5" />
+              <text x="130" y="44" fill="var(--colors-ink)" font-family="Cormorant Garamond" font-size="14" font-weight="bold" text-anchor="middle">क</text>
+              <path d="M144,40 L180,40" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <rect x="190" y="15" width="80" height="50" rx="8" fill="var(--colors-surface-dark-soft)" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <text x="230" y="36" fill="var(--colors-on-dark)" font-family="JetBrains Mono" font-size="8" text-anchor="middle">Multi-Head</text>
+              <text x="230" y="48" fill="var(--colors-accent-teal)" font-family="JetBrains Mono" font-size="8" text-anchor="middle">Attention</text>
+              <path d="M270,40 L285,40" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <rect x="295" y="15" width="55" height="50" rx="8" fill="var(--colors-surface-card)" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <text x="322" y="32" fill="var(--colors-ink)" font-family="Inter" font-size="8" text-anchor="middle" font-weight="bold">Output</text>
+              <text x="322" y="46" fill="var(--colors-primary)" font-family="Inter" font-size="8" text-anchor="middle">മലയാളം</text>
+            </svg>
+          </div>
+          <div class="card-footer">
+            <div class="tech-tags">
+              <span>#Python</span>
+              <span>#NLP</span>
+              <span>#Transformers</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="model-comparison-card">
+          <div class="card-category">Web Utility</div>
+          <h3>Gemini Sparkle Remover</h3>
+          <p>
+            A high-performance, client-side tool for removing sparkles watermarks from images generated by Google Gemini AI. Uses a mathematically precise Reverse Alpha Blending algorithm to restore original pixels with zero quality loss.
+          </p>
+          <div class="visual-line-art">
+            <svg width="100%" height="80" viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Reverse Alpha Blending flow chart">
+              <rect x="15" y="15" width="70" height="50" rx="6" fill="var(--colors-surface-card)" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <path d="M40,30 L42,35 L48,37 L42,39 L40,44 L38,39 L32,37 L38,35 Z" fill="var(--colors-accent-amber)" />
+              <circle cx="65" cy="45" r="4" fill="var(--colors-accent-amber)" />
+              <path d="M90,40 L115,40" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <rect x="125" y="15" width="110" height="50" rx="8" fill="var(--colors-surface-dark-soft)" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <text x="180" y="32" fill="var(--colors-on-dark)" font-family="JetBrains Mono" font-size="8" text-anchor="middle">Reverse Alpha</text>
+              <text x="180" y="48" fill="var(--colors-primary)" font-family="JetBrains Mono" font-size="8" text-anchor="middle" font-weight="bold">C = (Co - A*Cw)/(1-A)</text>
+              <path d="M240,40 L265,40" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <rect x="275" y="15" width="70" height="50" rx="6" fill="var(--colors-surface-card)" stroke="var(--colors-hairline)" stroke-width="1.5" />
+              <circle cx="310" cy="40" r="12" fill="var(--colors-accent-teal)" opacity="0.3" />
+              <text x="310" y="43" fill="var(--colors-accent-teal)" font-family="Inter" font-size="8" text-anchor="middle" font-weight="bold">CLEAN</text>
+            </svg>
+          </div>
+          <div class="card-footer">
+            <div class="tech-tags">
+              <span>#JavaScript</span>
+              <span>#HTML5Canvas</span>
+            </div>
+            <a href="http://remove-watermark.mlaas.in" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
+              Live Demo <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Honors & Highlights (Full-bleed Coral Callout Card) -->
+  <section id="honors" style="padding: 0; background-color: var(--colors-canvas);">
+    <div class="container" style="padding-top: var(--spacing-section); padding-bottom: var(--spacing-section);">
+      <div class="callout-card-coral">
+        <h2>Honors & Highlights</h2>
+        <p>Selected milestones demonstrating academic rigour, research, and global engagement.</p>
         
-        <!-- Mobile Menu -->
-        <div class="hidden md:hidden bg-white border-t border-tg-border" id="mobile-menu">
-            <div class="px-4 pt-2 pb-4 space-y-1 text-sm font-medium">
-                <a href="#about" class="block px-3 py-2 text-tg-subtext hover:text-tg-blue hover:bg-gray-50 rounded-md">About</a>
-                <a href="#experience" class="block px-3 py-2 text-tg-subtext hover:text-tg-blue hover:bg-gray-50 rounded-md">Experience</a>
-                <a href="#research" class="block px-3 py-2 text-tg-subtext hover:text-tg-blue hover:bg-gray-50 rounded-md">Research & Projects</a>
-                <a href="#contact" class="block px-3 py-2 text-tg-subtext hover:text-tg-blue hover:bg-gray-50 rounded-md">Contact</a>
-            </div>
+        <div class="callout-list">
+          <div class="callout-item">
+            <i data-lucide="check-circle" style="width: 18px; height: 18px;"></i>
+            <span><strong>HPAIR 2025 Delegate:</strong> Selected for the prestigious Harvard Project for Asian and International Relations Conference.</span>
+          </div>
+          
+          <div class="callout-item">
+            <i data-lucide="check-circle" style="width: 18px; height: 18px;"></i>
+            <span><strong>Brain Modeling Workshop:</strong> Completed computational systems modeling training at CNS Lab, IIT Madras.</span>
+          </div>
+
+          <div class="callout-item">
+            <i data-lucide="check-circle" style="width: 18px; height: 18px;"></i>
+            <span><strong>Ideathon Award:</strong> Presented "PhytoScan", an AI-driven freshness detector at Money Conclave.</span>
+          </div>
+
+          <div class="callout-item">
+            <i data-lucide="check-circle" style="width: 18px; height: 18px;"></i>
+            <span><strong>Language Proficiency:</strong> Goethe Zertifikat B1 in German (Achieved Score: 82).</span>
+          </div>
         </div>
-    </nav>
 
-    <!-- Main Content Container -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 space-y-12">
+        <a href="#contact" class="btn" style="background-color: var(--colors-canvas); color: var(--colors-primary); font-weight: 600;">
+          <i data-lucide="message-square" style="width: 15px; height: 15px;"></i> Start Collaboration
+        </a>
+      </div>
+    </div>
+  </section>
 
-        <!-- Hero Section -->
-        <section class="text-center py-12 md:py-20 tg-card px-6">
-            <img src="profile.jpg" alt="Abhin Krishna" class="w-24 h-24 mx-auto rounded-full object-cover shadow-md border-2 border-white mb-6">
-            <h1 class="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 tracking-tight">Abhin Krishna</h1>
-            <p class="text-lg md:text-xl text-tg-blue font-medium mb-6">
-                Researcher | BCI & Neurotech | Deep Learning | Web Dev
-            </p>
-            <p class="max-w-2xl mx-auto text-tg-subtext mb-8">
-                Electronics & Biomedical Engineering student at MEC, Kochi. Exploring the intersection of human and artificial intelligence. Dedicated to advancing neural decoding, computational neuroscience, and AI-driven medical systems.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#contact" class="tg-button px-6 py-3 font-medium flex items-center justify-center gap-2">
-                    <i data-lucide="send" class="w-4 h-4"></i> Get in Touch
-                </a>
-                <a href="https://github.com/dearabhin" target="_blank" class="tg-button-outline px-6 py-3 font-medium flex items-center justify-center gap-2 border border-tg-blue">
-                    <i data-lucide="github" class="w-4 h-4"></i> View GitHub
-                </a>
-            </div>
-        </section>
+  <!-- Contact & Pre-footer Band (Dark Navy Background) -->
+  <section id="contact" style="background-color: var(--colors-surface-dark); padding-bottom: 32px;">
+    <div class="container">
+      <div class="cta-band-dark">
+        <h2>Let's Connect</h2>
+        <p>
+          I am actively looking for co-founders, research collaborators, and start-up connections. If you want to discuss BCI, neural systems modeling, or start-up ideas, let's talk.
+        </p>
+        
+        <div class="contact-links">
+          <a href="mailto:dearabhin@gmail.com" class="btn btn-secondary-on-dark" style="height: 48px; border-radius: var(--rounded-pill); padding: 0 24px;">
+            <i data-lucide="mail"></i> dearabhin [at] gmail.com
+          </a>
+          <a href="tel:+918078952645" class="btn btn-secondary-on-dark" style="height: 48px; border-radius: var(--rounded-pill); padding: 0 24px;">
+            <i data-lucide="phone"></i> +91 8078952645
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- About Section -->
-        <section id="about" class="scroll-mt-20">
-            <div class="tg-card p-6 md:p-8">
-                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-gray-900">
-                    <i data-lucide="user" class="text-tg-blue"></i> About Me
-                </h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <p class="text-tg-subtext mb-4 text-sm leading-relaxed">
-                            I am currently pursuing my B.Tech in Electronics and Biomedical Engineering at Govt. Model Engineering College, Thrikkakara (Sep 2024 to Present). 
-                        </p>
-                        <p class="text-tg-subtext mb-4 text-sm leading-relaxed">
-                            My core focus is on bridging the gap between neuroscience and AI. I aspire to publish impactful research in Brain-Computer Interfaces (BCI).
-                        </p>
-                        <p class="text-tg-subtext text-sm leading-relaxed">
-                            Driven by an entrepreneurial spirit, I am also actively exploring startup ideas and focused on building a strong foundation in engineering mathematics, physics, and computer science.
-                        </p>
-                    </div>
-                    
-                    <!-- Skills -->
-                    <div>
-                        <h3 class="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">Technical Arsenal</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <p class="text-xs text-tg-subtext mb-2">AI & Neurotech</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-blue-50 text-tg-blue text-xs rounded-full font-medium">JAX</span>
-                                    <span class="px-3 py-1 bg-blue-50 text-tg-blue text-xs rounded-full font-medium">TensorFlow / Keras</span>
-                                    <span class="px-3 py-1 bg-blue-50 text-tg-blue text-xs rounded-full font-medium">MNE-Python</span>
-                                    <span class="px-3 py-1 bg-blue-50 text-tg-blue text-xs rounded-full font-medium">Edge Impulse</span>
-                                    <span class="px-3 py-1 bg-blue-50 text-tg-blue text-xs rounded-full font-medium">OpenCV</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="text-xs text-tg-subtext mb-2">Languages & Hardware</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium">Python</span>
-                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium">C / C++</span>
-                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium">JavaScript</span>
-                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium">ESP32S3</span>
-                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium">Linux</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="text-xs text-tg-subtext mb-2">Web Stack</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs rounded-full font-medium">React / Next.js</span>
-                                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs rounded-full font-medium">Supabase</span>
-                                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs rounded-full font-medium">Three.js</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Footer (Dark Navy Background, never inverts) -->
+  <footer class="footer-band">
+    <div class="container">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12,2 C12.5,8 16,11.5 22,12 C16,12.5 12.5,16 12,22 C11.5,16 8,12.5 2,12 C8,11.5 11.5,8 12,2 Z" />
+          </svg>
+          Abhin Krishna
+        </a>
+        <p class="footer-desc">
+          Electronics & Biomedical Engineering student at Govt. Model Engineering College, Kochi. Exploring neural decoding and computational neuroscience.
+        </p>
+      </div>
 
-        <!-- Experience Section -->
-        <section id="experience" class="scroll-mt-20">
-            <div class="tg-card p-6 md:p-8">
-                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-gray-900">
-                    <i data-lucide="briefcase" class="text-tg-blue"></i> Professional Experience
-                </h2>
-                <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 before:to-transparent">
-                    
-                    <!-- Item 1 -->
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-100 text-tg-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                            <i data-lucide="microscope" class="w-4 h-4"></i>
-                        </div>
-                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 bg-gray-50/50 shadow-sm">
-                            <div class="flex items-center justify-between space-x-2 mb-1">
-                                <div class="font-bold text-gray-900 text-sm">Tencent AI Lab</div>
-                                <time class="font-mono text-xs font-medium text-tg-blue">Dec 2024 to May 2025</time>
-                            </div>
-                            <div class="text-xs text-gray-500 mb-2">Research Intern (Remote)</div>
-                            <p class="text-xs text-tg-subtext">Conducted research in Machine Learning, NLP, and Large Language Models (LLMs) for open source AI initiatives. Collaborated on the optimization of deep neural networks and rigorous performance evaluation.</p>
-                        </div>
-                    </div>
+      <div class="footer-nav">
+        <div class="footer-nav-title">Navigation</div>
+        <a href="#about" class="footer-nav-link">About</a>
+        <a href="#experience" class="footer-nav-link">Experience</a>
+        <a href="#projects" class="footer-nav-link">Projects</a>
+        <a href="#honors" class="footer-nav-link">Honors</a>
+      </div>
 
-                    <!-- Item 2 -->
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-100 text-tg-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                            <i data-lucide="users" class="w-4 h-4"></i>
-                        </div>
-                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 bg-gray-50/50 shadow-sm">
-                            <div class="flex items-center justify-between space-x-2 mb-1">
-                                <div class="font-bold text-gray-900 text-sm">FOSSMEC</div>
-                                <time class="font-mono text-xs font-medium text-tg-blue">Jun 2025 to Present</time>
-                            </div>
-                            <div class="text-xs text-gray-500 mb-2">Executive Member</div>
-                            <p class="text-xs text-tg-subtext">Mentored 100+ students in Linux fundamentals. Led technical logistics for "Code-A-Pookalam" and "DevSprint". Organized the "Build It Up" DBMS project deployment workshop (Supabase, React).</p>
-                        </div>
-                    </div>
+      <div class="footer-nav">
+        <div class="footer-nav-title">Socials</div>
+        <a href="https://linkedin.com/in/abhin-krishna" target="_blank" rel="noopener" class="footer-nav-link">
+          <i data-lucide="linkedin" style="width: 14px; height: 14px; vertical-align: middle; margin-right: 6px;"></i> LinkedIn
+        </a>
+        <a href="https://github.com/dearabhin" target="_blank" rel="noopener" class="footer-nav-link">
+          <i data-lucide="github" style="width: 14px; height: 14px; vertical-align: middle; margin-right: 6px;"></i> GitHub
+        </a>
+        <a href="https://t.me/abhin_krishna" target="_blank" rel="noopener" class="footer-nav-link">
+          <i data-lucide="send" style="width: 14px; height: 14px; vertical-align: middle; margin-right: 6px;"></i> Telegram
+        </a>
+      </div>
 
-                    <!-- Item 3 -->
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-100 text-tg-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                            <i data-lucide="globe" class="w-4 h-4"></i>
-                        </div>
-                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 bg-gray-50/50 shadow-sm">
-                            <div class="flex items-center justify-between space-x-2 mb-1">
-                                <div class="font-bold text-gray-900 text-sm">EXAM FILES</div>
-                                <time class="font-mono text-xs font-medium text-tg-blue">May 2021 to Dec 2022</time>
-                            </div>
-                            <div class="text-xs text-gray-500 mb-2">Project Manager</div>
-                            <p class="text-xs text-tg-subtext">Scaled a digital educational platform into international markets including China, Russia, and Azerbaijan. Directed cross-functional teams to implement effective social media strategies.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Abhin Krishna. All rights reserved.</div>
+        <div class="footer-socials">
+          <a href="https://linkedin.com/in/abhin-krishna" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn Profile">
+            <i data-lucide="linkedin"></i>
+          </a>
+          <a href="https://github.com/dearabhin" target="_blank" rel="noopener" class="footer-social-link" aria-label="GitHub Profile">
+            <i data-lucide="github"></i>
+          </a>
+          <a href="https://t.me/abhin_krishna" target="_blank" rel="noopener" class="footer-social-link" aria-label="Telegram Profile">
+            <i data-lucide="send"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-        <!-- Research & Projects Section -->
-        <section id="research" class="scroll-mt-20">
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-gray-900 px-2">
-                <i data-lucide="cpu" class="text-tg-blue"></i> Research & Projects
-            </h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                
-                <!-- Project Card 1 -->
-                <div class="tg-card p-6 flex flex-col h-full border border-gray-100">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-lg text-gray-900">EEG-based Brain-Computer Interface</h3>
-                        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium">Deep Learning</span>
-                    </div>
-                    <p class="text-sm text-tg-subtext flex-grow mb-4">
-                        Engineered an end-to-end pipeline to classify 4-class motor imagery (hands/feet) using the EEGNet architecture. Achieved 40% accuracy using MNE-Python for ICA-based artifact removal. Confirmed critical "noise ceiling" limits in practical BCI research.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs text-tg-blue font-medium">
-                        <span>#TensorFlow</span> <span>#MNE-Python</span> <span>#CNN</span>
-                    </div>
-                </div>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
 
-                <!-- Project Card 2 -->
-                <div class="tg-card p-6 flex flex-col h-full border border-gray-100">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-lg text-gray-900">TinyML Object Detection</h3>
-                        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium">Edge AI</span>
-                    </div>
-                    <p class="text-sm text-tg-subtext flex-grow mb-4">
-                        Deployed a real-time detection system on an ESP32S3 Sense board. Optimized a quantized MobileNet V2 model using FOMO algorithm, reaching 7 FPS at 143ms latency for industrial sorting applications.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs text-tg-blue font-medium">
-                        <span>#C++</span> <span>#ESP32S3</span> <span>#EdgeImpulse</span>
-                    </div>
-                </div>
+    // Mobile Menu Drawer Control
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNavMenu = document.getElementById('mobile-nav-menu');
 
-                <!-- Project Card 3 -->
-                <div class="tg-card p-6 flex flex-col h-full border border-gray-100">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-lg text-gray-900">LipiPala AI</h3>
-                        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium">NLP / LLMs</span>
-                    </div>
-                    <p class="text-sm text-tg-subtext flex-grow mb-4">
-                        Contributing to an open-source initiative dedicated to preserving and revitalizing endangered Indian languages. Combining NLP, speech recognition, and LLMs to create accessible linguistic tools.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs text-tg-blue font-medium">
-                        <span>#Python</span> <span>#NLP</span> <span>#OpenSource</span>
-                    </div>
-                </div>
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileNavMenu.classList.toggle('open');
+      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+      mobileMenuBtn.innerHTML = isOpen ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
+      lucide.createIcons();
+    });
 
-                <!-- Project Card 4 -->
-                <div class="tg-card p-6 flex flex-col h-full border border-gray-100">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-lg text-gray-900">Gemini Watermark Remover</h3>
-                        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium">Web App</span>
-                    </div>
-                    <p class="text-sm text-tg-subtext flex-grow mb-4">
-                        A high-performance, 100% client-side tool for removing watermarks from images generated by Google Gemini AI. Built with pure Vanilla JavaScript, it uses a mathematically precise Reverse Alpha Blending algorithm to restore pixels with zero quality loss.
-                    </p>
-                    <div class="flex gap-4 text-xs font-medium">
-                        <span class="text-tg-blue">#Javascript</span> <span class="text-tg-blue">#OpenSource</span>
-                        <a href="http://remove-watermark.mlaas.in" target="_blank" class="text-gray-500 hover:text-tg-blue flex items-center gap-1">
-                            <i data-lucide="external-link" class="w-3 h-3"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Honors & Awards Section -->
-        <section>
-            <div class="tg-card p-6 md:p-8 border border-gray-100">
-                <h2 class="text-lg font-bold mb-4 flex items-center gap-2 text-gray-900">
-                    <i data-lucide="award" class="text-tg-blue w-5 h-5"></i> Honors & Highlights
-                </h2>
-                <ul class="space-y-3 text-sm text-tg-subtext">
-                    <li class="flex items-start gap-3">
-                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i>
-                        <span><strong>HPAIR 2025 Delegate:</strong> Selected for the Harvard Project for Asian and International Relations Conference.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i>
-                        <span><strong>Brain Modeling Workshop:</strong> Completed systems modeling training at CNS Lab, IIT Madras (focusing on neural circuits).</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i>
-                        <span><strong>Ideathon Award:</strong> Presented "PhytoScan", an AI-driven fruit freshness detection device at Money Conclave.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i>
-                        <span><strong>Language Proficiency:</strong> Goethe Zertifikat B1 in German (Score: 82).</span>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Contact Section / Footer -->
-        <section id="contact" class="scroll-mt-20">
-            <div class="tg-card p-8 text-center border border-gray-100 bg-gradient-to-b from-white to-gray-50">
-                <h2 class="text-2xl font-bold mb-4 text-gray-900">Let's Connect</h2>
-                <p class="text-sm text-tg-subtext max-w-lg mx-auto mb-8">
-                    Interested in collaborating on BCI research, exploring startup ideas, or discussing the future of AI and neurotechnology? I'm always open to connecting.
-                </p>
-                
-                <div class="flex flex-wrap justify-center gap-4 mb-8">
-                    <a href="mailto:dearabhin@gmail.com" class="flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 rounded-full text-sm font-medium hover:border-tg-blue hover:text-tg-blue transition-colors shadow-sm text-gray-700">
-                        <i data-lucide="mail" class="w-4 h-4"></i> dearabhin [@] gmail [.] com
-                    </a>
-                    <a href="tel:+918078952645" class="flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 rounded-full text-sm font-medium hover:border-tg-blue hover:text-tg-blue transition-colors shadow-sm text-gray-700">
-                        <i data-lucide="phone" class="w-4 h-4"></i> +91 8078952645
-                    </a>
-                </div>
-
-                <div class="flex justify-center gap-6 border-t border-gray-200 pt-8">
-                    <a href="https://linkedin.com/in/abhin-krishna" target="_blank" class="text-gray-400 hover:text-tg-blue transition-colors">
-                        <span class="sr-only">LinkedIn</span>
-                        <i data-lucide="linkedin" class="w-6 h-6"></i>
-                    </a>
-                    <a href="https://github.com/dearabhin" target="_blank" class="text-gray-400 hover:text-gray-900 transition-colors">
-                        <span class="sr-only">GitHub</span>
-                        <i data-lucide="github" class="w-6 h-6"></i>
-                    </a>
-                    <a href="https://t.me/abhin_krishna" target="_blank" class="text-gray-400 hover:text-tg-blue transition-colors">
-                        <span class="sr-only">Telegram</span>
-                        <!-- SVG for Telegram icon -->
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.12.03-1.98 1.26-5.61 3.71-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.05-.49-.83-.27-1.49-.41-1.43-.87.03-.24.36-.49.98-.74 3.85-1.68 6.43-2.79 7.72-3.33 3.67-1.53 4.43-1.8 4.92-1.81.11 0 .36.03.52.16.14.11.18.26.2.37.02.05.03.14.03.26z"/>
-                        </svg>
-                    </a>
-                </div>
-                <p class="text-xs text-gray-400 mt-6">
-                    &copy; 2026 Abhin Krishna. Designed with Telegram's minimalist aesthetics.
-                </p>
-            </div>
-        </section>
-
-    </main>
-
-    <script>
-        // Initialize Lucide Icons
+    // Close Mobile Drawer on Link click
+    const drawerLinks = mobileNavMenu.querySelectorAll('.nav-link');
+    drawerLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNavMenu.classList.remove('open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuBtn.innerHTML = '<i data-lucide="menu"></i>';
         lucide.createIcons();
+      });
+    });
 
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+    // Interactive Experience Switcher (IDE Style)
+    const sidebarItems = document.querySelectorAll('.sidebar-item');
+    const contentPanes = document.querySelectorAll('.dev-console-content');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+    sidebarItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Toggle Sidebar Button Active State
+        sidebarItems.forEach(sib => {
+          sib.classList.remove('active');
+          sib.setAttribute('aria-selected', 'false');
         });
+        item.classList.add('active');
+        item.setAttribute('aria-selected', 'true');
 
-        // Close mobile menu when a link is clicked
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
+        // Toggle Content Tab Active State
+        const targetPaneId = item.getAttribute('data-pane');
+        contentPanes.forEach(pane => {
+          pane.classList.remove('active');
         });
-    </script>
+        document.getElementById(targetPaneId).classList.add('active');
+      });
+    });
+
+    // Hero Section Console Typing Animation
+    const consoleOutput = document.getElementById('console-output');
+    const terminalLogs = [
+      { text: "Initializing JAX BCI training loop...", delay: 200, type: "system" },
+      { text: "[OK] EDF dataset MEC_BCI_Subj04_2026.edf loaded.", delay: 400, type: "system" },
+      { text: "[INFO] ICA Artifact Rejection: identified 2 ocular components.", delay: 500, type: "system" },
+      { text: "[INFO] Epoch 1/20  - loss: 0.824 - acc: 0.6540", delay: 600, type: "progress" },
+      { text: "[INFO] Epoch 10/20 - loss: 0.312 - acc: 0.8812", delay: 600, type: "progress" },
+      { text: "[INFO] Epoch 20/20 - loss: 0.108 - acc: 0.9425", delay: 600, type: "progress" },
+      { text: "[SUCCESS] Accuracy: 94.25% - Model weights compiled.", delay: 300, type: "success" }
+    ];
+
+    let logIndex = 0;
+    
+    function renderTerminalLogs() {
+      if (logIndex >= terminalLogs.length) {
+        // Keep console-cursor blinking at the end of output
+        consoleOutput.innerHTML += '<div style="margin-top: 8px;"><span class="console-prompt">abhin@mec-neuro:~$</span><span class="console-cursor"></span></div>';
+        return;
+      }
+
+      const log = terminalLogs[logIndex];
+      const logLine = document.createElement('div');
+      logLine.style.marginBottom = '4px';
+      
+      // Color coding console logs
+      if (log.type === "success") {
+        logLine.style.color = 'var(--colors-accent-teal)';
+        logLine.style.fontWeight = '500';
+      } else if (log.type === "progress") {
+        logLine.style.color = 'var(--colors-on-dark-soft)';
+      } else {
+        logLine.style.color = 'var(--colors-accent-amber)';
+      }
+
+      logLine.textContent = log.text;
+      consoleOutput.appendChild(logLine);
+      
+      // Scroll console to bottom if overflowing
+      const consoleBody = consoleOutput.closest('.code-window-body');
+      if (consoleBody) {
+        consoleBody.scrollTop = consoleBody.scrollHeight;
+      }
+
+      logIndex++;
+      setTimeout(renderTerminalLogs, log.delay);
+    }
+
+    // Start training simulation 1 second after page load
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(renderTerminalLogs, 1000);
+    });
+
+  </script>
 </body>
 </html>
