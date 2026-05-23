@@ -1472,9 +1472,6 @@ img, svg, pre, .code-editor {
     grid-template-columns: 1fr;
   }
 
-  #nav-cta-btn {
-    display: none;
-  }
 
   .hero-cta-group {
     flex-direction: column;
