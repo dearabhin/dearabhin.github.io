@@ -607,6 +607,10 @@ header.hero-band > .container {
   line-height: 1.5;
 }
 
+.experience-details p {
+  color: var(--colors-on-dark);
+}
+
 .experience-details ul {
   list-style: none;
   margin-top: var(--spacing-xs);
@@ -629,14 +633,15 @@ header.hero-band > .container {
 .experience-code-pane {
   background-color: var(--colors-surface-dark-soft);
   border-radius: var(--rounded-md);
-  padding: var(--spacing-md);
+  padding: var(--spacing-lg);
   border: 1px solid rgba(250, 249, 245, 0.05);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  line-height: 1.45;
+  font-size: 13px;
+  line-height: 1.6;
   color: var(--colors-on-dark-soft);
   overflow-x: auto;
-  align-self: start;
+  align-self: stretch;
+  min-height: 160px;
 }
 
 /* Projects Showcase */
