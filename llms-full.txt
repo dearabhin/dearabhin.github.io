@@ -1,0 +1,128 @@
+# Abhin Krishna — full site content
+
+> Plain-text version of https://abhinkrishna.com for language models and AI search engines. Last updated 2026-10-10.
+
+## About
+
+Researcher · Developer · Engineer. Exploring the intersection of human and artificial intelligence.
+
+I work where biological brains meet computational intelligence, from decoding neural and biosignals to training deep networks and running AI on tiny hardware. I also ship privacy-first, open-source software used by 16,500+ people. I'm an Electronics and Biomedical Engineering student at Govt. Model Engineering College, Kochi, with a Minor in AI. I like hardware prototyping, startup ideas, and building things people actually use.
+
+- Role: Researcher, Developer & Engineer
+- Study: B.Tech Electronics & Biomedical Engineering, Minor in AI — Govt. Model Engineering College, Kochi
+- Focus: Brain-computer interfaces, biosignal processing, Edge AI, privacy-first software
+- Previously: Research Intern, Tencent AI Lab
+- Location: Kochi, Kerala, India
+- Currently: Open to Summer 2027 internships and research collaborations
+
+## Skills
+
+- AI & Neurotech: PyTorch, TensorFlow, JAX, MNE-Python (EEG), OpenCV, Edge Impulse, SciPy, PyWavelets
+- Languages: Python, C / C++, JavaScript, TypeScript, Linux / Shell
+- Hardware & Embedded: ESP32-S3, XIAO nRF52840, LoRa, Bluetooth LE, Arduino
+- Web & Frontend: Vue 3, React / Next.js, Vite, Tailwind CSS, Three.js, WebAssembly
+- Backend & Infrastructure: Cloudflare Workers, Durable Objects, WebSockets, WebRTC, Flask, FastAPI, Supabase, Docker, Linux VPS
+
+## Projects
+
+### Web & Privacy
+
+#### Gomalle — https://gomalle.lol
+A real-time anonymous text and video chat for college students. After two users are matched, messages and video go directly between their browsers over WebRTC, so conversations never touch the server. The matchmaking backend runs on Cloudflare Workers and Durable Objects, with anti-spam, IP blocking and device-level bans built in.
+Tech: React, WebRTC, Cloudflare Workers, WebSockets.
+
+#### Gemini Watermark Remover — https://removewatermark.dev
+A fully client-side, open-source tool that removes the visible Gemini watermark from AI images and Veo videos. It uses a mathematically exact Reverse Alpha Blending algorithm to restore the original pixels with zero quality loss. It has 250+ GitHub stars and 16,500+ users.
+Tech: Vue 3, Vite, Tailwind CSS. Source: https://github.com/dearabhin/gemini-watermark-remover
+
+#### Metadata Cleaner — https://abhinkrishna.com/metadata-cleaner/
+A privacy-first app for inspecting, editing and removing metadata from images, video, audio, documents and archives. It runs ExifTool compiled to WebAssembly inside a Web Worker, so files never leave your device. It has no uploads and no tracking, and it works offline as a PWA.
+Tech: Vue 3, TypeScript, WebAssembly, PWA.
+
+#### Reverse SynthID: AI Watermark Forensics Lab — https://github.com/dearabhin/reverse-synthid
+A forensic tool that looks for traces of Google's invisible SynthID watermark in AI-generated images. It extracts high-frequency noise using wavelets, amplifies the residual, and checks the FFT spectrum against known carrier frequencies. There's a Flask version and an in-browser OpenCV.js version.
+Tech: Python, Flask, FFT, OpenCV.js.
+
+#### BitChat-CLI — https://github.com/dearabhin/bitchat-cli
+A Python command-line client for bitchat, a decentralized peer-to-peer messenger that works over Bluetooth mesh networks with no internet. It's built to interoperate with the original Swift app's protocol.
+Tech: Python, Bluetooth LE, P2P.
+
+### Neurotech & Biosignals
+
+#### EEG Motor Imagery Classifier — https://github.com/dearabhin/Decoding-Handwriting-From-EEG
+An end-to-end pipeline that classifies 4-class motor imagery (hand and foot movement intents) using EEGNet, with ICA-based artifact removal in MNE-Python to establish strong BCI baselines.
+Tech: TensorFlow, MNE-Python, EEG.
+
+#### Non-Invasive Fetal ECG Extraction
+A comparison of classical methods for separating fetal ECG from maternal abdominal recordings on PhysioNet ADFECGDB. Template Subtraction reached an F1 score of 0.927, ahead of RLS, FastICA and LMS. It's being extended with a dilated residual 1D CNN that treats extraction as a segmentation problem.
+Tech: Signal processing, PyTorch, PhysioNet.
+
+### Hardware & Edge AI
+
+#### ThermaSense — https://github.com/dearabhin/thermasense
+IEEE HART HardwAIre Challenge 2026, Phase 2. A dual-prediction wireless temperature sensor node built on the XIAO nRF52840 with LoRa. The node and receiver run the same on-device model, so the node only transmits when a reading diverges from the prediction, which also works as an early hotspot alarm. It was selected for Phase 2 as one of 50 teams globally.
+Tech: nRF52840, LoRa, TinyML, Arduino.
+
+#### TinyML Object Detection — https://github.com/dearabhin/TinyML-Object-Detector
+A real-time vision system on an ESP32-S3 Sense board using a quantized MobileNetV2 with the FOMO algorithm. It runs at 7 FPS with 143 ms latency for industrial parts sorting.
+Tech: C++, ESP32-S3, Edge Impulse.
+
+### Language & NLP
+
+#### MalayaLLM (in progress)
+A foundational language model trained from scratch on pure Malayalam script. So far it has a corpus quality-control module, a data schema and a full training pipeline plan.
+Tech: NLP, LLM, Malayalam.
+
+#### LipiPala AI — https://github.com/dearabhin/LipiPala
+A contribution to an open-source effort to preserve endangered Indian languages using NLP, speech recognition and LLMs.
+Tech: Python, NLP, Transformers.
+
+## Experience
+
+### Research Intern — Tencent AI Lab (Remote), Dec 2024 – May 2025
+Worked on research in machine learning, NLP and large language models for open-source AI initiatives, including neural network optimization and model evaluation.
+
+### Executive Member — FOSSMEC, Model Engineering College (Kochi, Kerala), Jun 2025 – Present
+Leading workshops, mentoring students and building open-source culture at MEC.
+- Lead Instructor for Let's Git It, a 2-day workshop on Git workflows, branching and portfolio hosting with GitHub Pages, mentoring 100+ first-year students.
+- Helped run the Linux Installation Workshop, guiding students through dual-boot and VirtualBox setups.
+- Helped organize Build It Up, a 2-day hands-on DBMS workshop using Supabase, Express.js and Next.js.
+- Handled registration and marketing for Code-A-Pookalam 2025 and supported coordination for Devsprint.
+- Co-led interviews and screening for first-year applicants to bring in the next batch of FOSSMEC trainees.
+
+### Web Developer — TON Marketplace (Toronto, Canada · Remote), Jan 2023 – Jan 2024
+Developed the website for a decentralized marketplace built on the TON blockchain.
+- Built and deployed the full frontend for a TON blockchain-based decentralized marketplace.
+- Integrated wallet connection flows and on-chain transaction UI components.
+- Worked remotely with a distributed team across Canada and Europe.
+
+## Publications
+
+### A Comparative Study of Hodgkin-Huxley and Izhikevich Models for High-Fidelity Neural Spike Prediction
+Preprint · March 30, 2026 · Abhin Krishna · Computational Neuroscience, Neural Modelling
+PDF: https://dearabhin.github.io/neural-model-comparison/docs/final_report.pdf
+
+A rigorous comparative analysis of two foundational computational neuroscience models: the biophysically detailed Hodgkin-Huxley model and the computationally efficient Izhikevich model, evaluated for their accuracy in predicting high-fidelity neural spike trains across varied stimulation conditions.
+
+## Honors & Highlights
+
+- IEEE HART HardwAIre Challenge 2026: Advanced to Phase 2 with ThermaSense, one of 50 teams selected globally.
+- HPAIR 2025 Delegate: Selected for the Harvard Project for Asian and International Relations Conference.
+- Brain Modeling, IIT Madras: Completed training in computational neural circuit modeling at the CNS Lab.
+- Ideathon Award: Presented PhytoScan, an AI-driven fruit freshness detection device, at Money Conclave.
+- German Proficiency: Goethe-Zertifikat B1, with a score of 82.
+- Certifications: Claude Code in Action and Introduction to Claude Cowork (Anthropic, 2026), AI Fundamentals (Google, 2026), Digital 101 (FutureSkills Prime, 2025).
+
+## Contact
+
+Open to Collaboration. I'm looking for Summer 2027 internships, research collaborations and startup conversations. If you want to talk about BCI, neural decoding, Edge AI or privacy-first software, I'd love to hear from you.
+
+- Email: dearabhin [at] gmail . com
+- LinkedIn: https://linkedin.com/in/abhin-krishna
+- GitHub: https://github.com/dearabhin
+- X / Twitter: https://x.com/abhinkrishna_
+- Instagram: https://instagram.com/dearabhin
+- YouTube: https://youtube.com/@dearabhin
+- Telegram: https://t.me/abhinkrishna
+- Blog: https://blog.abhinkrishna.com
+- Resume: https://abhinkrishna.com/assets/abhin-krishna-resume.pdf

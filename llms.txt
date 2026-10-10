@@ -1,0 +1,46 @@
+# Abhin Krishna
+
+> Abhin Krishna is a researcher, developer and engineer working where biological brains meet computational intelligence: brain-computer interfaces (BCI), neural and biosignal decoding, deep learning, and AI on tiny hardware (Edge AI / TinyML). He is an Electronics and Biomedical Engineering student at Govt. Model Engineering College (MEC), Kochi, Kerala, India, with a Minor in AI, and a former Research Intern at Tencent AI Lab. He builds privacy-first, open-source software used by 16,500+ people.
+
+Key facts:
+
+- Role: Researcher, Developer & Engineer
+- Study: B.Tech Electronics & Biomedical Engineering, Minor in AI — Govt. Model Engineering College, Kochi
+- Focus: brain-computer interfaces, EEG and biosignal processing, Edge AI, privacy-first software
+- Experience: Research Intern, Tencent AI Lab (Dec 2024 – May 2025); Executive Member, FOSSMEC (Jun 2025 – present); Web Developer, TON Marketplace (Jan 2023 – Jan 2024)
+- Honors: IEEE HART HardwAIre Challenge 2026 Phase 2 (one of 50 teams globally); HPAIR 2025 Delegate; Ideathon Award (Money Conclave); Goethe-Zertifikat B1 (score 82)
+- Currently: open to Summer 2027 internships, research collaborations and startup conversations
+- Full text of the site: https://abhinkrishna.com/llms-full.txt
+
+## Projects
+
+- [Gemini Watermark Remover](https://removewatermark.dev): Client-side, open-source tool that removes the visible Gemini watermark from AI images and Veo videos using exact Reverse Alpha Blending. 250+ GitHub stars, 16,500+ users. Source: https://github.com/dearabhin/gemini-watermark-remover
+- [Gomalle](https://gomalle.lol): Real-time anonymous text and video chat for college students; peer-to-peer over WebRTC, matchmaking on Cloudflare Workers and Durable Objects.
+- [Metadata Cleaner](https://abhinkrishna.com/metadata-cleaner/): Privacy-first, offline-capable app to inspect, edit and remove file metadata with ExifTool compiled to WebAssembly; files never leave the device.
+- [Reverse SynthID](https://github.com/dearabhin/reverse-synthid): Forensics lab that looks for traces of Google's invisible SynthID watermark using wavelet noise extraction and FFT analysis.
+- [BitChat-CLI](https://github.com/dearabhin/bitchat-cli): Python client for bitchat, a decentralized peer-to-peer messenger over Bluetooth mesh networks.
+- [ThermaSense](https://github.com/dearabhin/thermasense): Dual-prediction LoRa temperature sensor node on XIAO nRF52840 that transmits only when readings diverge from a shared on-device model. IEEE HART HardwAIre Challenge 2026 Phase 2.
+- [TinyML Object Detection](https://github.com/dearabhin/TinyML-Object-Detector): Quantized MobileNetV2 + FOMO on an ESP32-S3 Sense; 7 FPS at 143 ms latency.
+- [EEG Motor Imagery Classifier](https://github.com/dearabhin/Decoding-Handwriting-From-EEG): 4-class motor imagery classification with EEGNet and ICA artifact removal in MNE-Python.
+- Non-Invasive Fetal ECG Extraction: Classical separation methods compared on PhysioNet ADFECGDB (Template Subtraction F1 0.927); being extended with a dilated residual 1D CNN.
+- MalayaLLM (in progress): Foundational language model trained from scratch on pure Malayalam script.
+- [LipiPala AI](https://github.com/dearabhin/LipiPala): Open-source effort to preserve endangered Indian languages with NLP, speech recognition and LLMs.
+
+## Research
+
+- [A Comparative Study of Hodgkin-Huxley and Izhikevich Models for High-Fidelity Neural Spike Prediction](https://dearabhin.github.io/neural-model-comparison/docs/final_report.pdf): Preprint, March 30, 2026. Compares the biophysically detailed Hodgkin-Huxley model with the efficient Izhikevich model for predicting neural spike trains.
+
+## Profiles
+
+- [Website](https://abhinkrishna.com/)
+- [Blog](https://blog.abhinkrishna.com)
+- [GitHub](https://github.com/dearabhin)
+- [LinkedIn](https://linkedin.com/in/abhin-krishna)
+- [X / Twitter](https://x.com/abhinkrishna_)
+- [YouTube](https://youtube.com/@dearabhin)
+- [Resume (PDF)](https://abhinkrishna.com/assets/abhin-krishna-resume.pdf)
+
+## Optional
+
+- [Instagram](https://instagram.com/dearabhin)
+- [Telegram](https://t.me/abhinkrishna)

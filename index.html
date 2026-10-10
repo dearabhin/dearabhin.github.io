@@ -1,924 +1,883 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- Apply the saved theme before first paint, and flag that JS is running -->
+  <script>
+    (function () {
+      var d = document.documentElement, t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+      d.classList.add('js');
+    })();
+  </script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4LJX7XPKT"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-Z4LJX7XPKT');
   </script>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Meta Tags -->
-  <title>Abhin Krishna | Brain-Computer Interfaces & Neurotech Researcher</title>
-  <meta name="description" content="Abhin Krishna — Researcher, Developer & Engineer working in Brain-Computer Interfaces (BCI), biosignal processing, Edge AI and deep learning. Former Research Intern at Tencent AI Lab. Builder of privacy-first open-source tools used by 16,500+ people.">
-  <meta name="keywords" content="Abhin Krishna, Abhin, abhinkrishna, dearabhin, BCI, Brain-Computer Interface, Neurotechnology, Deep Learning, JAX, EEG, MEC Kochi, Model Engineering College, AI, Machine Learning, Tencent AI Lab, FOSSMEC, EEGNet, TinyML, LipiPala, Gomalle, ThermaSense, Metadata Cleaner, Gemini Watermark Remover, PyTorch, WebRTC, Edge AI">
+  <!-- Primary SEO -->
+  <title>Abhin Krishna — BCI, Neurotech &amp; Edge AI Researcher and Developer</title>
+  <meta name="description" content="Abhin Krishna builds brain-computer interfaces, biosignal AI, Edge AI hardware and privacy-first open-source tools used by 16,500+ people. EBME student at MEC Kochi.">
+  <meta name="keywords" content="Abhin Krishna, dearabhin, Brain-Computer Interface, BCI, Neurotechnology, EEG, biosignal processing, Edge AI, TinyML, deep learning, PyTorch, JAX, WebRTC, privacy-first software, Gemini Watermark Remover, Metadata Cleaner, Gomalle, ThermaSense, MalayaLLM, Model Engineering College, Kochi">
   <meta name="author" content="Abhin Krishna">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="https://abhinkrishna.com">
+  <link rel="canonical" href="https://abhinkrishna.com/">
+  <link rel="alternate" type="text/plain" href="https://abhinkrishna.com/llms.txt" title="LLM-readable summary">
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://abhinkrishna.com">
-  <meta property="og:title" content="Abhin Krishna | BCI & AI Researcher">
-  <meta property="og:description" content="Researcher, developer & engineer exploring the intersection of human and artificial intelligence. Brain-Computer Interfaces, biosignals, Edge AI, and privacy-first open-source software.">
-  <meta property="og:image" content="https://abhinkrishna.com/assets/og-image.png">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#07090c">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://abhinkrishna.com/">
   <meta property="og:site_name" content="Abhin Krishna">
   <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Abhin Krishna — BCI, Neurotech &amp; Edge AI">
+  <meta property="og:description" content="Researcher, developer and engineer working where biological brains meet computational intelligence: neural decoding, biosignals, Edge AI hardware and privacy-first open source.">
+  <meta property="og:image" content="https://abhinkrishna.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Abhin Krishna — BCI, Neurotech and Edge AI portfolio">
+  <meta property="profile:first_name" content="Abhin">
+  <meta property="profile:last_name" content="Krishna">
+  <meta property="profile:username" content="dearabhin">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@abhinkrishna_">
   <meta name="twitter:creator" content="@abhinkrishna_">
-  <meta name="twitter:title" content="Abhin Krishna | BCI & AI Researcher">
-  <meta name="twitter:description" content="Researcher, developer & engineer exploring the intersection of human and artificial intelligence. Brain-Computer Interfaces, biosignals, Edge AI, and privacy-first open-source software.">
+  <meta name="twitter:title" content="Abhin Krishna — BCI, Neurotech &amp; Edge AI">
+  <meta name="twitter:description" content="Researcher, developer and engineer working where biological brains meet computational intelligence: neural decoding, biosignals, Edge AI hardware and privacy-first open source.">
   <meta name="twitter:image" content="https://abhinkrishna.com/assets/og-image.png">
-  <meta name="twitter:image:alt" content="Abhin Krishna — BCI & AI Researcher Portfolio">
+  <meta name="twitter:image:alt" content="Abhin Krishna — BCI, Neurotech and Edge AI portfolio">
 
-  <!-- JSON-LD Structured Data: Person -->
+  <!-- Structured data: one connected graph (WebSite → ProfilePage → Person → projects, paper) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Abhin Krishna",
-    "url": "https://abhinkrishna.com",
-    "image": "https://abhinkrishna.com/profile.jpg",
-    "jobTitle": "Researcher, Developer & Engineer",
-    "description": "Researcher, developer and engineer working in Brain-Computer Interfaces (BCI), Neurotechnology, and Deep Learning. Electronics and Biomedical Engineering student at Govt. Model Engineering College, Kochi, with a Minor in AI.",
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "Government Model Engineering College",
-      "url": "https://www.mec.ac.in"
-    },
-    "sameAs": [
-      "https://github.com/dearabhin",
-      "https://linkedin.com/in/abhin-krishna",
-      "https://x.com/abhinkrishna_",
-      "https://instagram.com/dearabhin",
-      "https://youtube.com/@dearabhin",
-      "https://t.me/abhinkrishna"
-    ],
-    "knowsAbout": ["Brain-Computer Interfaces", "Neurotechnology", "Deep Learning", "EEG Signal Processing", "Biosignal Processing", "PyTorch", "JAX", "TensorFlow", "Computer Vision", "TinyML", "Edge AI", "WebRTC"],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "FOSSMEC, Model Engineering College"
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://abhinkrishna.com/#website",
+        "url": "https://abhinkrishna.com/",
+        "name": "Abhin Krishna",
+        "description": "Portfolio of Abhin Krishna — brain-computer interfaces, biosignals, Edge AI and privacy-first open-source software.",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://abhinkrishna.com/#person" }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://abhinkrishna.com/#profilepage",
+        "url": "https://abhinkrishna.com/",
+        "name": "Abhin Krishna — BCI, Neurotech & Edge AI Researcher and Developer",
+        "isPartOf": { "@id": "https://abhinkrishna.com/#website" },
+        "mainEntity": { "@id": "https://abhinkrishna.com/#person" },
+        "about": { "@id": "https://abhinkrishna.com/#person" },
+        "hasPart": [
+          { "@id": "https://abhinkrishna.com/#projects" },
+          { "@id": "https://abhinkrishna.com/#paper" }
+        ],
+        "dateModified": "2026-10-10",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://abhinkrishna.com/#person",
+        "name": "Abhin Krishna",
+        "alternateName": "dearabhin",
+        "url": "https://abhinkrishna.com/",
+        "image": "https://abhinkrishna.com/profile.jpg",
+        "jobTitle": "Researcher, Developer & Engineer",
+        "description": "Researcher, developer and engineer working in brain-computer interfaces, neurotechnology, biosignal processing, deep learning and Edge AI. Electronics and Biomedical Engineering student at Govt. Model Engineering College, Kochi, with a Minor in AI. Builds privacy-first open-source software used by 16,500+ people.",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Kochi, Kerala, India"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Government Model Engineering College",
+          "url": "https://www.mec.ac.in"
+        },
+        "affiliation": [
+          { "@type": "Organization", "name": "FOSSMEC, Model Engineering College" },
+          { "@type": "CollegeOrUniversity", "name": "Government Model Engineering College", "url": "https://www.mec.ac.in" }
+        ],
+        "knowsAbout": [
+          "Brain-Computer Interfaces", "Neurotechnology", "EEG Signal Processing", "Biosignal Processing",
+          "Computational Neuroscience", "Deep Learning", "Edge AI", "TinyML", "Computer Vision",
+          "Natural Language Processing", "PyTorch", "TensorFlow", "JAX", "MNE-Python", "WebRTC",
+          "WebAssembly", "Cloudflare Workers", "Embedded Systems", "LoRa", "Privacy Engineering"
+        ],
+        "knowsLanguage": ["English", "Malayalam", "German"],
+        "award": [
+          "IEEE HART HardwAIre Challenge 2026 — Phase 2 (one of 50 teams globally)",
+          "HPAIR 2025 Delegate",
+          "Ideathon Award, Money Conclave (PhytoScan)"
+        ],
+        "hasCredential": [
+          { "@type": "EducationalOccupationalCredential", "name": "Goethe-Zertifikat B1", "credentialCategory": "Language certificate", "recognizedBy": { "@type": "Organization", "name": "Goethe-Institut" } },
+          { "@type": "EducationalOccupationalCredential", "name": "Claude Code in Action", "credentialCategory": "Certificate", "recognizedBy": { "@type": "Organization", "name": "Anthropic" } },
+          { "@type": "EducationalOccupationalCredential", "name": "Introduction to Claude Cowork", "credentialCategory": "Certificate", "recognizedBy": { "@type": "Organization", "name": "Anthropic" } },
+          { "@type": "EducationalOccupationalCredential", "name": "AI Fundamentals", "credentialCategory": "Certificate", "recognizedBy": { "@type": "Organization", "name": "Google" } },
+          { "@type": "EducationalOccupationalCredential", "name": "Digital 101", "credentialCategory": "Certificate", "recognizedBy": { "@type": "Organization", "name": "FutureSkills Prime" } }
+        ],
+        "sameAs": [
+          "https://github.com/dearabhin",
+          "https://linkedin.com/in/abhin-krishna",
+          "https://x.com/abhinkrishna_",
+          "https://instagram.com/dearabhin",
+          "https://youtube.com/@dearabhin",
+          "https://t.me/abhinkrishna",
+          "https://blog.abhinkrishna.com"
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://abhinkrishna.com/#projects",
+        "name": "Projects by Abhin Krishna",
+        "numberOfItems": 11,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "item": { "@type": "SoftwareApplication", "name": "Gomalle", "url": "https://gomalle.lol", "applicationCategory": "CommunicationApplication", "operatingSystem": "Web", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }, "description": "Real-time anonymous text and video chat for college students. Messages and video go peer-to-peer over WebRTC; matchmaking runs on Cloudflare Workers and Durable Objects.", "keywords": "React, WebRTC, Cloudflare Workers, WebSockets", "author": { "@id": "https://abhinkrishna.com/#person" } } },
+          { "@type": "ListItem", "position": 2, "item": { "@type": "SoftwareApplication", "name": "Gemini Watermark Remover", "url": "https://removewatermark.dev", "sameAs": "https://github.com/dearabhin/gemini-watermark-remover", "applicationCategory": "MultimediaApplication", "operatingSystem": "Web", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }, "description": "Fully client-side, open-source tool that removes the visible Gemini watermark from AI images and Veo videos using exact Reverse Alpha Blending. 250+ GitHub stars and 16,500+ users.", "keywords": "Vue 3, Vite, Tailwind CSS, Reverse Alpha Blending", "author": { "@id": "https://abhinkrishna.com/#person" } } },
+          { "@type": "ListItem", "position": 3, "item": { "@type": "SoftwareApplication", "name": "Metadata Cleaner", "url": "https://abhinkrishna.com/metadata-cleaner/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }, "description": "Privacy-first app to inspect, edit and remove metadata from images, video, audio, documents and archives, running ExifTool compiled to WebAssembly entirely on-device. Works offline as a PWA.", "keywords": "Vue 3, TypeScript, WebAssembly, PWA, ExifTool", "author": { "@id": "https://abhinkrishna.com/#person" } } },
+          { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareSourceCode", "name": "Reverse SynthID: AI Watermark Forensics Lab", "codeRepository": "https://github.com/dearabhin/reverse-synthid", "programmingLanguage": ["Python", "JavaScript"], "description": "Forensic tool that looks for traces of Google's invisible SynthID watermark using wavelet noise extraction and FFT carrier-frequency analysis.", "keywords": "Python, Flask, FFT, OpenCV.js, SynthID", "author": { "@id": "https://abhinkrishna.com/#person" } } },
+          { "@type": "ListItem", "position": 5, "item": { "@type": "SoftwareSourceCode", "name": "BitChat-CLI", "codeRepository": "https://github.com/dearabhin/bitchat-cli", "programmingLanguage": "Python", "description": "Python command-line client for bitchat, a decentralized peer-to-peer messenger over Bluetooth mesh networks, interoperable with the original Swift app.", "keywords": "Python, Bluetooth LE, P2P, mesh networking", "author": { "@id": "https://abhinkrishna.com/#person" } } },
+          { "@type": "ListItem", "position": 6, "item": { "@type": "SoftwareSourceCode", "name": "EEG Motor Imagery Classifier", "codeRepository": "https://github.com/dearabhin/Decoding-Handwriting-From-EEG", "programmingLanguage": "Python", "description": "End-to-end pipeline classifying 4-class motor imagery with EEGNet and ICA-based artifact removal in MNE-Python.", "keywords": "TensorFlow, MNE-Python, EEG, EEGNet, BCI", "author": { "@id": "https://abhinkrishna.com/#person" } } },
+          { "@type": "ListItem", "position": 7, "item": { "@type": "CreativeWork", "name": "Non-Invasive Fetal ECG Extraction", "description": "Comparison of classical fetal ECG separation methods on PhysioNet ADFECGDB; Template Subtraction reached F1 0.927, ahead of RLS, FastICA and LMS. Being extended with a dilated residual 1D CNN.", "keywords": "Signal processing, PyTorch, PhysioNet, fetal ECG", "author": { "@id": "https://abhinkrishna.com/#person" } } },
+          { "@type": "ListItem", "position": 8, "item": { "@type": "SoftwareSourceCode", "name": "ThermaSense", "codeRepository": "https://github.com/dearabhin/thermasense", "programmingLanguage": ["C++", "Python"], "description": "Dual-prediction wireless temperature sensor node on XIAO nRF52840 with LoRa; node and receiver share an on-device model so the node transmits only on divergence. IEEE HART HardwAIre Challenge 2026 Phase 2.", "keywords": "nRF52840, LoRa, TinyML, Arduino", "author": { "@id": "https://abhinkrishna.com/#person" } } },
+          { "@type": "ListItem", "position": 9, "item": { "@type": "SoftwareSourceCode", "name": "TinyML Object Detection", "codeRepository": "https://github.com/dearabhin/TinyML-Object-Detector", "programmingLanguage": "C++", "description": "Real-time vision on an ESP32-S3 Sense using quantized MobileNetV2 with FOMO: 7 FPS at 143 ms latency for industrial parts sorting.", "keywords": "C++, ESP32-S3, Edge Impulse, TinyML", "author": { "@id": "https://abhinkrishna.com/#person" } } },
+          { "@type": "ListItem", "position": 10, "item": { "@type": "CreativeWork", "name": "MalayaLLM", "creativeWorkStatus": "In progress", "description": "Foundational language model trained from scratch on pure Malayalam script.", "keywords": "NLP, LLM, Malayalam", "author": { "@id": "https://abhinkrishna.com/#person" } } },
+          { "@type": "ListItem", "position": 11, "item": { "@type": "SoftwareSourceCode", "name": "LipiPala AI", "codeRepository": "https://github.com/dearabhin/LipiPala", "programmingLanguage": "Python", "description": "Contribution to an open-source effort preserving endangered Indian languages with NLP, speech recognition and LLMs.", "keywords": "Python, NLP, Transformers", "author": { "@id": "https://abhinkrishna.com/#person" } } }
+        ]
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "@id": "https://abhinkrishna.com/#paper",
+        "headline": "A Comparative Study of Hodgkin-Huxley and Izhikevich Models for High-Fidelity Neural Spike Prediction",
+        "author": { "@id": "https://abhinkrishna.com/#person" },
+        "datePublished": "2026-03-30",
+        "url": "https://dearabhin.github.io/neural-model-comparison/docs/final_report.pdf",
+        "encodingFormat": "application/pdf",
+        "genre": "Preprint",
+        "about": ["Computational Neuroscience", "Neural Modelling", "Hodgkin-Huxley model", "Izhikevich model"],
+        "abstract": "A rigorous comparative analysis of two foundational computational neuroscience models: the biophysically detailed Hodgkin-Huxley model and the computationally efficient Izhikevich model, evaluated for their accuracy in predicting high-fidelity neural spike trains across varied stimulation conditions."
+      }
+    ]
   }
   </script>
 
-  <!-- JSON-LD Structured Data: WebSite (enables Google sitelinks search) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Abhin Krishna",
-    "url": "https://abhinkrishna.com",
-    "description": "Personal portfolio of Abhin Krishna — BCI, AI, and Neurotech researcher.",
-    "author": {
-      "@type": "Person",
-      "name": "Abhin Krishna"
-    }
-  }
-  </script>
-
-  <!-- Google Fonts: Cormorant Garamond (Slab Serif), Inter (Sans-Serif), JetBrains Mono (Code) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- Favicons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons & app -->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
 
-  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="index.css">
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="top-nav" aria-label="Main Navigation">
+  <!-- Icon sprite: use as <svg class="i"><use href="#i-name"/></svg> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-logo" viewBox="0 0 24 24"><path d="M12.1 11.9 18.9 8.2M12.1 12.1l8.2.8M12.2 12.4l4.4 6.7M11.8 12.4l-4.5 6.8M11.9 12.1l-8.2 1.2M11.8 11.7 7.8 4.4"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7M12 19V5"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M16 13H8M16 17H8M10 9H8"/></symbol>
+    <symbol id="i-thermo" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+    <symbol id="i-lang" viewBox="0 0 24 24"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01M6 18h.01"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
+    <symbol id="i-blog" viewBox="0 0 208 128"><path d="M30 98V30h20l20 25 20-25h20v68H90V59L70 84 50 59v39zm125 0l-30-33h20V30h20v35h20z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="backdrop" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- ============================== Navigation ============================== -->
+  <header class="nav" id="top">
     <div class="container">
-      <a href="./" class="nav-logo" id="logo-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="12.1" y1="11.9" x2="18.9" y2="8.2" />
-          <line x1="12.1" y1="12.1" x2="20.3" y2="12.9" />
-          <line x1="12.2" y1="12.4" x2="16.6" y2="19.1" />
-          <line x1="11.8" y1="12.4" x2="7.3" y2="19.2" />
-          <line x1="11.9" y1="12.1" x2="3.7" y2="13.3" />
-          <line x1="11.8" y1="11.7" x2="7.8" y2="4.4" />
-        </svg>
-        Abhin Krishna
-      </a>
-      
-      <!-- Desktop Links -->
-      <div class="nav-links" role="navigation">
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#publications" class="nav-link">Publications</a>
-        <a href="#honors" class="nav-link">Honors</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-
-      <!-- Nav CTA -->
-      <div class="nav-cta">
-        <a href="https://blog.abhinkrishna.com" target="_blank" rel="noopener" class="btn btn-primary" id="nav-cta-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 208 128" fill="currentColor" aria-hidden="true" style="vertical-align: middle;"><path d="M30 98V30h20l20 25 20-25h20v68H90V59L70 84 50 59v39zm125 0l-30-33h20V30h20v35h20z"/></svg> Blog
+      <nav class="nav-inner" aria-label="Main">
+        <a href="#top" class="brand" aria-label="Abhin Krishna — back to top">
+          <svg class="i" aria-hidden="true"><use href="#i-logo"/></svg>
+          Abhin Krishna
         </a>
-        <button class="mobile-nav-toggle" id="mobile-menu-btn" aria-label="Toggle Mobile Menu" aria-expanded="false">
-          <i data-lucide="menu"></i>
-        </button>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Mobile Dropdown Nav Menu -->
-  <div class="mobile-nav-menu" id="mobile-nav-menu" role="menu">
-    <a href="#skills" class="nav-link" role="menuitem">Skills</a>
-    <a href="#projects" class="nav-link" role="menuitem">Projects</a>
-    <a href="#experience" class="nav-link" role="menuitem">Experience</a>
-    <a href="#publications" class="nav-link" role="menuitem">Publications</a>
-    <a href="#honors" class="nav-link" role="menuitem">Honors</a>
-    <a href="#contact" class="nav-link" role="menuitem">Contact</a>
-  </div>
-
-  <!-- Hero Section: short intro -->
-  <header class="hero-band" id="hero">
-    <div class="container hero-band">
-      <div class="hero-content">
-        <img src="profile.jpg" alt="Abhin Krishna profile portrait" class="hero-avatar">
-        <div class="badge-coral">Researcher &middot; Developer &middot; Engineer</div>
-        <h1 class="display-xl">Abhin Krishna</h1>
-        <p class="hero-subtitle">Exploring the intersection of human and artificial intelligence</p>
-        <p class="hero-lead">
-          I work where biological brains meet computational intelligence, from decoding neural and biosignals to training deep networks and running AI on tiny hardware. I also ship privacy-first, open-source software used by 16,500+ people. I'm an Electronics and Biomedical Engineering student at Govt. Model Engineering College, Kochi, with a Minor in AI. I like hardware prototyping, startup ideas, and building things people actually use.
-        </p>
-        <div class="hero-cta-group">
-          <a href="#projects" class="btn btn-primary">
-            <i data-lucide="folder-git-2" style="width: 14px; height: 14px;"></i> View Projects
-          </a>
-          <a href="#contact" class="btn btn-secondary">
-            <i data-lucide="send" style="width: 14px; height: 14px;"></i> Get in Touch
-          </a>
-          <a href="assets/abhin-krishna-resume.pdf" download class="btn btn-secondary">
-            <i data-lucide="download" style="width: 14px; height: 14px;"></i> Download Resume
-          </a>
+        <div class="nav-links">
+          <span class="nav-indicator" aria-hidden="true"></span>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#projects" class="nav-link">Work</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#publications" class="nav-link">Research</a>
+          <a href="#honors" class="nav-link">Honors</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </div>
-      </div>
+
+        <div class="nav-actions">
+          <a href="https://blog.abhinkrishna.com" target="_blank" rel="noopener" class="btn btn-sm nav-blog">
+            <svg class="i i-fill i-blog" aria-hidden="true"><use href="#i-blog"/></svg>
+            Blog
+          </a>
+          <button type="button" class="icon-btn theme-toggle" aria-label="Switch colour theme">
+            <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+            <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          </button>
+          <button type="button" class="icon-btn menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg class="i i-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+            <svg class="i i-close" aria-hidden="true"><use href="#i-close"/></svg>
+          </button>
+        </div>
+      </nav>
     </div>
   </header>
 
-  <!-- Skills Section -->
-  <section id="skills" style="background-color: var(--colors-surface-soft);">
-    <div class="container">
-      <h2 class="display-lg" style="margin-bottom: 8px;">Skills</h2>
-      <p style="color: var(--colors-muted); margin-bottom: 32px; max-width: 600px;">
-        The tools I work with across AI, neurotech, embedded systems and the web.
-      </p>
+  <div class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+    <a href="#about"><span>01</span>About</a>
+    <a href="#projects"><span>02</span>Work</a>
+    <a href="#experience"><span>03</span>Experience</a>
+    <a href="#publications"><span>04</span>Research</a>
+    <a href="#honors"><span>05</span>Honors</a>
+    <a href="#contact"><span>06</span>Contact</a>
+    <a href="https://blog.abhinkrishna.com" target="_blank" rel="noopener" class="btn">
+      <svg class="i i-fill i-blog" aria-hidden="true"><use href="#i-blog"/></svg>
+      Read the blog
+    </a>
+  </div>
 
-      <div class="grid-3">
-        <!-- AI & Neurotech -->
-        <div class="feature-card" style="background-color: var(--colors-canvas);">
-          <h3 style="font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--colors-primary); margin-bottom: 16px;">AI &amp; Neurotech</h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-            <span class="badge-coral">PyTorch</span>
-            <span class="badge-pill">TensorFlow</span>
-            <span class="badge-pill">JAX</span>
-            <span class="badge-pill">MNE-Python (EEG)</span>
-            <span class="badge-pill">OpenCV</span>
-            <span class="badge-pill">Edge Impulse</span>
-            <span class="badge-pill">SciPy</span>
-            <span class="badge-pill">PyWavelets</span>
-          </div>
-        </div>
+  <main id="main">
 
-        <!-- Languages -->
-        <div class="feature-card" style="background-color: var(--colors-canvas);">
-          <h3 style="font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--colors-primary); margin-bottom: 16px;">Languages</h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-            <span class="badge-coral">Python</span>
-            <span class="badge-pill">C / C++</span>
-            <span class="badge-pill">JavaScript</span>
-            <span class="badge-pill">TypeScript</span>
-            <span class="badge-pill">Linux / Shell</span>
-          </div>
-        </div>
-
-        <!-- Hardware & Embedded -->
-        <div class="feature-card" style="background-color: var(--colors-canvas);">
-          <h3 style="font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--colors-primary); margin-bottom: 16px;">Hardware &amp; Embedded</h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-            <span class="badge-coral">ESP32-S3</span>
-            <span class="badge-pill">XIAO nRF52840</span>
-            <span class="badge-pill">LoRa</span>
-            <span class="badge-pill">Bluetooth LE</span>
-            <span class="badge-pill">Arduino</span>
-          </div>
-        </div>
-
-        <!-- Web & Frontend -->
-        <div class="feature-card" style="background-color: var(--colors-canvas);">
-          <h3 style="font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--colors-primary); margin-bottom: 16px;">Web &amp; Frontend</h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-            <span class="badge-coral">Vue 3</span>
-            <span class="badge-pill">React / Next.js</span>
-            <span class="badge-pill">Vite</span>
-            <span class="badge-pill">Tailwind CSS</span>
-            <span class="badge-pill">Three.js</span>
-            <span class="badge-pill">WebAssembly</span>
-          </div>
-        </div>
-
-        <!-- Backend & Infrastructure -->
-        <div class="feature-card" style="background-color: var(--colors-canvas);">
-          <h3 style="font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--colors-primary); margin-bottom: 16px;">Backend &amp; Infrastructure</h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-            <span class="badge-coral">Cloudflare Workers</span>
-            <span class="badge-pill">Durable Objects</span>
-            <span class="badge-pill">WebSockets</span>
-            <span class="badge-pill">WebRTC</span>
-            <span class="badge-pill">Flask</span>
-            <span class="badge-pill">FastAPI</span>
-            <span class="badge-pill">Supabase</span>
-            <span class="badge-pill">Docker</span>
-            <span class="badge-pill">Linux VPS</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="display-lg" style="margin-bottom: 8px;">Projects</h2>
-      <p style="color: var(--colors-muted); margin-bottom: 32px; max-width: 600px;">
-        Open-source tools, research and hardware prototypes across signal processing, Edge AI, privacy and the web.
-      </p>
-
-      <!-- ============================ PROJECT CARDS ============================
-           Projects are grouped. Each group is an <h3 class="project-group-title">
-           followed by its own <div class="grid-2"> holding that group's cards.
-           TO ADD A PROJECT:  copy one <div class="model-comparison-card">...</div>
-                              block into the right group's .grid-2 and edit the
-                              5 fields marked inline.
-           TO ADD A GROUP:    add a new title + .grid-2 pair.
-           TO REORDER:        cut and paste whole card blocks within a .grid-2 —
-                              the first card shows up top-left, and so on.
-           FIELDS PER CARD:
-             1. card-category  → short label above the title
-             2. <h3>           → project title
-             3. <p>            → 1-3 sentence description
-             4. tech-tags      → one <span>#Tag</span> per technology
-             5. footer link(s) → href + visible label ("GitHub" / "Live Demo").
-                                 Wrap them in <div class="card-links"> for two
-                                 links; omit the links for unreleased work.
-           ----------------------------------------------------------------------
-           TEMPLATE (copy this, remove the surrounding comment markers):
-           <div class="model-comparison-card">
-             <div class="card-category">CATEGORY</div>
-             <h3>PROJECT TITLE</h3>
-             <p>DESCRIPTION.</p>
-             <div class="card-footer">
-               <div class="tech-tags"><span>#Tag1</span><span>#Tag2</span></div>
-               <a href="PROJECT_URL" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
-                 GitHub <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
-               </a>
-             </div>
-           </div>
-      ======================================================================= -->
-
-      <!-- Group: Web & Privacy -->
-      <h3 class="project-group-title">Web &amp; Privacy</h3>
-      <div class="grid-2">
-        <div class="model-comparison-card">
-          <div class="card-category">Real-time P2P Chat</div>
-          <h3>Gomalle</h3>
-          <p>
-            A real-time anonymous text and video chat for college students. After two users are matched, messages and video go directly between their browsers over WebRTC, so conversations never touch the server. The matchmaking backend runs on Cloudflare Workers and Durable Objects, with anti-spam, IP blocking and device-level bans built in.
-          </p>
-          <div class="card-footer">
-            <div class="tech-tags">
-              <span>#React</span>
-              <span>#WebRTC</span>
-              <span>#CloudflareWorkers</span>
-              <span>#WebSockets</span>
+    <!-- ============================== Hero ============================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-top" data-reveal>
+            <div class="avatar">
+              <img src="profile.jpg" alt="Portrait of Abhin Krishna" width="64" height="64" fetchpriority="high" decoding="async">
             </div>
-            <a href="https://gomalle.lol" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
-              Live Demo <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
+            <p class="badge">Researcher &middot; Developer &middot; Engineer</p>
+          </div>
+
+          <h1 class="hero-title" id="hero-title" data-split>Abhin Krishna</h1>
+
+          <p class="hero-tagline" data-reveal style="--i: 6">
+            Exploring the intersection of <span class="grad-text">human and artificial intelligence</span>
+          </p>
+
+          <div class="eeg" aria-hidden="true" data-reveal style="--i: 7">
+            <svg viewBox="0 0 2400 56" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="eeg-grad" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0" style="stop-color: var(--teal)"/>
+                  <stop offset="0.5" style="stop-color: var(--violet)"/>
+                  <stop offset="1" style="stop-color: var(--teal)"/>
+                </linearGradient>
+              </defs>
+              <path class="eeg-path" d="M0 28H2400"/>
+            </svg>
+            <span class="eeg-label">EEG · Cz · 256 Hz</span>
+          </div>
+
+          <dl class="stats" data-reveal style="--i: 8">
+            <div class="stat">
+              <dt class="sr-only">Users of my open-source tools</dt>
+              <dd><span class="stat-num" data-count="16500" data-suffix="+">16,500+</span><span class="stat-label">people use my open-source tools</span></dd>
+            </div>
+            <div class="stat">
+              <dt class="sr-only">GitHub stars</dt>
+              <dd><span class="stat-num" data-count="250" data-suffix="+">250+</span><span class="stat-label">GitHub stars on one repo</span></dd>
+            </div>
+            <div class="stat">
+              <dt class="sr-only">IEEE HART HardwAIre Challenge</dt>
+              <dd><span class="stat-num" data-count="50" data-from="1000" data-prefix="Top ">Top 50</span><span class="stat-label">IEEE HART HardwAIre, globally</span></dd>
+            </div>
+          </dl>
+
+          <div class="hero-cta" data-reveal style="--i: 9">
+            <a href="#projects" class="btn btn-primary">
+              View Work
+              <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg>
             </a>
-          </div>
-        </div>
-
-        <div class="model-comparison-card">
-          <div class="card-category">Image &amp; Video Utility</div>
-          <h3>Gemini Watermark Remover</h3>
-          <p>
-            A fully client-side, open-source tool that removes the visible Gemini watermark from AI images and Veo videos. It uses a mathematically exact Reverse Alpha Blending algorithm to restore the original pixels with zero quality loss. It has 250+ GitHub stars and 16,500+ users.
-          </p>
-          <div class="card-footer">
-            <div class="tech-tags">
-              <span>#Vue3</span>
-              <span>#Vite</span>
-              <span>#TailwindCSS</span>
-            </div>
-            <div class="card-links">
-              <a href="https://removewatermark.dev" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
-                Live Demo <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
-              </a>
-              <span aria-hidden="true">&middot;</span>
-              <a href="https://github.com/dearabhin/gemini-watermark-remover" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
-                GitHub <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="model-comparison-card">
-          <div class="card-category">Privacy Tool</div>
-          <h3>Metadata Cleaner</h3>
-          <p>
-            A privacy-first app for inspecting, editing and removing metadata from images, video, audio, documents and archives. It runs ExifTool compiled to WebAssembly inside a Web Worker, so files never leave your device. It has no uploads and no tracking, and it works offline as a PWA.
-          </p>
-          <div class="card-footer">
-            <div class="tech-tags">
-              <span>#Vue3</span>
-              <span>#TypeScript</span>
-              <span>#WebAssembly</span>
-              <span>#PWA</span>
-            </div>
-            <a href="https://abhinkrishna.com/metadata-cleaner/" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
-              Live Demo <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
+            <a href="assets/abhin-krishna-resume.pdf" download class="btn">
+              <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+              Download Resume
             </a>
-          </div>
-        </div>
-
-        <div class="model-comparison-card">
-          <div class="card-category">AI Forensics</div>
-          <h3>Reverse SynthID: AI Watermark Forensics Lab</h3>
-          <p>
-            A forensic tool that looks for traces of Google's invisible SynthID watermark in AI-generated images. It extracts high-frequency noise using wavelets, amplifies the residual, and checks the FFT spectrum against known carrier frequencies. There's a Flask version and an in-browser OpenCV.js version.
-          </p>
-          <div class="card-footer">
-            <div class="tech-tags">
-              <span>#Python</span>
-              <span>#Flask</span>
-              <span>#FFT</span>
-              <span>#OpenCVjs</span>
-            </div>
-            <a href="https://github.com/dearabhin/reverse-synthid" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
-              GitHub <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="model-comparison-card">
-          <div class="card-category">Mesh Networking</div>
-          <h3>BitChat-CLI</h3>
-          <p>
-            A Python command-line client for bitchat, a decentralized peer-to-peer messenger that works over Bluetooth mesh networks with no internet. It's built to interoperate with the original Swift app's protocol.
-          </p>
-          <div class="card-footer">
-            <div class="tech-tags">
-              <span>#Python</span>
-              <span>#BluetoothLE</span>
-              <span>#P2P</span>
-            </div>
-            <a href="https://github.com/dearabhin/bitchat-cli" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
-              GitHub <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
+            <a href="#contact" class="btn">
+              <svg class="i" aria-hidden="true"><use href="#i-send"/></svg>
+              Get in Touch
             </a>
           </div>
         </div>
       </div>
+      <span class="scroll-cue" aria-hidden="true"></span>
+    </section>
 
-      <!-- Group: Neurotech & Biosignals -->
-      <h3 class="project-group-title">Neurotech &amp; Biosignals</h3>
-      <div class="grid-2">
-        <div class="model-comparison-card">
-          <div class="card-category">Deep Learning &amp; BCI</div>
-          <h3>EEG Motor Imagery Classifier</h3>
-          <p>
-            An end-to-end pipeline that classifies 4-class motor imagery (hand and foot movement intents) using EEGNet, with ICA-based artifact removal in MNE-Python to establish strong BCI baselines.
-          </p>
-          <div class="card-footer">
-            <div class="tech-tags">
-              <span>#TensorFlow</span>
-              <span>#MNE-Python</span>
-              <span>#EEG</span>
-            </div>
-            <a href="https://github.com/dearabhin/Decoding-Handwriting-From-EEG" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
-              GitHub <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
-            </a>
-          </div>
+    <!-- ============================== About ============================== -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <p class="eyebrow">01 — About</p>
+          <h2 class="sec-title" id="about-title">Where brains meet machines</h2>
         </div>
 
-        <div class="model-comparison-card">
-          <div class="card-category">Biomedical Signal Processing</div>
-          <h3>Non-Invasive Fetal ECG Extraction</h3>
-          <p>
-            A comparison of classical methods for separating fetal ECG from maternal abdominal recordings on PhysioNet ADFECGDB. Template Subtraction reached an F1 score of 0.927, ahead of RLS, FastICA and LMS. It's being extended with a dilated residual 1D CNN that treats extraction as a segmentation problem.
-          </p>
-          <div class="card-footer">
-            <div class="tech-tags">
-              <span>#SignalProcessing</span>
-              <span>#PyTorch</span>
-              <span>#PhysioNet</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Group: Hardware & Edge AI -->
-      <h3 class="project-group-title">Hardware &amp; Edge AI</h3>
-      <div class="grid-2">
-        <div class="model-comparison-card">
-          <div class="card-category">IEEE HART HardwAIre Challenge 2026 &middot; Phase 2</div>
-          <h3>ThermaSense</h3>
-          <p>
-            A dual-prediction wireless temperature sensor node built on the XIAO nRF52840 with LoRa. The node and receiver run the same on-device model, so the node only transmits when a reading diverges from the prediction, which also works as an early hotspot alarm. It was selected for Phase 2 as one of 50 teams globally.
-          </p>
-          <div class="card-footer">
-            <div class="tech-tags">
-              <span>#nRF52840</span>
-              <span>#LoRa</span>
-              <span>#TinyML</span>
-              <span>#Arduino</span>
-            </div>
-            <a href="https://github.com/dearabhin/thermasense" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
-              GitHub <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="model-comparison-card">
-          <div class="card-category">Edge AI &amp; Hardware</div>
-          <h3>TinyML Object Detection</h3>
-          <p>
-            A real-time vision system on an ESP32-S3 Sense board using a quantized MobileNetV2 with the FOMO algorithm. It runs at 7 FPS with 143 ms latency for industrial parts sorting.
-          </p>
-          <div class="card-footer">
-            <div class="tech-tags">
-              <span>#C++</span>
-              <span>#ESP32S3</span>
-              <span>#EdgeImpulse</span>
-            </div>
-            <a href="https://github.com/dearabhin/TinyML-Object-Detector" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
-              GitHub <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Group: Language & NLP -->
-      <h3 class="project-group-title">Language &amp; NLP</h3>
-      <div class="grid-2">
-        <div class="model-comparison-card">
-          <div class="card-category">Foundation Model &middot; In Progress</div>
-          <h3>MalayaLLM</h3>
-          <p>
-            A foundational language model trained from scratch on pure Malayalam script. So far it has a corpus quality-control module, a data schema and a full training pipeline plan.
-          </p>
-          <div class="card-footer">
-            <div class="tech-tags">
-              <span>#NLP</span>
-              <span>#LLM</span>
-              <span>#Malayalam</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="model-comparison-card">
-          <div class="card-category">Open-source NLP</div>
-          <h3>LipiPala AI</h3>
-          <p>
-            A contribution to an open-source effort to preserve endangered Indian languages using NLP, speech recognition and LLMs.
-          </p>
-          <div class="card-footer">
-            <div class="tech-tags">
-              <span>#Python</span>
-              <span>#NLP</span>
-              <span>#Transformers</span>
-            </div>
-            <a href="https://github.com/dearabhin/LipiPala" target="_blank" rel="noopener" class="text-link" style="font-size: 0.8125rem;">
-              GitHub <i data-lucide="external-link" style="width: 12px; height: 12px; vertical-align: middle;"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" style="background-color: var(--colors-surface-dark); border-bottom: none;">
-    <div class="container">
-      <h2 class="display-lg" style="color: var(--colors-on-dark); margin-bottom: 8px;">Professional Experience</h2>
-      <p style="color: var(--colors-on-dark-soft); margin-bottom: 40px; max-width: 600px;">
-        Research internships, open-source leadership, and engineering roles.
-      </p>
-
-      <div class="exp-list">
-
-        <!-- Tencent AI Lab -->
-        <div class="exp-card">
-          <div class="exp-card-header" role="button" tabindex="0" aria-expanded="false" data-exp="tencent">
-            <div class="exp-card-left">
-              <div class="exp-icon" style="background-color: rgba(93, 184, 166, 0.15); color: var(--colors-accent-teal);">
-                <i data-lucide="brain" style="width: 16px; height: 16px;"></i>
-              </div>
-              <div>
-                <div class="exp-role">Research Intern</div>
-                <div class="exp-org">Tencent AI Lab</div>
-              </div>
-            </div>
-            <div class="exp-card-right">
-              <span class="exp-badge">Internship</span>
-              <span class="exp-date">Dec 2024 - May 2025</span>
-              <i data-lucide="chevron-down" class="exp-chevron" style="width: 16px; height: 16px;"></i>
-            </div>
-          </div>
-          <div class="exp-card-body" id="exp-tencent">
-            <div class="exp-meta-row">
-              <span class="exp-meta-tag"><i data-lucide="map-pin" style="width: 11px; height: 11px;"></i> Remote</span>
-            </div>
-            <p class="exp-desc">Worked on research in machine learning, NLP and large language models for open-source AI initiatives, including neural network optimization and model evaluation.</p>
-          </div>
-        </div>
-
-        <!-- FOSSMEC -->
-        <div class="exp-card exp-card-active">
-          <div class="exp-card-header" role="button" tabindex="0" aria-expanded="true" data-exp="fossmec">
-            <div class="exp-card-left">
-              <div class="exp-icon" style="background-color: rgba(96, 165, 250, 0.15); color: #60a5fa;">
-                <i data-lucide="users" style="width: 16px; height: 16px;"></i>
-              </div>
-              <div>
-                <div class="exp-role">Executive Member</div>
-                <div class="exp-org">FOSSMEC, Model Engineering College</div>
-              </div>
-            </div>
-            <div class="exp-card-right">
-              <span class="exp-badge">Full-time</span>
-              <span class="exp-date">Jun 2025 - Present</span>
-              <i data-lucide="chevron-down" class="exp-chevron" style="width: 16px; height: 16px;"></i>
-            </div>
-          </div>
-          <div class="exp-card-body open" id="exp-fossmec">
-            <div class="exp-meta-row">
-              <span class="exp-meta-tag"><i data-lucide="map-pin" style="width: 11px; height: 11px;"></i> Kochi, Kerala &middot; On-site</span>
-            </div>
-            <p class="exp-desc">Leading workshops, mentoring students and building open-source culture at MEC.</p>
-            <ul class="exp-bullets">
-              <li>Lead Instructor for <strong>Let's Git It</strong>, a 2-day workshop on Git workflows, branching and portfolio hosting with GitHub Pages, mentoring <strong>100+ first-year students</strong>.</li>
-              <li>Helped run the <strong>Linux Installation Workshop</strong>, guiding students through dual-boot and VirtualBox setups.</li>
-              <li>Helped organize <strong>Build It Up</strong>, a 2-day hands-on DBMS workshop using Supabase, Express.js and Next.js.</li>
-              <li>Handled registration and marketing for <strong>Code-A-Pookalam 2025</strong> and supported coordination for <strong>Devsprint</strong>.</li>
-              <li>Co-led interviews and screening for first-year applicants to bring in the next batch of FOSSMEC trainees.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- TON Marketplace -->
-        <div class="exp-card">
-          <div class="exp-card-header" role="button" tabindex="0" aria-expanded="false" data-exp="ton">
-            <div class="exp-card-left">
-              <div class="exp-icon" style="background-color: rgba(232, 165, 90, 0.15); color: var(--colors-accent-amber);">
-                <i data-lucide="globe" style="width: 16px; height: 16px;"></i>
-              </div>
-              <div>
-                <div class="exp-role">Web Developer</div>
-                <div class="exp-org">TON Marketplace</div>
-              </div>
-            </div>
-            <div class="exp-card-right">
-              <span class="exp-badge">Contract</span>
-              <span class="exp-date">Jan 2023 - Jan 2024</span>
-              <i data-lucide="chevron-down" class="exp-chevron" style="width: 16px; height: 16px;"></i>
-            </div>
-          </div>
-          <div class="exp-card-body" id="exp-ton">
-            <div class="exp-meta-row">
-              <span class="exp-meta-tag"><i data-lucide="map-pin" style="width: 11px; height: 11px;"></i> Toronto, Canada &middot; Remote</span>
-            </div>
-            <p class="exp-desc">Developed the website for a decentralized marketplace built on the TON blockchain.</p>
-            <ul class="exp-bullets">
-              <li>Built and deployed the full frontend for a <strong>TON blockchain-based</strong> decentralized marketplace.</li>
-              <li>Integrated wallet connection flows and on-chain transaction UI components.</li>
-              <li>Worked remotely with a distributed team across Canada and Europe.</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Publications Section -->
-  <section id="publications" style="background-color: var(--colors-surface-soft);">
-    <div class="container">
-      <h2 class="display-lg" style="margin-bottom: 8px;">Publications</h2>
-      <p style="color: var(--colors-muted); margin-bottom: 32px; max-width: 600px;">
-        Research preprints and academic contributions in computational neuroscience and AI.
-      </p>
-
-      <div class="publication-card">
-        <div class="publication-top">
-          <div class="publication-info">
-            <div class="publication-meta-row">
-              <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">Preprint</span>
-              <span style="font-size: 0.78rem; color: var(--colors-muted); font-family: 'Inter', sans-serif;">Mar 30, 2026</span>
-            </div>
-            <h3 class="display-sm" style="margin-bottom: var(--spacing-sm); line-height: 1.3;">A Comparative Study of Hodgkin-Huxley and Izhikevich Models for High-Fidelity Neural Spike Prediction</h3>
-            <p style="font-size: 0.88rem; color: var(--colors-muted); margin-bottom: 0;">
-              Abhin Krishna &nbsp;&middot;&nbsp; Computational Neuroscience &nbsp;&middot;&nbsp; Neural Modelling
+        <div class="about-grid">
+          <div class="about-text" data-reveal>
+            <p>
+              I work where biological brains meet computational intelligence, from decoding neural and biosignals to training deep networks and running AI on tiny hardware. I also ship privacy-first, open-source software used by <strong>16,500+ people</strong>.
+            </p>
+            <p>
+              I'm an Electronics and Biomedical Engineering student at <strong>Govt. Model Engineering College, Kochi</strong>, with a Minor in AI. I like hardware prototyping, startup ideas, and building things people actually use.
             </p>
           </div>
-          <a href="https://dearabhin.github.io/neural-model-comparison/docs/final_report.pdf" target="_blank" rel="noopener" class="btn btn-secondary publication-btn">
-            <i data-lucide="file-text" style="width: 14px; height: 14px;"></i> Read PDF
-          </a>
-        </div>
 
-        <div class="publication-abstract">
-          <p style="font-size: 0.88rem; line-height: 1.6; color: var(--colors-body); margin-bottom: 0;">
-            A rigorous comparative analysis of two foundational computational neuroscience models: the biophysically detailed Hodgkin-Huxley model and the computationally efficient Izhikevich model, evaluated for their accuracy in predicting high-fidelity neural spike trains across varied stimulation conditions.
-          </p>
-        </div>
-
-        <div class="publication-tags">
-          <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">#ComputationalNeuroscience</span>
-          <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">#Hodgkin-Huxley</span>
-          <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">#Izhikevich</span>
-          <span class="badge-pill" style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;">#NeuralSpike</span>
+          <dl class="card facts" data-reveal style="--i: 2">
+            <div><dt>Role</dt><dd>Researcher, Developer &amp; Engineer</dd></div>
+            <div><dt>Study</dt><dd>B.Tech Electronics &amp; Biomedical Engineering, Minor in AI — Govt. Model Engineering College, Kochi</dd></div>
+            <div><dt>Focus</dt><dd>Brain-computer interfaces, biosignal processing, Edge AI, privacy-first software</dd></div>
+            <div><dt>Previously</dt><dd>Research Intern, Tencent AI Lab</dd></div>
+            <div><dt>Location</dt><dd>Kochi, Kerala, India</dd></div>
+            <div><dt>Currently</dt><dd>Open to Summer 2027 internships and research collaborations</dd></div>
+          </dl>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Honors & Highlights (3-column grid, six cards) -->
-  <section id="honors" style="padding: 0; background-color: var(--colors-canvas);">
-    <div class="container" style="padding-top: var(--spacing-section); padding-bottom: var(--spacing-section);">
-      <div class="callout-card-coral">
-        <h2>Honors & Highlights</h2>
-        <p>Selected milestones demonstrating academic rigour, research, and global engagement.</p>
-        
-        <div class="honors-grid">
-          <div class="honor-item-card">
-            <div class="honor-icon-wrapper">
-              <i data-lucide="thermometer" style="width: 16px; height: 16px;"></i>
+    <!-- ============================== Skills ============================== -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <p class="eyebrow">02 — Skills</p>
+          <h2 class="sec-title" id="skills-title">Toolkit</h2>
+          <p class="sec-lead">The tools I work with across AI, neurotech, embedded systems and the web.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="card skill-card" data-reveal>
+            <h3><span class="skill-icon"><svg class="i" aria-hidden="true"><use href="#i-activity"/></svg></span>AI &amp; Neurotech</h3>
+            <ul class="chips">
+              <li class="chip chip-accent">PyTorch</li>
+              <li class="chip">TensorFlow</li>
+              <li class="chip">JAX</li>
+              <li class="chip">MNE-Python (EEG)</li>
+              <li class="chip">OpenCV</li>
+              <li class="chip">Edge Impulse</li>
+              <li class="chip">SciPy</li>
+              <li class="chip">PyWavelets</li>
+            </ul>
+          </article>
+
+          <article class="card skill-card" data-reveal style="--i: 1">
+            <h3><span class="skill-icon"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg></span>Languages</h3>
+            <ul class="chips">
+              <li class="chip chip-accent">Python</li>
+              <li class="chip">C / C++</li>
+              <li class="chip">JavaScript</li>
+              <li class="chip">TypeScript</li>
+              <li class="chip">Linux / Shell</li>
+            </ul>
+          </article>
+
+          <article class="card skill-card" data-reveal style="--i: 2">
+            <h3><span class="skill-icon"><svg class="i" aria-hidden="true"><use href="#i-cpu"/></svg></span>Hardware &amp; Embedded</h3>
+            <ul class="chips">
+              <li class="chip chip-accent">ESP32-S3</li>
+              <li class="chip">XIAO nRF52840</li>
+              <li class="chip">LoRa</li>
+              <li class="chip">Bluetooth LE</li>
+              <li class="chip">Arduino</li>
+            </ul>
+          </article>
+
+          <article class="card skill-card" data-reveal>
+            <h3><span class="skill-icon"><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg></span>Web &amp; Frontend</h3>
+            <ul class="chips">
+              <li class="chip chip-accent">Vue 3</li>
+              <li class="chip">React / Next.js</li>
+              <li class="chip">Vite</li>
+              <li class="chip">Tailwind CSS</li>
+              <li class="chip">Three.js</li>
+              <li class="chip">WebAssembly</li>
+            </ul>
+          </article>
+
+          <article class="card skill-card" data-reveal style="--i: 1">
+            <h3><span class="skill-icon"><svg class="i" aria-hidden="true"><use href="#i-server"/></svg></span>Backend &amp; Infrastructure</h3>
+            <ul class="chips">
+              <li class="chip chip-accent">Cloudflare Workers</li>
+              <li class="chip">Durable Objects</li>
+              <li class="chip">WebSockets</li>
+              <li class="chip">WebRTC</li>
+              <li class="chip">Flask</li>
+              <li class="chip">FastAPI</li>
+              <li class="chip">Supabase</li>
+              <li class="chip">Docker</li>
+              <li class="chip">Linux VPS</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Decorative marquee (content duplicated for a seamless loop; hidden from assistive tech) -->
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <ul><li>PyTorch</li><li>EEG</li><li>WebRTC</li><li>TinyML</li><li>LoRa</li><li>WebAssembly</li><li>JAX</li><li>Cloudflare Workers</li><li>nRF52840</li><li>Vue 3</li></ul>
+            <ul><li>PyTorch</li><li>EEG</li><li>WebRTC</li><li>TinyML</li><li>LoRa</li><li>WebAssembly</li><li>JAX</li><li>Cloudflare Workers</li><li>nRF52840</li><li>Vue 3</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Projects ==============================
+         TO ADD A PROJECT: copy one <article class="card project"> block below.
+           - data-group  → web | neuro | hardware | nlp (drives the filter chips)
+           - is-featured → optional class; the card spans two columns on desktop.
+                           Keep each group's cells a multiple of 3 so rows stay full
+                           (featured = 2 cells, normal = 1).
+           - Add the project to the ItemList in the JSON-LD and to llms.txt too.
+    ======================================================================= -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <p class="eyebrow">03 — Work</p>
+          <h2 class="sec-title" id="projects-title">Selected projects</h2>
+          <p class="sec-lead">Open-source tools, research and hardware prototypes across signal processing, Edge AI, privacy and the web.</p>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filter projects" data-reveal>
+          <button type="button" class="filter" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter" data-filter="web" aria-pressed="false">Web &amp; Privacy</button>
+          <button type="button" class="filter" data-filter="neuro" aria-pressed="false">Neurotech &amp; Biosignals</button>
+          <button type="button" class="filter" data-filter="hardware" aria-pressed="false">Hardware &amp; Edge AI</button>
+          <button type="button" class="filter" data-filter="nlp" aria-pressed="false">Language &amp; NLP</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Web & Privacy -->
+          <article class="card project" data-group="web" data-reveal>
+            <div class="project-meta"><span class="project-cat">Real-time P2P Chat</span></div>
+            <h3>Gomalle</h3>
+            <p>A real-time anonymous text and video chat for college students. After two users are matched, messages and video go directly between their browsers over WebRTC, so conversations never touch the server. The matchmaking backend runs on Cloudflare Workers and Durable Objects, with anti-spam, IP blocking and device-level bans built in.</p>
+            <div class="project-foot">
+              <ul class="tag-list"><li>#React</li><li>#WebRTC</li><li>#CloudflareWorkers</li><li>#WebSockets</li></ul>
+              <div class="project-links">
+                <a href="https://gomalle.lol" target="_blank" rel="noopener" class="link-arrow">Live Demo <svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a>
+              </div>
             </div>
+          </article>
+
+          <article class="card project is-featured" data-group="web" data-reveal style="--i: 1">
+            <div class="project-meta"><span class="project-cat">Image &amp; Video Utility</span><span class="project-status">250+ ★ · 16,500+ users</span></div>
+            <h3>Gemini Watermark Remover</h3>
+            <p>A fully client-side, open-source tool that removes the visible Gemini watermark from AI images and Veo videos. It uses a mathematically exact Reverse Alpha Blending algorithm to restore the original pixels with zero quality loss. It has 250+ GitHub stars and 16,500+ users.</p>
+            <div class="project-foot">
+              <ul class="tag-list"><li>#Vue3</li><li>#Vite</li><li>#TailwindCSS</li></ul>
+              <div class="project-links">
+                <a href="https://removewatermark.dev" target="_blank" rel="noopener" class="link-arrow">Live Demo <svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a>
+                <a href="https://github.com/dearabhin/gemini-watermark-remover" target="_blank" rel="noopener" class="link-arrow">GitHub <svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project" data-group="web" data-reveal>
+            <div class="project-meta"><span class="project-cat">Privacy Tool</span></div>
+            <h3>Metadata Cleaner</h3>
+            <p>A privacy-first app for inspecting, editing and removing metadata from images, video, audio, documents and archives. It runs ExifTool compiled to WebAssembly inside a Web Worker, so files never leave your device. It has no uploads and no tracking, and it works offline as a PWA.</p>
+            <div class="project-foot">
+              <ul class="tag-list"><li>#Vue3</li><li>#TypeScript</li><li>#WebAssembly</li><li>#PWA</li></ul>
+              <div class="project-links">
+                <a href="https://abhinkrishna.com/metadata-cleaner/" target="_blank" rel="noopener" class="link-arrow">Live Demo <svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project" data-group="web" data-reveal style="--i: 1">
+            <div class="project-meta"><span class="project-cat">AI Forensics</span></div>
+            <h3>Reverse SynthID: AI Watermark Forensics Lab</h3>
+            <p>A forensic tool that looks for traces of Google's invisible SynthID watermark in AI-generated images. It extracts high-frequency noise using wavelets, amplifies the residual, and checks the FFT spectrum against known carrier frequencies. There's a Flask version and an in-browser OpenCV.js version.</p>
+            <div class="project-foot">
+              <ul class="tag-list"><li>#Python</li><li>#Flask</li><li>#FFT</li><li>#OpenCVjs</li></ul>
+              <div class="project-links">
+                <a href="https://github.com/dearabhin/reverse-synthid" target="_blank" rel="noopener" class="link-arrow">GitHub <svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project" data-group="web" data-reveal style="--i: 2">
+            <div class="project-meta"><span class="project-cat">Mesh Networking</span></div>
+            <h3>BitChat-CLI</h3>
+            <p>A Python command-line client for bitchat, a decentralized peer-to-peer messenger that works over Bluetooth mesh networks with no internet. It's built to interoperate with the original Swift app's protocol.</p>
+            <div class="project-foot">
+              <ul class="tag-list"><li>#Python</li><li>#BluetoothLE</li><li>#P2P</li></ul>
+              <div class="project-links">
+                <a href="https://github.com/dearabhin/bitchat-cli" target="_blank" rel="noopener" class="link-arrow">GitHub <svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Neurotech & Biosignals -->
+          <article class="card project" data-group="neuro" data-reveal>
+            <div class="project-meta"><span class="project-cat">Deep Learning &amp; BCI</span></div>
+            <h3>EEG Motor Imagery Classifier</h3>
+            <p>An end-to-end pipeline that classifies 4-class motor imagery (hand and foot movement intents) using EEGNet, with ICA-based artifact removal in MNE-Python to establish strong BCI baselines.</p>
+            <div class="project-foot">
+              <ul class="tag-list"><li>#TensorFlow</li><li>#MNE-Python</li><li>#EEG</li></ul>
+              <div class="project-links">
+                <a href="https://github.com/dearabhin/Decoding-Handwriting-From-EEG" target="_blank" rel="noopener" class="link-arrow">GitHub <svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project is-featured" data-group="neuro" data-reveal style="--i: 1">
+            <div class="project-meta"><span class="project-cat">Biomedical Signal Processing</span><span class="project-status">F1 0.927</span></div>
+            <h3>Non-Invasive Fetal ECG Extraction</h3>
+            <p>A comparison of classical methods for separating fetal ECG from maternal abdominal recordings on PhysioNet ADFECGDB. Template Subtraction reached an F1 score of 0.927, ahead of RLS, FastICA and LMS. It's being extended with a dilated residual 1D CNN that treats extraction as a segmentation problem.</p>
+            <div class="project-foot">
+              <ul class="tag-list"><li>#SignalProcessing</li><li>#PyTorch</li><li>#PhysioNet</li></ul>
+            </div>
+          </article>
+
+          <!-- Hardware & Edge AI -->
+          <article class="card project is-featured" data-group="hardware" data-reveal>
+            <div class="project-meta"><span class="project-cat">IEEE HART HardwAIre 2026</span><span class="project-status">Phase 2 · Top 50</span></div>
+            <h3>ThermaSense</h3>
+            <p>A dual-prediction wireless temperature sensor node built on the XIAO nRF52840 with LoRa. The node and receiver run the same on-device model, so the node only transmits when a reading diverges from the prediction, which also works as an early hotspot alarm. It was selected for Phase 2 as one of 50 teams globally.</p>
+            <div class="project-foot">
+              <ul class="tag-list"><li>#nRF52840</li><li>#LoRa</li><li>#TinyML</li><li>#Arduino</li></ul>
+              <div class="project-links">
+                <a href="https://github.com/dearabhin/thermasense" target="_blank" rel="noopener" class="link-arrow">GitHub <svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project" data-group="hardware" data-reveal style="--i: 1">
+            <div class="project-meta"><span class="project-cat">Edge AI &amp; Hardware</span></div>
+            <h3>TinyML Object Detection</h3>
+            <p>A real-time vision system on an ESP32-S3 Sense board using a quantized MobileNetV2 with the FOMO algorithm. It runs at 7 FPS with 143 ms latency for industrial parts sorting.</p>
+            <div class="project-foot">
+              <ul class="tag-list"><li>#C++</li><li>#ESP32S3</li><li>#EdgeImpulse</li></ul>
+              <div class="project-links">
+                <a href="https://github.com/dearabhin/TinyML-Object-Detector" target="_blank" rel="noopener" class="link-arrow">GitHub <svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Language & NLP -->
+          <article class="card project is-featured" data-group="nlp" data-reveal>
+            <div class="project-meta"><span class="project-cat">Foundation Model</span><span class="project-status">In progress</span></div>
+            <h3>MalayaLLM</h3>
+            <p>A foundational language model trained from scratch on pure Malayalam script. So far it has a corpus quality-control module, a data schema and a full training pipeline plan.</p>
+            <div class="project-foot">
+              <ul class="tag-list"><li>#NLP</li><li>#LLM</li><li>#Malayalam</li></ul>
+            </div>
+          </article>
+
+          <article class="card project" data-group="nlp" data-reveal style="--i: 1">
+            <div class="project-meta"><span class="project-cat">Open-source NLP</span></div>
+            <h3>LipiPala AI</h3>
+            <p>A contribution to an open-source effort to preserve endangered Indian languages using NLP, speech recognition and LLMs.</p>
+            <div class="project-foot">
+              <ul class="tag-list"><li>#Python</li><li>#NLP</li><li>#Transformers</li></ul>
+              <div class="project-links">
+                <a href="https://github.com/dearabhin/LipiPala" target="_blank" rel="noopener" class="link-arrow">GitHub <svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Experience ============================== -->
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <p class="eyebrow">04 — Experience</p>
+          <h2 class="sec-title" id="experience-title">Where I've worked</h2>
+          <p class="sec-lead">Research internships, open-source leadership, and engineering roles.</p>
+        </div>
+
+        <!-- <details name="exp"> makes the entries an exclusive accordion without JS -->
+        <div class="timeline" data-reveal>
+          <details class="card tl-item" name="exp">
+            <summary>
+              <span class="tl-head">
+                <span class="tl-icon"><svg class="i" aria-hidden="true"><use href="#i-activity"/></svg></span>
+                <span>
+                  <span class="tl-role">Research Intern</span>
+                  <span class="tl-org">Tencent AI Lab</span>
+                </span>
+              </span>
+              <span class="tl-side">
+                <span class="tl-type">Internship</span>
+                <span class="tl-date"><time datetime="2024-12">Dec 2024</time> – <time datetime="2025-05">May 2025</time></span>
+                <svg class="i tl-chev" aria-hidden="true"><use href="#i-chevron"/></svg>
+              </span>
+            </summary>
+            <div class="tl-body">
+              <span class="tl-loc"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg> Remote</span>
+              <p>Worked on research in machine learning, NLP and large language models for open-source AI initiatives, including neural network optimization and model evaluation.</p>
+            </div>
+          </details>
+
+          <details class="card tl-item" name="exp" open>
+            <summary>
+              <span class="tl-head">
+                <span class="tl-icon"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg></span>
+                <span>
+                  <span class="tl-role">Executive Member</span>
+                  <span class="tl-org">FOSSMEC, Model Engineering College</span>
+                </span>
+              </span>
+              <span class="tl-side">
+                <span class="tl-type">Full-time</span>
+                <span class="tl-date"><time datetime="2025-06">Jun 2025</time> – Present</span>
+                <svg class="i tl-chev" aria-hidden="true"><use href="#i-chevron"/></svg>
+              </span>
+            </summary>
+            <div class="tl-body">
+              <span class="tl-loc"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg> Kochi, Kerala · On-site</span>
+              <p>Leading workshops, mentoring students and building open-source culture at MEC.</p>
+              <ul>
+                <li>Lead Instructor for <strong>Let's Git It</strong>, a 2-day workshop on Git workflows, branching and portfolio hosting with GitHub Pages, mentoring <strong>100+ first-year students</strong>.</li>
+                <li>Helped run the <strong>Linux Installation Workshop</strong>, guiding students through dual-boot and VirtualBox setups.</li>
+                <li>Helped organize <strong>Build It Up</strong>, a 2-day hands-on DBMS workshop using Supabase, Express.js and Next.js.</li>
+                <li>Handled registration and marketing for <strong>Code-A-Pookalam 2025</strong> and supported coordination for <strong>Devsprint</strong>.</li>
+                <li>Co-led interviews and screening for first-year applicants to bring in the next batch of FOSSMEC trainees.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="card tl-item" name="exp">
+            <summary>
+              <span class="tl-head">
+                <span class="tl-icon"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg></span>
+                <span>
+                  <span class="tl-role">Web Developer</span>
+                  <span class="tl-org">TON Marketplace</span>
+                </span>
+              </span>
+              <span class="tl-side">
+                <span class="tl-type">Contract</span>
+                <span class="tl-date"><time datetime="2023-01">Jan 2023</time> – <time datetime="2024-01">Jan 2024</time></span>
+                <svg class="i tl-chev" aria-hidden="true"><use href="#i-chevron"/></svg>
+              </span>
+            </summary>
+            <div class="tl-body">
+              <span class="tl-loc"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg> Toronto, Canada · Remote</span>
+              <p>Developed the website for a decentralized marketplace built on the TON blockchain.</p>
+              <ul>
+                <li>Built and deployed the full frontend for a <strong>TON blockchain-based</strong> decentralized marketplace.</li>
+                <li>Integrated wallet connection flows and on-chain transaction UI components.</li>
+                <li>Worked remotely with a distributed team across Canada and Europe.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Research ============================== -->
+    <section class="section" id="publications" aria-labelledby="publications-title">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <p class="eyebrow">05 — Research</p>
+          <h2 class="sec-title" id="publications-title">Publications</h2>
+          <p class="sec-lead">Research preprints and academic contributions in computational neuroscience and AI.</p>
+        </div>
+
+        <article class="card paper" data-reveal>
+          <div>
+            <div class="paper-meta">
+              <span class="chip chip-accent">Preprint</span>
+              <time datetime="2026-03-30">Mar 30, 2026</time>
+            </div>
+            <h3>A Comparative Study of Hodgkin-Huxley and Izhikevich Models for High-Fidelity Neural Spike Prediction</h3>
+            <p class="paper-authors">Abhin Krishna · Computational Neuroscience · Neural Modelling</p>
+            <p class="paper-abstract">
+              A rigorous comparative analysis of two foundational computational neuroscience models: the biophysically detailed Hodgkin-Huxley model and the computationally efficient Izhikevich model, evaluated for their accuracy in predicting high-fidelity neural spike trains across varied stimulation conditions.
+            </p>
+            <ul class="tag-list"><li>#ComputationalNeuroscience</li><li>#Hodgkin-Huxley</li><li>#Izhikevich</li><li>#NeuralSpike</li></ul>
+          </div>
+          <a href="https://dearabhin.github.io/neural-model-comparison/docs/final_report.pdf" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg class="i" aria-hidden="true"><use href="#i-file"/></svg>
+            Read PDF
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================== Honors ============================== -->
+    <section class="section" id="honors" aria-labelledby="honors-title">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <p class="eyebrow">06 — Honors</p>
+          <h2 class="sec-title" id="honors-title">Honors &amp; highlights</h2>
+          <p class="sec-lead">Selected milestones in research, hardware and global engagement.</p>
+        </div>
+
+        <div class="honors-grid">
+          <article class="card honor is-hero" data-reveal>
+            <span class="honor-icon"><svg class="i" aria-hidden="true"><use href="#i-thermo"/></svg></span>
+            <span class="honor-kicker">Phase 2 · Top 50 globally</span>
             <h3>IEEE HART HardwAIre Challenge 2026</h3>
             <p>Advanced to Phase 2 with ThermaSense, one of 50 teams selected globally.</p>
-          </div>
+          </article>
 
-          <div class="honor-item-card">
-            <div class="honor-icon-wrapper">
-              <i data-lucide="globe" style="width: 16px; height: 16px;"></i>
-            </div>
+          <article class="card honor" data-reveal style="--i: 1">
+            <span class="honor-icon"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg></span>
             <h3>HPAIR 2025 Delegate</h3>
             <p>Selected for the Harvard Project for Asian and International Relations Conference.</p>
-          </div>
+          </article>
 
-          <div class="honor-item-card">
-            <div class="honor-icon-wrapper">
-              <i data-lucide="cpu" style="width: 16px; height: 16px;"></i>
-            </div>
+          <article class="card honor" data-reveal style="--i: 2">
+            <span class="honor-icon"><svg class="i" aria-hidden="true"><use href="#i-cpu"/></svg></span>
             <h3>Brain Modeling, IIT Madras</h3>
             <p>Completed training in computational neural circuit modeling at the CNS Lab.</p>
-          </div>
+          </article>
 
-          <div class="honor-item-card">
-            <div class="honor-icon-wrapper">
-              <i data-lucide="award" style="width: 16px; height: 16px;"></i>
-            </div>
+          <article class="card honor" data-reveal>
+            <span class="honor-icon"><svg class="i" aria-hidden="true"><use href="#i-award"/></svg></span>
             <h3>Ideathon Award</h3>
             <p>Presented PhytoScan, an AI-driven fruit freshness detection device, at Money Conclave.</p>
-          </div>
+          </article>
 
-          <div class="honor-item-card">
-            <div class="honor-icon-wrapper">
-              <i data-lucide="languages" style="width: 16px; height: 16px;"></i>
-            </div>
+          <article class="card honor" data-reveal style="--i: 1">
+            <span class="honor-icon"><svg class="i" aria-hidden="true"><use href="#i-lang"/></svg></span>
             <h3>German Proficiency</h3>
             <p>Goethe-Zertifikat B1, with a score of 82.</p>
-          </div>
+          </article>
 
-          <div class="honor-item-card">
-            <div class="honor-icon-wrapper">
-              <i data-lucide="badge-check" style="width: 16px; height: 16px;"></i>
-            </div>
+          <article class="card honor" data-reveal style="--i: 2">
+            <span class="honor-icon"><svg class="i" aria-hidden="true"><use href="#i-badge"/></svg></span>
             <h3>Certifications</h3>
             <p>Claude Code in Action and Introduction to Claude Cowork (Anthropic, 2026), AI Fundamentals (Google, 2026), Digital 101 (FutureSkills Prime, 2025).</p>
-          </div>
+          </article>
         </div>
-
-        <a href="#contact" class="btn" style="background-color: var(--colors-canvas); color: var(--colors-primary); font-weight: 600; margin-top: 8px;">
-          <i data-lucide="message-square" style="width: 14px; height: 14px;"></i> Start Collaboration
-        </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact & Pre-footer Band (Redesigned with 2 columns to fill space) -->
-  <section id="contact" style="background-color: var(--colors-surface-dark); padding-bottom: 32px;">
+    <!-- ============================== Contact ============================== -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="card contact-wrap" data-reveal>
+          <div>
+            <p class="status"><span class="pulse-dot" aria-hidden="true"></span>Open to Collaboration</p>
+            <h2 class="contact-title" id="contact-title">Let's <span class="grad-text">connect.</span></h2>
+            <p class="contact-text">
+              I'm looking for Summer 2027 internships, research collaborations and startup conversations. If you want to talk about BCI, neural decoding, Edge AI or privacy-first software, I'd love to hear from you.
+            </p>
+            <div class="email-row">
+              <!-- The address is assembled in main.js so scrapers don't see it in the HTML -->
+              <button type="button" class="btn btn-primary magnetic" data-copy-email data-user="dearabhin" data-domain="gmail.com" hidden>
+                <svg class="i" aria-hidden="true"><use href="#i-copy"/></svg>
+                Copy email
+              </button>
+              <a href="assets/abhin-krishna-resume.pdf" download class="btn">
+                <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+                Resume
+              </a>
+              <p class="email-text"><svg class="i" aria-hidden="true" style="display:inline;vertical-align:-2px;margin-right:6px"><use href="#i-mail"/></svg>dearabhin [at] gmail . com</p>
+            </div>
+          </div>
+
+          <ul class="socials">
+            <li><a class="social" href="https://linkedin.com/in/abhin-krishna" target="_blank" rel="noopener me"><span><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</span><svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+            <li><a class="social" href="https://github.com/dearabhin" target="_blank" rel="noopener me"><span><svg class="i" aria-hidden="true"><use href="#i-github"/></svg>GitHub</span><svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+            <li><a class="social" href="https://x.com/abhinkrishna_" target="_blank" rel="noopener me"><span><svg class="i i-fill" aria-hidden="true"><use href="#i-x"/></svg>X / Twitter</span><svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+            <li><a class="social" href="https://instagram.com/dearabhin" target="_blank" rel="noopener me"><span><svg class="i" aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</span><svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+            <li><a class="social" href="https://youtube.com/@dearabhin" target="_blank" rel="noopener me"><span><svg class="i" aria-hidden="true"><use href="#i-youtube"/></svg>YouTube</span><svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+            <li><a class="social" href="https://t.me/abhinkrishna" target="_blank" rel="noopener me"><span><svg class="i" aria-hidden="true"><use href="#i-send"/></svg>Telegram</span><svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== Footer ============================== -->
+  <footer class="footer">
     <div class="container">
-      <div class="cta-band-dark">
-        <div class="cta-band-dark-left">
-          <div class="status-badge">
-            <span class="status-dot"></span>
-            Open to Collaboration
-          </div>
-          <h2>Let's Connect</h2>
-          <p>
-            I'm looking for Summer 2027 internships, research collaborations and startup conversations. If you want to talk about BCI, neural decoding, Edge AI or privacy-first software, I'd love to hear from you.
-          </p>
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="#top" class="brand">
+            <svg class="i" aria-hidden="true"><use href="#i-logo"/></svg>
+            Abhin Krishna
+          </a>
+          <p>Researcher, developer &amp; engineer working in brain-computer interfaces, biosignals and Edge AI. Exploring neural decoding and computational neuroscience.</p>
         </div>
-        
-        <div class="contact-button-stack">
-          <div class="contact-btn-item">
-            <span>
-              <i data-lucide="mail"></i>
-              dearabhin [at] gmail . com
-            </span>
-          </div>
 
-          <a href="https://linkedin.com/in/abhin-krishna" target="_blank" rel="noopener" class="contact-btn-item">
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-              LinkedIn Profile
-            </span>
-            <i data-lucide="external-link" style="color: var(--colors-muted-soft);"></i>
-          </a>
-          <a href="https://x.com/abhinkrishna_" target="_blank" rel="noopener" class="contact-btn-item">
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 8px;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              X / Twitter
-            </span>
-            <i data-lucide="external-link" style="color: var(--colors-muted-soft);"></i>
-          </a>
-          <a href="https://instagram.com/dearabhin" target="_blank" rel="noopener" class="contact-btn-item">
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              Instagram
-            </span>
-            <i data-lucide="external-link" style="color: var(--colors-muted-soft);"></i>
-          </a>
-          <a href="https://youtube.com/@dearabhin" target="_blank" rel="noopener" class="contact-btn-item">
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>
-              YouTube
-            </span>
-            <i data-lucide="external-link" style="color: var(--colors-muted-soft);"></i>
-          </a>
-          <a href="https://t.me/abhinkrishna" target="_blank" rel="noopener" class="contact-btn-item">
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; color: var(--colors-accent-teal);"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-              Telegram Messenger
-            </span>
-            <i data-lucide="external-link" style="color: var(--colors-muted-soft);"></i>
-          </a>
+        <nav class="footer-col" aria-label="Footer">
+          <h2>Navigate</h2>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#publications">Research</a></li>
+            <li><a href="#honors">Honors</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-col">
+          <h2>Elsewhere</h2>
+          <ul>
+            <li><a href="https://blog.abhinkrishna.com" target="_blank" rel="noopener">Blog</a></li>
+            <li><a href="https://github.com/dearabhin" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/abhin-krishna" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://x.com/abhinkrishna_" target="_blank" rel="noopener">X / Twitter</a></li>
+            <li><a href="https://youtube.com/@dearabhin" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="assets/abhin-krishna-resume.pdf" download>Resume (PDF)</a></li>
+          </ul>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer (Dark Navy Background, never inverts) -->
-  <footer class="footer-band">
-    <div class="container">
-      <div class="footer-brand">
-        <a href="./" class="footer-logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="12.1" y1="11.9" x2="18.9" y2="8.2" />
-            <line x1="12.1" y1="12.1" x2="20.3" y2="12.9" />
-            <line x1="12.2" y1="12.4" x2="16.6" y2="19.1" />
-            <line x1="11.8" y1="12.4" x2="7.3" y2="19.2" />
-            <line x1="11.9" y1="12.1" x2="3.7" y2="13.3" />
-            <line x1="11.8" y1="11.7" x2="7.8" y2="4.4" />
-          </svg>
-          Abhin Krishna
-        </a>
-        <p class="footer-desc">
-          Researcher, developer & engineer working in Brain-Computer Interfaces and AI. Exploring neural decoding and computational neuroscience.
-        </p>
-      </div>
-
-      <div class="footer-nav">
-        <div class="footer-nav-title">Navigation</div>
-        <a href="#skills" class="footer-nav-link">Skills</a>
-        <a href="#projects" class="footer-nav-link">Projects</a>
-        <a href="#experience" class="footer-nav-link">Experience</a>
-        <a href="#publications" class="footer-nav-link">Publications</a>
-        <a href="#honors" class="footer-nav-link">Honors</a>
-      </div>
-
-      <div class="footer-nav">
-        <div class="footer-nav-title">Socials</div>
-        <a href="https://linkedin.com/in/abhin-krishna" target="_blank" rel="noopener" class="footer-nav-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn
-        </a>
-        <a href="https://github.com/dearabhin" target="_blank" rel="noopener" class="footer-nav-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg> GitHub
-        </a>
-        <a href="https://x.com/abhinkrishna_" target="_blank" rel="noopener" class="footer-nav-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 6px;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X / Twitter
-        </a>
-        <a href="https://instagram.com/dearabhin" target="_blank" rel="noopener" class="footer-nav-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram
-        </a>
-        <a href="https://youtube.com/@dearabhin" target="_blank" rel="noopener" class="footer-nav-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg> YouTube
-        </a>
-        <a href="https://t.me/abhinkrishna" target="_blank" rel="noopener" class="footer-nav-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg> Telegram
-        </a>
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 Abhin Krishna. All rights reserved.</div>
+        <span>&copy; 2026 Abhin Krishna. All rights reserved.</span>
+        <a href="#top" class="link-arrow">Back to top <svg class="i" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
-
-    // Mobile Menu Drawer Control
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileNavMenu = document.getElementById('mobile-nav-menu');
-
-    mobileMenuBtn.addEventListener('click', () => {
-      const isOpen = mobileNavMenu.classList.toggle('open');
-      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
-      mobileMenuBtn.innerHTML = isOpen ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
-      lucide.createIcons();
-    });
-
-    // Close Mobile Drawer on Link click
-    const drawerLinks = mobileNavMenu.querySelectorAll('.nav-link');
-    drawerLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNavMenu.classList.remove('open');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        mobileMenuBtn.innerHTML = '<i data-lucide="menu"></i>';
-        lucide.createIcons();
-      });
-    });
-
-    // Accordion: Experience Cards
-    document.querySelectorAll('.exp-card-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const expId = header.getAttribute('data-exp');
-        const body = document.getElementById('exp-' + expId);
-        const isOpen = body.classList.contains('open');
-
-        // Close all
-        document.querySelectorAll('.exp-card-body').forEach(b => b.classList.remove('open'));
-        document.querySelectorAll('.exp-card-header').forEach(h => {
-          h.setAttribute('aria-expanded', 'false');
-          h.closest('.exp-card').classList.remove('exp-card-active');
-        });
-
-        // Open clicked if it was closed
-        if (!isOpen) {
-          body.classList.add('open');
-          header.setAttribute('aria-expanded', 'true');
-          header.closest('.exp-card').classList.add('exp-card-active');
-        }
-      });
-
-      header.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); header.click(); }
-      });
-    });
-
-    // Smooth scroll to top and clear hash on logo click
-    document.querySelectorAll('.nav-logo, .footer-logo').forEach(logo => {
-      logo.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-        if (history.pushState) {
-          history.pushState(null, null, window.location.pathname + window.location.search);
-        } else {
-          window.location.hash = '';
-        }
-      });
-    });
-
-  </script>
+  <div class="toast" role="status" aria-live="polite">
+    <svg class="i" aria-hidden="true"><use href="#i-check"/></svg>
+    <span class="toast-text">Email copied</span>
+  </div>
 </body>
 </html>

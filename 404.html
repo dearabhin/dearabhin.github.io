@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <title>Page not found — Abhin Krishna</title>
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#07090c">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/index.css">
+  <style>
+    .nf { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; text-align: center; padding: 40px var(--gutter); }
+    .nf-code { font-family: var(--font-display); font-size: clamp(6rem, 24vw, 14rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.06em; }
+    .nf-flat { display: block; width: min(420px, 80vw); height: 40px; margin: 12px auto 28px; }
+    .nf-flat path { fill: none; stroke: var(--teal); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .nf p { color: var(--muted); max-width: 420px; margin: 0 auto 28px; }
+  </style>
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+  <main class="nf">
+    <div>
+      <h1 class="nf-code grad-text">404</h1>
+      <svg class="nf-flat" viewBox="0 0 420 40" aria-hidden="true"><path d="M0 20h150l8-14 8 28 8-14h246"/></svg>
+      <p>No signal here. The page you're looking for doesn't exist or has moved.</p>
+      <a class="btn btn-primary" href="/">Back to abhinkrishna.com</a>
+    </div>
+  </main>
+</body>
+</html>
