@@ -648,6 +648,20 @@ header.hero-band > .container {
 }
 
 /* Projects Showcase */
+.project-group-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--colors-primary);
+  margin: var(--spacing-xxl) 0 var(--spacing-md);
+}
+
+.project-group-title:first-of-type {
+  margin-top: 0;
+}
+
 .model-comparison-card {
   background-color: var(--colors-canvas);
   border-radius: var(--rounded-lg);
@@ -694,20 +708,36 @@ header.hero-band > .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: var(--spacing-sm);
   border-top: 1px solid var(--colors-hairline-soft);
   padding-top: var(--spacing-sm);
   margin-top: auto;
 }
 
+.model-comparison-card .card-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  color: var(--colors-muted-soft);
+}
+
+.model-comparison-card .card-footer > a,
+.model-comparison-card .card-links a {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .model-comparison-card .tech-tags {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   color: var(--colors-muted);
 }
 
-/* Redesigned Honors & Highlights: 4-Column Grid to eliminate desktop empty space */
+/* Honors & Highlights: 3-column grid (six cards fill two rows) */
 .callout-card-coral {
   background-color: var(--colors-primary);
   color: var(--colors-on-primary);
@@ -731,7 +761,7 @@ header.hero-band > .container {
 
 .honors-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
   text-align: left;
